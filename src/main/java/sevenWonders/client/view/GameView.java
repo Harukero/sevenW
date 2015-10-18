@@ -5,6 +5,8 @@ import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Label;
 
 import sevenWonders.client.constants.IStyleNames;
+import sevenWonders.client.elements.ModalOpenerButton;
+import sevenWonders.client.elements.ModalPopup;
 import sevenWonders.client.presenter.interfaces.IGameView;
 import sevenWonders.client.presenter.interfaces.IGameView.IGamePresenter;
 
@@ -52,6 +54,14 @@ public class GameView extends ReverseCompositeView<IGamePresenter> implements IG
 		root.add(header);
 		root.add(resourcesCounterView);
 //		root.add(playerBoard);
+		
+		ModalOpenerButton button = new ModalOpenerButton("Open Me!!", "ID_MODAL");
+		
+		ModalPopup popup = ModalPopup.openModalPopup("Je suis une popup", "ID_MODAL", new Label("coucou, je suis un test"));
+		
+		root.add(button);
+		root.add(popup);
+		
 		initWidget( root );
 	}
 
