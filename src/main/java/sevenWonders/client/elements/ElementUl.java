@@ -5,8 +5,8 @@ import com.google.gwt.dom.client.UListElement;
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.Widget;
 
-public class UnorderedListWidget extends ComplexPanel {
-	public UnorderedListWidget() {
+public class ElementUl extends ComplexPanel {
+	public ElementUl() {
 		setElement(Document.get().createULElement());
 	}
 

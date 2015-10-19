@@ -1,16 +1,7 @@
 package sevenWonders.core.gameElements;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
-
-import com.google.gwt.json.client.JSONArray;
-import com.google.gwt.json.client.JSONNumber;
-import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.json.client.JSONString;
-
-import sevenWonders.client.constants.IConstants;
 
 /**
  * @author Harukero
@@ -30,27 +21,6 @@ public class Card {
 		this.cost = cost;
 		this.imageURL = imageURL;
 		this.effects = effects;
-	}
-
-	/*
-	 * "cardName": "Stone Pit", "cost": {}, "image": "images/age1-stonePit.png",
-	 * "age": [ 1 ]
-	 */
-	public static List<Card> fromJSON(JSONObject cardJson) {
-		List<Card> cards = new ArrayList<>();
-		JSONString nameValue = cardJson.get(IConstants.JSON_CARD_NAME_ENTRY).isString();
-		String name = nameValue.stringValue();
-
-		JSONString imageUrlValue = cardJson.get(IConstants.JSON_IMAGE_URL_ENTRY).isString();
-		String imageUrl = imageUrlValue.stringValue();
-
-		JSONArray ageArray = cardJson.get(IConstants.JSON_AGE_ENTRY).isArray();
-		int size = ageArray.size();
-		for (int position = 0; position < size; position++) {
-			JSONNumber age = ageArray.get(position).isNumber();
-			cards.add(new Card(name, Age.getAgeFromNumber(age.doubleValue()), null, imageUrl));
-		}
-		return cards;
 	}
 
 	public String getName() {

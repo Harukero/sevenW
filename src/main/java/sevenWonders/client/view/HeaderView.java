@@ -7,9 +7,9 @@ import com.google.gwt.user.client.ui.FlowPanel;
 
 import sevenWonders.client.constants.IConstants;
 import sevenWonders.client.constants.IStyleNames;
-import sevenWonders.client.elements.CollapsePanel;
-import sevenWonders.client.elements.ListItemWidget;
-import sevenWonders.client.elements.UnorderedListWidget;
+import sevenWonders.client.elements.DropdownElement;
+import sevenWonders.client.elements.ElementLi;
+import sevenWonders.client.elements.NavBar;
 import sevenWonders.client.presenter.interfaces.IHeaderView;
 import sevenWonders.client.presenter.interfaces.IHeaderView.IHeaderPresenter;
 
@@ -18,32 +18,28 @@ public class HeaderView extends ReverseCompositeView<IHeaderPresenter>implements
 	private FlowPanel root;
 	private Anchor rulesButton;
 	private Anchor startButton;
-	private FlowPanel section;
-	private UnorderedListWidget ul;
+	private NavBar navBar;
 
 	public HeaderView() {
 
 		root = new FlowPanel();
-		CollapsePanel collapsePanel = new CollapsePanel(IConstants.SEVEN_WONDERS_MENU, "header");
-		root.add(collapsePanel);
-
-		section = new FlowPanel();
-		ul = new UnorderedListWidget();
-		ul.getElement().setClassName("nav nav-pills");
-		ListItemWidget listItemGame = new ListItemWidget();
+		navBar = new NavBar("SEVEN WONDERS", "MAIN_MENU");
+		ElementLi listItemGame = new ElementLi();
 		startButton = new Anchor(IConstants.NEW_GAME);
 		listItemGame.add(startButton);
+		navBar.addNavElement(listItemGame);
 
-		ListItemWidget listItemRules = new ListItemWidget();
+		ElementLi listItemRules = new ElementLi();
 		rulesButton = new Anchor(IConstants.RULES_PAGE);
 		listItemRules.add(rulesButton);
+		navBar.addNavElement(listItemRules);
 
-		ul.add(listItemGame);
-		ul.add(listItemRules);
+		DropdownElement dropdownElement = new DropdownElement("idDrop", IConstants.NEW_GAME);
+		dropdownElement.addDropdownElement(listItemGame);
+		navBar.addNavElement(dropdownElement);
 
-		section.add(ul);
-		section.addStyleName(IStyleNames.MENU);
-		collapsePanel.setBody(section);
+		navBar.addStyleName(IStyleNames.MENU);
+		root.add(navBar);
 		bind();
 
 		initWidget(root);
@@ -62,6 +58,13 @@ public class HeaderView extends ReverseCompositeView<IHeaderPresenter>implements
 			@Override
 			public void onClick(ClickEvent event) {
 				presenter.openRulesPage();
+			}
+		});
+		navBar.addBrandClickHandler(new ClickHandler() {
+
+			@Override
+			public void onClick(ClickEvent event) {
+				presenter.openHomePage();
 			}
 		});
 	}

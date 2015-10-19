@@ -9,23 +9,23 @@ import sevenWonders.client.presenter.interfaces.IRootView;
 import sevenWonders.client.presenter.interfaces.IRootView.IRootPresenter;
 import sevenWonders.client.view.RootView;
 
-@Presenter( view = RootView.class )
-public class RootPresenter extends BasePresenter<IRootView, IEventBus> implements IRootPresenter {
+@Presenter(view = RootView.class)
+public class RootPresenter extends BasePresenter<IRootView, IEventBus>implements IRootPresenter {
 
-	public void onSetHeader( Widget header ) {
-		view.setHeader( header );
+	public void onSetHeader(Widget header) {
+		view.setHeader(header);
 	}
 
-	public void onSetMenu( Widget menu ) {
-		view.setMenu( menu );
+	public void onSetMenu(Widget menu) {
+		view.setMenu(menu);
 	}
 
-	public void onSetBody( Widget body ) {
-		view.setBody( body );
+	public void onSetBody(Widget body) {
+		view.setBody(body);
 	}
 
 	public void onStart() {
-		eventBus.goToPage1( "The application started." );
+		eventBus.goToHomePage();
 	}
 
 }

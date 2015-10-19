@@ -5,17 +5,18 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
-public class ListItemWidget extends SimplePanel {
-	public ListItemWidget() {
-		super((Element) Document.get().createLIElement().cast());
+public class ElementA extends SimplePanel {
+
+	public ElementA() {
+		super((Element) Document.get().createAnchorElement().cast());
 	}
 
-	public ListItemWidget(String s) {
+	public ElementA(String s) {
 		this();
 		getElement().setInnerText(s);
 	}
 
-	public ListItemWidget(Widget w) {
+	public ElementA(Widget w) {
 		this();
 		this.add(w);
 	}

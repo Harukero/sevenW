@@ -9,10 +9,10 @@ import sevenWonders.client.presenter.interfaces.IRulesView.IRulesPresenter;
 import sevenWonders.client.view.RulesView;
 
 @Presenter(view = RulesView.class)
-public class RulesPresenter extends LazyPresenter<IRulesView, IEventBus> implements IRulesPresenter {
+public class RulesPresenter extends LazyPresenter<IRulesView, IEventBus>implements IRulesPresenter {
 
-	public void onGoToPage2(String name){
-		eventBus.setBody( view.asWidget() );
+	public void onGoToRulesPage() {
+		eventBus.setBody(view.asWidget());
 	}
-	
+
 }

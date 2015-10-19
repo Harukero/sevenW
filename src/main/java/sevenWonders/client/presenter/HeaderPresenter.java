@@ -9,20 +9,25 @@ import sevenWonders.client.presenter.interfaces.IHeaderView.IHeaderPresenter;
 import sevenWonders.client.view.HeaderView;
 
 @Presenter(view = HeaderView.class)
-public class HeaderPresenter extends BasePresenter<IHeaderView, IEventBus> implements IHeaderPresenter {
+public class HeaderPresenter extends BasePresenter<IHeaderView, IEventBus>implements IHeaderPresenter {
 
-	public void onStart(){
-		eventBus.setHeader( view.asWidget() );
+	public void onStart() {
+		eventBus.setHeader(view.asWidget());
 	}
-	
+
 	@Override
 	public void startNewGame() {
-		eventBus.goToPage1( "You clicked the menu." );
+		eventBus.goToGamePage();
 	}
 
 	@Override
 	public void openRulesPage() {
-		eventBus.goToPage2( "You clicked the menu." );
+		eventBus.goToRulesPage();
 	}
-	
+
+	@Override
+	public void openHomePage() {
+		eventBus.goToHomePage();
+	}
+
 }

@@ -76,7 +76,7 @@ public class ModalPopup extends Composite {
 		closeButton.getElement().setClassName("close");
 		header.add(closeButton);
 		
-		HElement h4 = new HElement(4, title);
+		ElementH h4 = new ElementH(4, title);
 		header.add(h4);
 
 		return header;

@@ -7,13 +7,13 @@ import com.google.gwt.user.client.ui.FlowPanel;
 public class SelectionPanel extends Composite {
 	
 	private FlowPanel root;
-	private UnorderedListWidget ul;
+	private ElementUl ul;
 	
 	public SelectionPanel() {
 		
 		root = new FlowPanel();
 		
-		ul = new UnorderedListWidget();
+		ul = new ElementUl();
 		ul.getElement().setClassName("nav nav-pills");
 		
 		root.add(ul);
@@ -21,7 +21,7 @@ public class SelectionPanel extends Composite {
 	}
 	
 	public void addListItem(String title, String id) {
-		ListItemWidget item = new ListItemWidget();
+		ElementLi item = new ElementLi();
 		Anchor anchor = new Anchor(title);
 		anchor.setHref("#"+id);
 		anchor.getElement().setAttribute("aria-controls", id);
