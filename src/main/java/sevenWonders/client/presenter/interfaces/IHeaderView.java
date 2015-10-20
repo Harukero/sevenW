@@ -7,7 +7,7 @@ public interface IHeaderView extends IsWidget {
 	public interface IHeaderPresenter {
 		void startNewGame();
 
-		void openRulesPage();
+		void openRulesPage(String cardsCategory);
 
 		void openHomePage();
 

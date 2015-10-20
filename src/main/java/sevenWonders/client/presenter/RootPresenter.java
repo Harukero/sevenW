@@ -12,6 +12,10 @@ import sevenWonders.client.view.RootView;
 @Presenter(view = RootView.class)
 public class RootPresenter extends BasePresenter<IRootView, IEventBus>implements IRootPresenter {
 
+	public void onStart() {
+		eventBus.goToHomePage();
+	}
+
 	public void onSetHeader(Widget header) {
 		view.setHeader(header);
 	}
@@ -22,10 +26,6 @@ public class RootPresenter extends BasePresenter<IRootView, IEventBus>implements
 
 	public void onSetBody(Widget body) {
 		view.setBody(body);
-	}
-
-	public void onStart() {
-		eventBus.goToHomePage();
 	}
 
 }

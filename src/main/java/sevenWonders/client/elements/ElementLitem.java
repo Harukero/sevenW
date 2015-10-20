@@ -5,17 +5,17 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.Widget;
 
-public class ElementLi extends ComplexPanel {
-	public ElementLi() {
+public class ElementLitem extends ComplexPanel {
+	public ElementLitem() {
 		setElement((Element) Document.get().createLIElement().cast());
 	}
 
-	public ElementLi(String s) {
+	public ElementLitem(String s) {
 		this();
 		getElement().setInnerText(s);
 	}
 
-	public ElementLi(Widget w) {
+	public ElementLitem(Widget w) {
 		this();
 		this.add(w);
 	}

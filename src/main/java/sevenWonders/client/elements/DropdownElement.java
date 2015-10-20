@@ -4,13 +4,13 @@ import com.google.gwt.user.client.ui.Composite;
 
 public class DropdownElement extends Composite {
 
-	private ElementLi root;
+	private ElementLitem root;
 	private ElementUl unorderedList;
 	private String id;
 
 	public DropdownElement(String id, String label) {
 		this.id = id;
-		root = new ElementLi();
+		root = new ElementLitem();
 		root.getElement().setClassName("dropdown");
 
 		ElementA a = new ElementA(label);
@@ -28,7 +28,7 @@ public class DropdownElement extends Composite {
 		initWidget(root);
 	}
 
-	public void addDropdownElement(ElementLi element) {
+	public void addDropdownElement(ElementLitem element) {
 		if (unorderedList == null) {
 			unorderedList = new ElementUl();
 			unorderedList.getElement().setClassName("dropdown-menu");

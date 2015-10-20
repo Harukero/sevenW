@@ -11,8 +11,13 @@ import sevenWonders.client.view.RulesView;
 @Presenter(view = RulesView.class)
 public class RulesPresenter extends LazyPresenter<IRulesView, IEventBus>implements IRulesPresenter {
 
-	public void onGoToRulesPage() {
+	public void onGoToRulesPage(String cardsCategory) {
 		eventBus.setBody(view.asWidget());
+		setExplanationPanelContent(cardsCategory);
+	}
+
+	private void setExplanationPanelContent(String cardsCategory) {
+		view.setExplanationPanelContent(cardsCategory);
 	}
 
 }

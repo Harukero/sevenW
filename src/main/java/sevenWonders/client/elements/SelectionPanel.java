@@ -21,7 +21,7 @@ public class SelectionPanel extends Composite {
 	}
 	
 	public void addListItem(String title, String id) {
-		ElementLi item = new ElementLi();
+		ElementLitem item = new ElementLitem();
 		Anchor anchor = new Anchor(title);
 		anchor.setHref("#"+id);
 		anchor.getElement().setAttribute("aria-controls", id);

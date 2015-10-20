@@ -21,8 +21,8 @@ public class HeaderPresenter extends BasePresenter<IHeaderView, IEventBus>implem
 	}
 
 	@Override
-	public void openRulesPage() {
-		eventBus.goToRulesPage();
+	public void openRulesPage(String cardsCategory) {
+		eventBus.goToRulesPage(cardsCategory);
 	}
 
 	@Override
