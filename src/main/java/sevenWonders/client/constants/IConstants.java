@@ -2,7 +2,7 @@ package sevenWonders.client.constants;
 
 public interface IConstants {
 	String SEVEN_WONDERS_MENU = "Seven Wonders - Menu";
-	String NEW_GAME = "New Game";
+	String NEW_GAME = "Start New Game";
 	String RULES_PAGE = "Game Cards";
 	String JSON_RAW = "RawMaterial";
 	String JSON_MANUFACTURED = "ManufacturedGoods";
@@ -22,4 +22,9 @@ public interface IConstants {
 	String TITLE_SCIENCE = "Scientific Structures";
 	String TITLE_MILITARY = "Military Structures";
 	String TITLE_GUILDS = "Guilds";
+	String THREE_PLAYER_GAME = "3 Players";
+	String FOUR_PLAYER_GAME = "4 Players";
+	String FIVE_PLAYER_GAME = "5 Players";
+	String SIX_PLAYER_GAME = "6 Players";
+	String SEVEN_PLAYER_GAME = "7 Players";
 }

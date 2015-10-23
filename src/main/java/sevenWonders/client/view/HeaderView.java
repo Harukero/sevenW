@@ -20,8 +20,6 @@ import sevenWonders.client.presenter.interfaces.IHeaderView.IHeaderPresenter;
 public class HeaderView extends ReverseCompositeView<IHeaderPresenter>implements IHeaderView {
 
 	private FlowPanel root;
-	private Anchor rulesButton;
-	private Anchor startButton;
 	private NavBar navBar;
 
 	private static final Map<Anchor, String> cardsCategoryToJsonId = new HashMap<>();
@@ -36,6 +34,16 @@ public class HeaderView extends ReverseCompositeView<IHeaderPresenter>implements
 		cardsCategoryToJsonId.put(new Anchor(IConstants.TITLE_GUILDS), IConstants.JSON_GUILDS);
 	}
 
+	private static final Map<Anchor, Integer> gameTypeToNumberOfPlayers = new HashMap<>();
+
+	static {
+		gameTypeToNumberOfPlayers.put(new Anchor(IConstants.THREE_PLAYER_GAME), Integer.valueOf(3));
+		gameTypeToNumberOfPlayers.put(new Anchor(IConstants.FOUR_PLAYER_GAME), Integer.valueOf(4));
+		gameTypeToNumberOfPlayers.put(new Anchor(IConstants.FIVE_PLAYER_GAME), Integer.valueOf(5));
+		gameTypeToNumberOfPlayers.put(new Anchor(IConstants.SIX_PLAYER_GAME), Integer.valueOf(6));
+		gameTypeToNumberOfPlayers.put(new Anchor(IConstants.SEVEN_PLAYER_GAME), Integer.valueOf(7));
+	}
+
 	public HeaderView() {
 
 		root = new FlowPanel();
@@ -46,12 +54,7 @@ public class HeaderView extends ReverseCompositeView<IHeaderPresenter>implements
 		navBar.addNavElement(categoriesDropdown);
 
 		DropdownElement dropdownElement = new DropdownElement("idDrop", IConstants.NEW_GAME);
-
-		ElementLitem listItemGame = new ElementLitem();
-		startButton = new Anchor(IConstants.NEW_GAME);
-		listItemGame.add(startButton);
-		dropdownElement.addDropdownElement(listItemGame);
-
+		addEntriesToGameTypeDropdown(dropdownElement);
 		navBar.addNavElement(dropdownElement);
 
 		navBar.addStyleName(IStyleNames.MENU);
@@ -59,6 +62,23 @@ public class HeaderView extends ReverseCompositeView<IHeaderPresenter>implements
 		bind();
 
 		initWidget(root);
+	}
+
+	private void addEntriesToGameTypeDropdown(DropdownElement gameDropdown) {
+		for (Entry<Anchor, Integer> anchorToJson : gameTypeToNumberOfPlayers.entrySet()) {
+			Anchor anchor = anchorToJson.getKey();
+			final Integer nbPlayer = anchorToJson.getValue();
+			anchor.addClickHandler(new ClickHandler() {
+
+				@Override
+				public void onClick(ClickEvent event) {
+					presenter.startNewGame(nbPlayer);
+				}
+			});
+			ElementLitem listItem = new ElementLitem(anchor);
+			gameDropdown.addDropdownElement(listItem);
+		}
+
 	}
 
 	private void addEntriesToCategoriesDropdown(DropdownElement categoriesDropdown) {
@@ -78,13 +98,6 @@ public class HeaderView extends ReverseCompositeView<IHeaderPresenter>implements
 	}
 
 	public void bind() {
-		startButton.addClickHandler(new ClickHandler() {
-
-			@Override
-			public void onClick(ClickEvent event) {
-				presenter.startNewGame();
-			}
-		});
 		navBar.addBrandClickHandler(new ClickHandler() {
 
 			@Override

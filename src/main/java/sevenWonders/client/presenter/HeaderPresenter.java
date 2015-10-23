@@ -16,7 +16,7 @@ public class HeaderPresenter extends BasePresenter<IHeaderView, IEventBus>implem
 	}
 
 	@Override
-	public void startNewGame() {
+	public void startNewGame(int nbPlayers) {
 		eventBus.goToGamePage();
 	}
 
