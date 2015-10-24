@@ -17,19 +17,22 @@ public class BoardView extends Composite {
 	private FlowPanel root;
 	private ResourcesCounterView resourcesCounterView;
 	private ListGroup hand;
+	private ListGroup gameZone;
 
 	public BoardView() {
 		root = new FlowPanel();
 		resourcesCounterView = new ResourcesCounterView(ResourceCounterType.MAIN_PLAYER);
 		root.add(resourcesCounterView);
-		hand = new ListGroup();
+		hand = new ListGroup("Player's hand");
+		gameZone = new ListGroup("Played cards");
 		root.add(hand);
-
+		root.add(gameZone);
 		initWidget(root);
 	}
 
 	public void initHand() {
 		hand.clear();
+		gameZone.clear();
 		List<Card> cardsFromAge = GameService.INSTANCE.getCardsFromAge(Age.FIRST);
 		for (int i = 0; i < cardsFromAge.size(); i++) {
 			Card card = cardsFromAge.get(i);
@@ -38,6 +41,14 @@ public class BoardView extends Composite {
 				break;
 			}
 		}
+	}
+
+	public ListGroup getHand() {
+		return hand;
+	}
+
+	public ListGroup getGameZone() {
+		return gameZone;
 	}
 
 }

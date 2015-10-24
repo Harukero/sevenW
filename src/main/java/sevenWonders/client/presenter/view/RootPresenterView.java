@@ -1,18 +1,19 @@
-package sevenWonders.client.view;
+package sevenWonders.client.presenter.view;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 import sevenWonders.client.presenter.interfaces.IRootView;
 import sevenWonders.client.presenter.interfaces.IRootView.IRootPresenter;
+import sevenWonders.client.view.ReverseCompositeView;
 
-public class RootView extends ReverseCompositeView<IRootPresenter> implements IRootView {
+public class RootPresenterView extends ReverseCompositeView<IRootPresenter> implements IRootView {
 
 
 	FlowPanel root;
 	Widget header, menu, body;
 	
-	public RootView() {
+	public RootPresenterView() {
 		root = new FlowPanel();
 		
 		header = new FlowPanel();

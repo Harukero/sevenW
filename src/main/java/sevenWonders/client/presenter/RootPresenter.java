@@ -7,9 +7,9 @@ import com.mvp4g.client.presenter.BasePresenter;
 import sevenWonders.client.IEventBus;
 import sevenWonders.client.presenter.interfaces.IRootView;
 import sevenWonders.client.presenter.interfaces.IRootView.IRootPresenter;
-import sevenWonders.client.view.RootView;
+import sevenWonders.client.presenter.view.RootPresenterView;
 
-@Presenter(view = RootView.class)
+@Presenter(view = RootPresenterView.class)
 public class RootPresenter extends BasePresenter<IRootView, IEventBus>implements IRootPresenter {
 
 	public void onStart() {

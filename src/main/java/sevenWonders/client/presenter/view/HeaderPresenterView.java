@@ -1,4 +1,4 @@
-package sevenWonders.client.view;
+package sevenWonders.client.presenter.view;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,8 +16,9 @@ import sevenWonders.client.elements.ElementLitem;
 import sevenWonders.client.elements.NavBar;
 import sevenWonders.client.presenter.interfaces.IHeaderView;
 import sevenWonders.client.presenter.interfaces.IHeaderView.IHeaderPresenter;
+import sevenWonders.client.view.ReverseCompositeView;
 
-public class HeaderView extends ReverseCompositeView<IHeaderPresenter>implements IHeaderView {
+public class HeaderPresenterView extends ReverseCompositeView<IHeaderPresenter> implements IHeaderView {
 
 	private FlowPanel root;
 	private NavBar navBar;
@@ -44,7 +45,7 @@ public class HeaderView extends ReverseCompositeView<IHeaderPresenter>implements
 		gameTypeToNumberOfPlayers.put(new Anchor(IConstants.SEVEN_PLAYER_GAME), Integer.valueOf(7));
 	}
 
-	public HeaderView() {
+	public HeaderPresenterView() {
 
 		root = new FlowPanel();
 		navBar = new NavBar("SEVEN WONDERS", "MAIN_MENU");

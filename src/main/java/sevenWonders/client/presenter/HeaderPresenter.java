@@ -6,9 +6,9 @@ import com.mvp4g.client.presenter.BasePresenter;
 import sevenWonders.client.IEventBus;
 import sevenWonders.client.presenter.interfaces.IHeaderView;
 import sevenWonders.client.presenter.interfaces.IHeaderView.IHeaderPresenter;
-import sevenWonders.client.view.HeaderView;
+import sevenWonders.client.presenter.view.HeaderPresenterView;
 
-@Presenter(view = HeaderView.class)
+@Presenter(view = HeaderPresenterView.class)
 public class HeaderPresenter extends BasePresenter<IHeaderView, IEventBus>implements IHeaderPresenter {
 
 	public void onStart() {

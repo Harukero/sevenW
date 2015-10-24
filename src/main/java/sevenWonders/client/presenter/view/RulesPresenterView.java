@@ -1,12 +1,13 @@
-package sevenWonders.client.view;
+package sevenWonders.client.presenter.view;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 
 import sevenWonders.client.elements.CardExplanationPanel;
 import sevenWonders.client.presenter.interfaces.IRulesView;
 import sevenWonders.client.presenter.interfaces.IRulesView.IRulesPresenter;
+import sevenWonders.client.view.ReverseCompositeView;
 
-public class RulesView extends ReverseCompositeView<IRulesPresenter>implements IRulesView {
+public class RulesPresenterView extends ReverseCompositeView<IRulesPresenter>implements IRulesView {
 
 	private FlowPanel root;
 

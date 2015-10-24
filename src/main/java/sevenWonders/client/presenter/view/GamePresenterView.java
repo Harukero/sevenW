@@ -1,11 +1,14 @@
-package sevenWonders.client.view;
+package sevenWonders.client.presenter.view;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 
+import sevenWonders.client.controllers.BoardController;
 import sevenWonders.client.presenter.interfaces.IGameView;
 import sevenWonders.client.presenter.interfaces.IGameView.IGamePresenter;
+import sevenWonders.client.view.BoardView;
+import sevenWonders.client.view.ReverseCompositeView;
 
-public class GameView extends ReverseCompositeView<IGamePresenter>implements IGameView {
+public class GamePresenterView extends ReverseCompositeView<IGamePresenter> implements IGameView {
 
 	private FlowPanel root = new FlowPanel();
 	private BoardView playerBoard;
@@ -29,7 +32,7 @@ public class GameView extends ReverseCompositeView<IGamePresenter>implements IGa
 	@Override
 	public void initHand() {
 		playerBoard.setVisible(true);
-		playerBoard.initHand();
+		presenter.setController(new BoardController(playerBoard));
 	}
 
 }
