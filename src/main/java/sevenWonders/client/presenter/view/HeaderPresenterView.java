@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Anchor;
@@ -11,9 +12,11 @@ import com.google.gwt.user.client.ui.FlowPanel;
 
 import sevenWonders.client.constants.IConstants;
 import sevenWonders.client.constants.IStyleNames;
+import sevenWonders.client.constants.Iid;
 import sevenWonders.client.elements.DropdownElement;
 import sevenWonders.client.elements.ElementLitem;
 import sevenWonders.client.elements.NavBar;
+import sevenWonders.client.internationalization.ViewConstants;
 import sevenWonders.client.presenter.interfaces.IHeaderView;
 import sevenWonders.client.presenter.interfaces.IHeaderView.IHeaderPresenter;
 import sevenWonders.client.view.ReverseCompositeView;
@@ -22,39 +25,40 @@ public class HeaderPresenterView extends ReverseCompositeView<IHeaderPresenter> 
 
 	private FlowPanel root;
 	private NavBar navBar;
+	private static ViewConstants constants = GWT.create(ViewConstants.class);
 
 	private static final Map<Anchor, String> cardsCategoryToJsonId = new HashMap<>();
 
 	static {
-		cardsCategoryToJsonId.put(new Anchor(IConstants.TITLE_RAW), IConstants.JSON_RAW);
-		cardsCategoryToJsonId.put(new Anchor(IConstants.TITLE_MANUFACTURED), IConstants.JSON_MANUFACTURED);
-		cardsCategoryToJsonId.put(new Anchor(IConstants.TITLE_CIVILIAN), IConstants.JSON_CIVILIAN);
-		cardsCategoryToJsonId.put(new Anchor(IConstants.TITLE_SCIENCE), IConstants.JSON_SCIENCE);
-		cardsCategoryToJsonId.put(new Anchor(IConstants.TITLE_COMMERCIAL), IConstants.JSON_COMMERCIAL);
-		cardsCategoryToJsonId.put(new Anchor(IConstants.TITLE_MILITARY), IConstants.JSON_MILITARY);
-		cardsCategoryToJsonId.put(new Anchor(IConstants.TITLE_GUILDS), IConstants.JSON_GUILDS);
+		cardsCategoryToJsonId.put(new Anchor(constants.TITLE_RAW()), IConstants.JSON_CATEGORY_RAW);
+		cardsCategoryToJsonId.put(new Anchor(constants.TITLE_MANUFACTURED()), IConstants.JSON_CATEGORY_MANUFACTURED);
+		cardsCategoryToJsonId.put(new Anchor(constants.TITLE_CIVILIAN()), IConstants.JSON_CATEGORY_CIVILIAN);
+		cardsCategoryToJsonId.put(new Anchor(constants.TITLE_SCIENCE()), IConstants.JSON_CATEGORY_SCIENCE);
+		cardsCategoryToJsonId.put(new Anchor(constants.TITLE_COMMERCIAL()), IConstants.JSON_CATEGORY_COMMERCIAL);
+		cardsCategoryToJsonId.put(new Anchor(constants.TITLE_MILITARY()), IConstants.JSON_CATEGORY_MILITARY);
+		cardsCategoryToJsonId.put(new Anchor(constants.TITLE_GUILDS()), IConstants.JSON_CATEGORY_GUILDS);
 	}
 
 	private static final Map<Anchor, Integer> gameTypeToNumberOfPlayers = new HashMap<>();
 
 	static {
-		gameTypeToNumberOfPlayers.put(new Anchor(IConstants.THREE_PLAYER_GAME), Integer.valueOf(3));
-		gameTypeToNumberOfPlayers.put(new Anchor(IConstants.FOUR_PLAYER_GAME), Integer.valueOf(4));
-		gameTypeToNumberOfPlayers.put(new Anchor(IConstants.FIVE_PLAYER_GAME), Integer.valueOf(5));
-		gameTypeToNumberOfPlayers.put(new Anchor(IConstants.SIX_PLAYER_GAME), Integer.valueOf(6));
-		gameTypeToNumberOfPlayers.put(new Anchor(IConstants.SEVEN_PLAYER_GAME), Integer.valueOf(7));
+		gameTypeToNumberOfPlayers.put(new Anchor(constants.THREE_PLAYER_GAME()), Integer.valueOf(3));
+		gameTypeToNumberOfPlayers.put(new Anchor(constants.FOUR_PLAYER_GAME()), Integer.valueOf(4));
+		gameTypeToNumberOfPlayers.put(new Anchor(constants.FIVE_PLAYER_GAME()), Integer.valueOf(5));
+		gameTypeToNumberOfPlayers.put(new Anchor(constants.SIX_PLAYER_GAME()), Integer.valueOf(6));
+		gameTypeToNumberOfPlayers.put(new Anchor(constants.SEVEN_PLAYER_GAME()), Integer.valueOf(7));
 	}
 
 	public HeaderPresenterView() {
 
 		root = new FlowPanel();
-		navBar = new NavBar("SEVEN WONDERS", "MAIN_MENU");
+		navBar = new NavBar(IConstants.GAME_NAME, Iid.HeaderPresenterView_MainMenu);
 
-		DropdownElement categoriesDropdown = new DropdownElement("idDropCategories", IConstants.RULES_PAGE);
+		DropdownElement categoriesDropdown = new DropdownElement(Iid.HeaderPresenterView_DropdownRulesPageCategories, constants.RULES_PAGE());
 		addEntriesToCategoriesDropdown(categoriesDropdown);
 		navBar.addNavElement(categoriesDropdown);
 
-		DropdownElement dropdownElement = new DropdownElement("idDrop", IConstants.NEW_GAME);
+		DropdownElement dropdownElement = new DropdownElement(Iid.HeaderPresenterView_DropdownNewGame, constants.NEW_GAME());
 		addEntriesToGameTypeDropdown(dropdownElement);
 		navBar.addNavElement(dropdownElement);
 

@@ -1,0 +1,79 @@
+a {
+	cursor: pointer;
+	margin-right: 10px;
+}
+div {
+	padding: 5px;	
+}
+
+img {
+	vertical-align: middle;	
+}
+h1 {
+	font-size: 14px;	
+}
+
+.body {
+	padding: 10px 5px;
+	min-height: 100px;	
+}
+.menu {
+	border-top: 1px solid;
+	border-bottom: 1px solid;	
+}
+
+.root {
+	width: 500px;	
+}
+
+.inline-block {
+	display : inline-block;
+}
+
+.inline-table {
+	display : inline-table;
+}
+
+.float-right {
+	float: right;
+}
+
+.list-group-item.display-inline-block {
+	display: inline-block;
+}
+
+.bagde.wood {
+	background-color: #804000;
+	color: white;
+}
+
+.badge.ore {
+	background-color: #000000;
+	color: white;
+} 
+	
+.badge.clay {
+	background-color: #FF6600;
+} 
+
+.badge.stone {
+	background-color: gray;
+}
+
+.badge.glass {
+	background-color: #0066CC;
+} 
+
+.badge.papyrus {
+	background-color: #FFFF99;
+	color: black;
+}	 
+	
+.badge.textiles {
+	background-color: #FF0099;
+}	
+
+.badge.money {
+	background-color: #FFCC00;
+	color: black;
+}	

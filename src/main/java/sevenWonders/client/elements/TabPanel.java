@@ -3,6 +3,9 @@ package sevenWonders.client.elements;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 
+import sevenWonders.client.constants.IAttributeNames;
+import sevenWonders.client.constants.IStyleNames;
+
 public class TabPanel extends Composite {
 	
 	private FlowPanel root;
@@ -14,9 +17,9 @@ public class TabPanel extends Composite {
 		root = new FlowPanel();
 		
 		selectionPanel = new SelectionPanel();
-		selectionPanel.getElement().setAttribute("role", "tablist");
+		selectionPanel.getElement().setAttribute(IAttributeNames.ATT_ROLE, IAttributeNames.VAL_TABLIST);
 		partsPanel = new FlowPanel();
-		partsPanel.getElement().setClassName("tab-content");
+		partsPanel.getElement().setClassName(IStyleNames.TAB_CONTENT);
 		root.add(selectionPanel);
 		root.add(partsPanel);
 		
@@ -28,12 +31,12 @@ public class TabPanel extends Composite {
 		FlowPanel elementToShow = new FlowPanel();
 		elementToShow.getElement().setId(id);
 		if (firstElement) {
-			elementToShow.getElement().addClassName("tab-pane fade in");
+			elementToShow.getElement().addClassName(IStyleNames.IN);
 			firstElement = false;
-		} else {
-			elementToShow.getElement().addClassName("tab-pane fade");
 		}
-		elementToShow.getElement().setAttribute("role", "tabpanel");
+		elementToShow.getElement().addClassName(IStyleNames.TAB_PANE);
+		elementToShow.getElement().addClassName(IStyleNames.FADE);
+		elementToShow.getElement().setAttribute(IAttributeNames.ATT_ROLE, IAttributeNames.VAL_TABPANEL);
 		partsPanel.add(elementToShow);
 		return elementToShow;
 	}

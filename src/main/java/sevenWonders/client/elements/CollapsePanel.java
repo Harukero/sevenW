@@ -5,6 +5,9 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+import sevenWonders.client.constants.IAttributeNames;
+import sevenWonders.client.constants.IStyleNames;
+
 public class CollapsePanel extends Composite{
 
 	
@@ -31,7 +34,7 @@ public class CollapsePanel extends Composite{
 	
 	private static FlowPanel prepareBody(String bodyId) {
 		FlowPanel body = new FlowPanel();
-		body.getElement().setClassName("collapse");
+		body.getElement().setClassName(IStyleNames.COLLAPSE);
 		body.getElement().setId(bodyId);
 		return body;
 	}
@@ -40,11 +43,12 @@ public class CollapsePanel extends Composite{
 		FlowPanel header = new FlowPanel();
 		Button button = new Button();
 		button.setText(headerLabel);
-		button.getElement().setClassName("btn btn-primary");
-		button.getElement().setAttribute("data-toggle", "collapse");
-		button.getElement().setAttribute("data-target", "#"+bodyId);
-		button.getElement().setAttribute("aria-expanded", "false");
-		button.getElement().setAttribute("aria-controls", bodyId);
+		button.getElement().setClassName(IStyleNames.BTN);
+		button.getElement().addClassName(IStyleNames.BTN_PRIMARY);
+		button.getElement().setAttribute(IAttributeNames.ATT_DATA_TOGGLE, IAttributeNames.VAL_COLLAPSE);
+		button.getElement().setAttribute(IAttributeNames.ATT_DATA_TARGET, "#"+bodyId);
+		button.getElement().setAttribute(IAttributeNames.ATT_ARIA_EXPANDED, IAttributeNames.VAL_FALSE);
+		button.getElement().setAttribute(IAttributeNames.ATT_ARIA_CONTROLS, bodyId);
 		header.add(button);
 		return header;
 	}

@@ -20,7 +20,7 @@ public class CardExplanationPanel extends Composite {
 	}
 
 	public void addCards() {
-		List<Card> cardsCategory = GameService.INSTANCE.getCardsCategory(category);
+		List<Card> cardsCategory = GameService.INSTANCE.getCardsForCategory(category);
 		for (Card card : cardsCategory) {
 			CardPanel cardPanel = new CardPanel(card);
 			root.add(cardPanel);

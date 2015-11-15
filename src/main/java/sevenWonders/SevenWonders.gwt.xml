@@ -27,5 +27,6 @@
     <set-property name="gwt.logging.enabled" value="TRUE"/>            # To disable logging
     <set-property name="gwt.logging.consoleHandler" value="ENABLED"/>  # To disable a default Handler
 
+	<extend-property name="locale" values="fr"/>
 
 </module>

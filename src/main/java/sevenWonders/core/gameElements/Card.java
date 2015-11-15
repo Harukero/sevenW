@@ -3,28 +3,37 @@ package sevenWonders.core.gameElements;
 import java.util.Arrays;
 import java.util.Map;
 
+import sevenWonders.core.gameElements.effects.IsAnEffect;
+
 /**
  * @author Harukero
  *
  */
 public class Card {
 
-	private final String name;
 	private final Map<Resource, Integer> cost;
 	private final Age age;
-	private final Effect[] effects;
-	private final String imageURL;
+	private final IsAnEffect[] effects;
+	private final CardType type;
+	private final Map<String, String> nameByLanguage;
 
-	public Card(String name, Age age, Map<Resource, Integer> cost, String imageURL, Effect... effects) {
-		this.name = name;
+	public Card(Map<String, String> nameByLanguage, 
+			Age age, 
+			Map<Resource, Integer> cost, 
+			CardType type, 
+			IsAnEffect... effects) {
+		this.nameByLanguage = nameByLanguage;
 		this.age = age;
 		this.cost = cost;
-		this.imageURL = imageURL;
 		this.effects = effects;
+		this.type = type;
 	}
 
-	public String getName() {
-		return name;
+	public String getName(String locale) {
+		if (nameByLanguage.containsKey(locale)){
+			return nameByLanguage.get(locale);
+		}
+		return nameByLanguage.get(IGameConstants.LOCALE_EN);
 	}
 
 	public Age getAge() {
@@ -35,12 +44,12 @@ public class Card {
 		return cost;
 	}
 
-	public Effect[] getEffects() {
+	public IsAnEffect[] getEffects() {
 		return effects;
 	}
 
-	public String getImageURL() {
-		return imageURL;
+	public CardType getType() {
+		return type;
 	}
 
 	@Override
@@ -50,8 +59,8 @@ public class Card {
 		result = prime * result + ((age == null) ? 0 : age.hashCode());
 		result = prime * result + ((cost == null) ? 0 : cost.hashCode());
 		result = prime * result + Arrays.hashCode(effects);
-		result = prime * result + ((imageURL == null) ? 0 : imageURL.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((nameByLanguage == null) ? 0 : nameByLanguage.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
 
@@ -73,25 +82,20 @@ public class Card {
 			return false;
 		if (!Arrays.equals(effects, other.effects))
 			return false;
-		if (imageURL == null) {
-			if (other.imageURL != null)
+		if (nameByLanguage == null) {
+			if (other.nameByLanguage != null)
 				return false;
-		} else if (!imageURL.equals(other.imageURL))
+		} else if (!nameByLanguage.equals(other.nameByLanguage))
 			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
+		if (type != other.type)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Card [name=" + name + ", cost=" + cost + ", age=" + age + ", effects=" + Arrays.toString(effects)
-				+ ", imageURL=" + imageURL + "]";
+		return "Card [cost=" + cost + ", age=" + age + ", effects=" + Arrays.toString(effects) + ", type=" + type
+				+ ", nameByLanguage=" + nameByLanguage + "]";
 	}
 
-	
-	
 }

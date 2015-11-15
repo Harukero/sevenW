@@ -4,6 +4,9 @@ import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 
+import sevenWonders.client.constants.IAttributeNames;
+import sevenWonders.client.constants.IStyleNames;
+
 public class SelectionPanel extends Composite {
 	
 	private FlowPanel root;
@@ -14,7 +17,8 @@ public class SelectionPanel extends Composite {
 		root = new FlowPanel();
 		
 		ul = new ElementUl();
-		ul.getElement().setClassName("nav nav-pills");
+		ul.getElement().setClassName(IStyleNames.NAV);
+		ul.getElement().addClassName(IStyleNames.NAV_PILLS);
 		
 		root.add(ul);
 		initWidget(root);
@@ -24,9 +28,9 @@ public class SelectionPanel extends Composite {
 		ElementLitem item = new ElementLitem();
 		Anchor anchor = new Anchor(title);
 		anchor.setHref("#"+id);
-		anchor.getElement().setAttribute("aria-controls", id);
-		anchor.getElement().setAttribute("role", "tab");
-		anchor.getElement().setAttribute("data-toggle", "tab");
+		anchor.getElement().setAttribute(IAttributeNames.ATT_ARIA_CONTROLS, id);
+		anchor.getElement().setAttribute(IAttributeNames.ATT_ROLE, IAttributeNames.VAL_TAB);
+		anchor.getElement().setAttribute(IAttributeNames.ATT_DATA_TOGGLE, IAttributeNames.VAL_TAB);
 		item.add(anchor);
 		ul.add(item);
 	}

@@ -7,6 +7,8 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+import sevenWonders.client.constants.IStyleNames;
+
 public class NavBar extends Composite {
 
 	private ElementNav nav;
@@ -21,20 +23,20 @@ public class NavBar extends Composite {
 
 	public NavBar(String brand, String id) {
 		nav = new ElementNav();
-		nav.getElement().setClassName("navbar navbar-default");
+		nav.getElement().setClassName(IStyleNames.NAVBAR);
+		nav.getElement().addClassName(IStyleNames.NAVBAR_DEFAULT);
 		if (brand != null) {
 			addBrandElement(brand);
 		}
 
-		// <div class="collapse navbar-collapse"
-		// id="bs-example-navbar-collapse-1">
 		navbarCollapse = new FlowPanel();
-		navbarCollapse.getElement().setClassName("collapse navbar-collapse");
+		navbarCollapse.getElement().setClassName(IStyleNames.COLLAPSE);
+		navbarCollapse.getElement().addClassName(IStyleNames.NAVBAR_COLLAPSE);
 		navbarCollapse.getElement().setId(id);
-		// <ul class="nav navbar-nav">
 
 		navbarNav = new ElementUl();
-		navbarNav.getElement().setClassName("nav navbar-nav");
+		navbarNav.getElement().setClassName(IStyleNames.NAV);
+		navbarNav.getElement().addClassName(IStyleNames.NAVBAR_NAV);
 
 		navbarCollapse.add(navbarNav);
 		nav.add(navbarCollapse);
@@ -44,9 +46,9 @@ public class NavBar extends Composite {
 
 	private void addBrandElement(String brand) {
 		FlowPanel panel = new FlowPanel();
-		panel.getElement().setClassName("navbar-header");
+		panel.getElement().setClassName(IStyleNames.NAVBAR_HEADER);
 		brandAnchor = new Anchor(brand);
-		brandAnchor.getElement().setClassName("navbar-brand");
+		brandAnchor.getElement().setClassName(IStyleNames.NAVBAR_BRAND);
 
 		panel.add(brandAnchor);
 		nav.add(panel);

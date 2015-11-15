@@ -1,798 +1,1167 @@
-{	
-    "RawMaterial": [
+{
+    "RawMaterial":[
         {
-            "cardName": "Lumber Yard",
-            "cost": {},
-            "image": "images/age1-lumberYard.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "Stone Pit",
-            "cost": {},
-            "image": "images/age1-stonePit.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "Clay Pool",
-            "cost": {},
-            "image": "images/age1-clayPool.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "Ore Vein",
-            "cost": {},
-            "image": "images/age1-oreVein.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "Tree Farm",
-            "cost": {
-                "coin": 1
+            "cardName":{
+                "en":"Lumber Yard",
+                "fr":"Chantier"
             },
-            "image": "images/age1-treeFarm.png",
-            "age": [
-                1
+            "cost":{
+
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                4
             ]
         },
         {
-            "cardName": "Excavation",
-            "cost": {
-                "coin": 1
+            "cardName":{
+                "en":"Stone Pit",
+                "fr":"Cavité"
             },
-            "image": "images/age1-excavation.png",
-            "age": [
-                1
+            "cost":{
+
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                5
             ]
         },
         {
-            "cardName": "Clay Pit",
-            "cost": {
-                "coin": 1
+            "cardName":{
+                "en":"Clay Pool",
+                "fr":"Bassin Argileux"
             },
-            "image": "images/age1-clayPit.png",
-            "age": [
-                1
+            "cost":{
+
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                5
             ]
         },
         {
-            "cardName": "Timber Yard",
-            "cost": {
-                "coin": 1
+            "cardName":{
+                "en":"Ore Vein",
+                "fr":"Filon"
             },
-            "image": "images/age1-timberYard.png",
-            "age": [
-                1
+            "cost":{
+
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                4
             ]
         },
         {
-            "cardName": "Forest Cave",
-            "cost": {
-                "coin": 1
+            "cardName":{
+                "en":"Tree Farm",
+                "fr":"Friche"
             },
-            "image": "images/age1-forestCave.png",
-            "age": [
-                1
+            "cost":{
+                "coin":1
+            },
+            "age":1,
+            "forPlayers":[
+                6
             ]
         },
         {
-            "cardName": "Mine",
-            "cost": {
-                "coin": 1
+            "cardName":{
+                "en":"Excavation",
+                "fr":"Excavation"
             },
-            "image": "images/age1-mine.png",
-            "age": [
-                1
+            "cost":{
+                "coin":1
+            },
+            "age":1,
+            "forPlayers":[
+                4
             ]
         },
         {
-            "cardName": "Saw Mill",
-            "cost": {
-                "coin": 1
+            "cardName":{
+                "en":"Clay Pit",
+                "fr":"Fosse Argileuse"
             },
-            "image": "images/age1-oreVein.png",
-            "age": [
-                2
+            "cost":{
+                "coin":1
+            },
+            "age":1,
+            "forPlayers":[
+                3
             ]
         },
         {
-            "cardName": "Quarry",
-            "cost": {
-                "coin": 1
+            "cardName":{
+                "en":"Timber Yard",
+                "fr":"Exploitation Forestière"
             },
-            "image": "images/age1-oreVein.png",
-            "age": [
-                2
+            "cost":{
+                "coin":1
+            },
+            "age":1,
+            "forPlayers":[
+                3
             ]
         },
         {
-            "cardName": "Brickyard",
-            "cost": {
-                "coin": 1
+            "cardName":{
+                "en":"Forest Cave",
+                "fr":"Gisement"
             },
-            "image": "images/age1-oreVein.png",
-            "age": [
-                2
+            "cost":{
+                "coin":1
+            },
+            "age":1,
+            "forPlayers":[
+                5
             ]
         },
         {
-            "cardName": "Foundry",
-            "cost": {
-                "coin": 1
+            "cardName":{
+                "en":"Mine",
+                "fr":"Mine"
             },
-            "image": "images/age1-oreVein.png",
-            "age": [
-                2
+            "cost":{
+                "coin":1
+            },
+            "age":1,
+            "forPlayers":[
+                6
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Saw Mill",
+                "fr":"Scierie"
+            },
+            "cost":{
+                "coin":1
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                4
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Quarry",
+                "fr":"Carrière"
+            },
+            "cost":{
+                "coin":1
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                4
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Brickyard",
+                "fr":"Briqueterie"
+            },
+            "cost":{
+                "coin":1
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                4
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Foundry",
+                "fr":"Fonderie"
+            },
+            "cost":{
+                "coin":1
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                4
             ]
         }
     ],
-    "ManufacturedGoods": [
+    "ManufacturedGoods":[
         {
-            "cardName": "Loom",
-            "cost": {},
-            "image": "images/age1-loom.png",
-            "age": [
-                1,
-                2
+            "cardName":{
+                "en":"Loom",
+                "fr":"Métier à Tisser"
+            },
+            "cost":{
+
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                6
             ]
         },
         {
-            "cardName": "Glassworks",
-            "cost": {},
-            "image": "images/age1-glassworks.png",
-            "age": [
-                1,
-                2
+            "cardName":{
+                "en":"Glassworks",
+                "fr":"Verrerie"
+            },
+            "cost":{
+
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                6
             ]
         },
         {
-            "cardName": "Press",
-            "cost": {},
-            "image": "images/age1-press.png",
-            "age": [
-                1,
-                2
+            "cardName":{
+                "en":"Press",
+                "fr":"Presse"
+            },
+            "cost":{
+
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                6
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Loom",
+                "fr":"Métier à Tisser"
+            },
+            "cost":{
+
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                5
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Glassworks",
+                "fr":"Verrerie"
+            },
+            "cost":{
+
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                5
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Press",
+                "fr":"Presse"
+            },
+            "cost":{
+
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                5
             ]
         }
     ],
-    "CivilianStructures": [
+    "CivilianStructures":[
         {
-            "cardName": "Pawnshop",
-            "cost": {},
-            "image": "images/age1-press.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "Baths",
-            "cost": {
-                "rock": 1
+            "cardName":{
+                "en":"Pawnshop",
+                "fr":"Prèteur sur Gages"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "Altar",
-            "cost": {},
-            "image": "images/age1-press.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "Theatre",
-            "cost": {},
-            "image": "images/age1-press.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "Aqueduct",
-            "cost": {
-                "rock": 3
+            "cost":{
+
             },
-            "image": "images/age1-press.png",
-            "age": [
-                2
+            "age":1,
+            "forPlayers":[
+                4,
+                7
             ]
         },
         {
-            "cardName": "Temple",
-            "cost": {
-                "wood": 1,
-                "clay": 1,
-                "glass": 1
+            "cardName":{
+                "en":"Baths",
+                "fr":"Bains"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                2
+            "cost":{
+                "rock":1
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                7
             ]
         },
         {
-            "cardName": "Statue",
-            "cost": {
-                "wood": 1,
-                "ore": 2
+            "cardName":{
+                "en":"Altar",
+                "fr":"Autel"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                2
+            "cost":{
+
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                5
             ]
         },
         {
-            "cardName": "Courthouse",
-            "cost": {
-                "clay": 2,
-                "fabriques": 1
+            "cardName":{
+                "en":"Theatre",
+                "fr":"Théâtre"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                2
+            "cost":{
+
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                6
             ]
         },
         {
-            "cardName": "Pantheon",
-            "cost": {
-                "clay": 2,
-                "ore": 1,
-                "papyrus": 1,
-                "fabriques": 1,
-                "glass": 1
+            "cardName":{
+                "en":"Aqueduct",
+                "fr":"Aqueduc"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "rock":3
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                7
             ]
         },
         {
-            "cardName": "Gardens",
-            "cost": {
-                "clay": 2,
-                "wood": 1
+            "cardName":{
+                "en":"Temple",
+                "fr":"Temple"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "wood":1,
+                "clay":1,
+                "glass":1
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                6
             ]
         },
         {
-            "cardName": "Town Hall",
-            "cost": {
-                "rock": 2,
-                "ore": 1,
-                "glass": 1
+            "cardName":{
+                "en":"Statue",
+                "fr":"Statue"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "wood":1,
+                "ore":2
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                7
             ]
         },
         {
-            "cardName": "Palace",
-            "cost": {
-                "clay": 1,
-                "wood": 1,
-                "ore": 1,
-                "rock": 1,
-                "glass": 1,
-                "papyrus": 1,
-                "fabriques": 1
+            "cardName":{
+                "en":"Courthouse",
+                "fr":"Tribunal"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "clay":2,
+                "fabriques":1
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                5
             ]
         },
         {
-            "cardName": "Senate",
-            "cost": {
-                "wood": 2,
-                "ore": 1,
-                "rock": 1
+            "cardName":{
+                "en":"Pantheon",
+                "fr":"Panthéon"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "clay":2,
+                "ore":1,
+                "papyrus":1,
+                "fabriques":1,
+                "glass":1
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                6
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Gardens",
+                "fr":"Jardins"
+            },
+            "cost":{
+                "clay":2,
+                "wood":1
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                4
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Town Hall",
+                "fr":"Hôtel de Ville"
+            },
+            "cost":{
+                "rock":2,
+                "ore":1,
+                "glass":1
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                5,
+                6
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Palace",
+                "fr":"Palace"
+            },
+            "cost":{
+                "clay":1,
+                "wood":1,
+                "ore":1,
+                "rock":1,
+                "glass":1,
+                "papyrus":1,
+                "fabriques":1
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                7
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Senate",
+                "fr":"Sénat"
+            },
+            "cost":{
+                "wood":2,
+                "ore":1,
+                "rock":1
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                5
             ]
         }
     ],
-    "CommercialStructures": [
+    "CommercialStructures":[
         {
-            "cardName": "Tavern",
-            "cost": {},
-            "image": "images/age1-press.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "East Trading Post",
-            "cost": {},
-            "image": "images/age1-press.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "West Trading Post",
-            "cost": {},
-            "image": "images/age1-press.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "Marketplace",
-            "cost": {},
-            "image": "images/age1-press.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "Forum",
-            "cost": {
-                "clay": 2
+            "cardName":{
+                "en":"Tavern",
+                "fr":"Taverne"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                2
-            ]
-        },
-        {
-            "cardName": "Caravansery",
-            "cost": {
-                "wood": 2
+            "cost":{
+
             },
-            "image": "images/age1-press.png",
-            "age": [
-                2
+            "age":1,
+            "forPlayers":[
+                4,
+                5,
+                7
             ]
         },
         {
-            "cardName": "Vineyard",
-            "cost": {},
-            "image": "images/age1-press.png",
-            "age": [
-                2
-            ]
-        },
-        {
-            "cardName": "Bazar",
-            "cost": {},
-            "image": "images/age1-press.png",
-            "age": [
-                2
-            ]
-        },
-        {
-            "cardName": "Haven",
-            "cost": {
-                "wood": 1,
-                "ore": 1,
-                "fabriques": 1
+            "cardName":{
+                "en":"East Trading Post",
+                "fr":"Comptoir Est"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                7
             ]
         },
         {
-            "cardName": "Lighthouse",
-            "cost": {
-                "glass": 1,
-                "rock": 1
+            "cardName":{
+                "en":"West Trading Post",
+                "fr":"Comptoir Ouest"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                7
             ]
         },
         {
-            "cardName": "Chamber of Commerce",
-            "cost": {
-                "papyrus": 1,
-                "clay": 2
+            "cardName":{
+                "en":"Marketplace",
+                "fr":"Marché"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                6
             ]
         },
         {
-            "cardName": "Arena",
-            "cost": {
-                "ore": 1,
-                "rock": 2
+            "cardName":{
+                "en":"Forum",
+                "fr":"Forum"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "clay":2
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                6,
+                7
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Caravansery",
+                "fr":"Caravansérail"
+            },
+            "cost":{
+                "wood":2
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                5,
+                6
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Vineyard",
+                "fr":"Vignoble"
+            },
+            "cost":{
+
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                6
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Bazar",
+                "fr":"Bazar"
+            },
+            "cost":{
+
+            },
+            "age":2,
+            "forPlayers":[
+                4,
+                7
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Haven",
+                "fr":"Port"
+            },
+            "cost":{
+                "wood":1,
+                "ore":1,
+                "fabriques":1
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                4
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Lighthouse",
+                "fr":"Phare"
+            },
+            "cost":{
+                "glass":1,
+                "rock":1
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                6
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Chamber of Commerce",
+                "fr":"Chambre de Commerce"
+            },
+            "cost":{
+                "papyrus":1,
+                "clay":2
+            },
+            "age":3,
+            "forPlayers":[
+                4,
+                6
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Arena",
+                "fr":"Arène"
+            },
+            "cost":{
+                "ore":1,
+                "rock":2
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                5,
+                7
             ]
         }
     ],
-    "ScientificStructures": [
+    "ScientificStructures":[
         {
-            "cardName": "Apothecary",
-            "cost": {
-                "fabriques": 1
-            },            "image": "images/age1-press.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "Workshop",
-            "cost": {
-                "glass": 1
-            },            "image": "images/age1-press.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "Scriptorium",
-            "cost": {
-                "papyrus": 1
-            },            "image": "images/age1-press.png",
-            "age": [
-                1
-            ]
-        },
-        {
-            "cardName": "Dispensary",
-            "cost": {
-            	"ore":2,
-            	"glass":1
+            "cardName":{
+                "en":"Apothecary",
+                "fr":"Officine"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                2
+            "cost":{
+                "fabriques":1
+            },
+            "image":"images/age1-press.png",
+            "age":1,
+            "forPlayers":[
+                3,
+                5
             ]
         },
         {
-            "cardName": "Laboratory",
-            "cost": {
-            	"clay":2,
-            	"papyrus":1
+            "cardName":{
+                "en":"Workshop",
+                "fr":"Atelier"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                2
+            "cost":{
+                "glass":1
+            },
+            "image":"images/age1-press.png",
+            "age":1,
+            "forPlayers":[
+                3,
+                7
             ]
         },
         {
-            "cardName": "Library",
-            "cost": {
-            	"rock":2,
-            	"fabriques":1
+            "cardName":{
+                "en":"Scriptorium",
+                "fr":"Scriptorium"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                2
+            "cost":{
+                "papyrus":1
+            },
+            "image":"images/age1-press.png",
+            "age":1,
+            "forPlayers":[
+                3,
+                4
             ]
         },
         {
-            "cardName": "School",
-            "cost": {
-            	"wood":1,
-            	"papyrus":1
+            "cardName":{
+                "en":"Dispensary",
+                "fr":"Dispensaire"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                2
+            "cost":{
+                "ore":2,
+                "glass":1
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                4
             ]
         },
         {
-            "cardName": "Lodge",
-            "cost": {
-            	"clay":2,
-            	"fabriques":1,
-            	"papyrus":1
+            "cardName":{
+                "en":"Laboratory",
+                "fr":"Laboratoire"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "clay":2,
+                "papyrus":1
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                5
             ]
         },
         {
-            "cardName": "Observatory",
-            "cost": {
-            	"ore":2,
-            	"fabriques":1,
-            	"glass":1
+            "cardName":{
+                "en":"Library",
+                "fr":"Bibliothèque"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "rock":2,
+                "fabriques":1
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                6
             ]
         },
         {
-            "cardName": "University",
-            "cost": {
-            	"wood":2,
-            	"glass":1,
-            	"papyrus":1
+            "cardName":{
+                "en":"School",
+                "fr":"Ecole"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "wood":1,
+                "papyrus":1
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                7
             ]
         },
         {
-            "cardName": "Academy",
-            "cost": {
-            	"rock":3,
-            	"glass":1
+            "cardName":{
+                "en":"Lodge",
+                "fr":"Loge"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "clay":2,
+                "fabriques":1,
+                "papyrus":1
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                6
             ]
         },
         {
-            "cardName": "Study",
-            "cost": {
-            	"wood":1,
-            	"fabriques":1,
-            	"papyrus":1
+            "cardName":{
+                "en":"Observatory",
+                "fr":"Observatoire"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "ore":2,
+                "fabriques":1,
+                "glass":1
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                7
+            ]
+        },
+        {
+            "cardName":{
+                "en":"University",
+                "fr":"Université"
+            },
+            "cost":{
+                "wood":2,
+                "glass":1,
+                "papyrus":1
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                4
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Academy",
+                "fr":"Academie"
+            },
+            "cost":{
+                "rock":3,
+                "glass":1
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                7
+            ]
+        },
+        {
+            "cardName":{
+                "en":"Study",
+                "fr":"Etude"
+            },
+            "cost":{
+                "wood":1,
+                "fabriques":1,
+                "papyrus":1
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                5
             ]
         }
     ],
-    "MilitaryStructures": [
+    "MilitaryStructures":[
         {
-            "cardName": "Stockade",
-            "cost": {
-            	"wood":1
+            "cardName":{
+                "en":"Stockade",
+                "fr":"Palissade"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                1
+            "cost":{
+                "wood":1
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                7
             ]
         },
         {
-            "cardName": "Barracks",
-            "cost": {
-            	"ore":1
+            "cardName":{
+                "en":"Barracks",
+                "fr":"Caserne"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                1
+            "cost":{
+                "ore":1
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                5
             ]
         },
         {
-            "cardName": "Guard Tower",
-            "cost": {
-            	"clay":1
+            "cardName":{
+                "en":"Guard Tower",
+                "fr":"Tour de Garde"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                1
+            "cost":{
+                "clay":1
+            },
+            "age":1,
+            "forPlayers":[
+                3,
+                4
             ]
         },
         {
-            "cardName": "Walls",
-            "cost": {
-            	"rock":3
+            "cardName":{
+                "en":"Walls",
+                "fr":"Muraille"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                2
+            "cost":{
+                "rock":3
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                7
             ]
         },
         {
-            "cardName": "Training Ground",
-            "cost": {
-            	"ore":2,
-            	"wood":1
+            "cardName":{
+                "en":"Training Ground",
+                "fr":"Place d'Armes"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                2
+            "cost":{
+                "ore":2,
+                "wood":1
+            },
+            "age":2,
+            "forPlayers":[
+                4,
+                6,
+                7
             ]
         },
         {
-            "cardName": "Stables",
-            "cost": {
-            	"clay":1,
-            	"ore":1,
-            	"wood":1
+            "cardName":{
+                "en":"Stables",
+                "fr":"Ecuries"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                2
+            "cost":{
+                "clay":1,
+                "ore":1,
+                "wood":1
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                5
             ]
         },
         {
-            "cardName": "Archery Range",
-            "cost": {
-            	"wood":2,
-            	"ore":1
+            "cardName":{
+                "en":"Archery Range",
+                "fr":"Champs de Tire"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                2
+            "cost":{
+                "wood":2,
+                "ore":1
+            },
+            "age":2,
+            "forPlayers":[
+                3,
+                6
             ]
         },
         {
-            "cardName": "Fortification",
-            "cost": {
-            	"ore":3,
-            	"rock":1
+            "cardName":{
+                "en":"Fortification",
+                "fr":"Fortifications"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "ore":3,
+                "rock":1
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                7
             ]
         },
         {
-            "cardName": "Circus",
-            "cost": {
-            	"rock":3,
-            	"ore":1
+            "cardName":{
+                "en":"Circus",
+                "fr":"Cirque"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "rock":3,
+                "ore":1
+            },
+            "age":3,
+            "forPlayers":[
+                4,
+                5,
+                6
             ]
         },
         {
-            "cardName": "Arsenal",
-            "cost": {
-            	"ore":1,
-            	"wood":2,
-            	"fabriques":1
+            "cardName":{
+                "en":"Arsenal",
+                "fr":"Arsenal"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "ore":1,
+                "wood":2,
+                "fabriques":1
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                4,
+                7
             ]
         },
         {
-            "cardName": "Siege Workshop",
-            "cost": {
-            	"wood":1,
-            	"clay":3
+            "cardName":{
+                "en":"Siege Workshop",
+                "fr":"Atelier de Siège"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "wood":1,
+                "clay":3
+            },
+            "age":3,
+            "forPlayers":[
+                3,
+                5
             ]
         }
     ],
-    "Guilds": [
+    "Guilds":[
         {
-            "cardName": "Workers Guild",
-            "cost": {
-            	"clay":1,
-            	"ore":2,
-            	"rock":1,
-            	"wood":1
+            "cardName":{
+                "en":"Workers Guild",
+                "fr":"Guilde des Travailleurs"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "clay":1,
+                "ore":2,
+                "rock":1,
+                "wood":1
+            },
+            "age":3,
+            "forPlayers":[
+
             ]
         },
         {
-            "cardName": "Craftmens Guild",
-            "cost": {
-            	"rock":2,
-            	"ore":2
+            "cardName":{
+                "en":"Craftmens Guild",
+                "fr":"Guilds des Artisants"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "rock":2,
+                "ore":2
+            },
+            "age":3,
+            "forPlayers":[
+
             ]
         },
         {
-            "cardName": "Traders Guild",
-            "cost": {
-            	"glass":1,
-            	"fabriques":1,
-            	"papyrus":1
+            "cardName":{
+                "en":"Traders Guild",
+                "fr":"Guilde des Commerçants"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "glass":1,
+                "fabriques":1,
+                "papyrus":1
+            },
+            "age":3,
+            "forPlayers":[
+
             ]
         },
         {
-            "cardName": "Philosophers Guild",
-            "cost": {
-            	"clay":3,
-            	"fabriques":1,
-            	"papyrus":1
+            "cardName":{
+                "en":"Philosophers Guild",
+                "fr":"Guilde des Philosophes"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "clay":3,
+                "fabriques":1,
+                "papyrus":1
+            },
+            "age":3,
+            "forPlayers":[
+
             ]
         },
         {
-            "cardName": "Spy Guild",
-            "cost": {
-            	"clay":3,
-            	"glass":1
+            "cardName":{
+                "en":"Spy Guild",
+                "fr":"Guilde des Espions"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "clay":3,
+                "glass":1
+            },
+            "age":3,
+            "forPlayers":[
+
             ]
         },
         {
-            "cardName": "Strategy Guild",
-            "cost": {
-            	"ore":2,
-            	"fabriques":1,
-            	"rock":1
+            "cardName":{
+                "en":"Strategy Guild",
+                "fr":"Guilde des Stratèges"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "ore":2,
+                "fabriques":1,
+                "rock":1
+            },
+            "age":3,
+            "forPlayers":[
+
             ]
         },
         {
-            "cardName": "Shipowners Guild",
-            "cost": {
-            	"wood":3,
-            	"glass":1,
-            	"papyrus":1
+            "cardName":{
+                "en":"Shipowners Guild",
+                "fr":"Guilde des Armateurs"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "wood":3,
+                "glass":1,
+                "papyrus":1
+            },
+            "age":3,
+            "forPlayers":[
+
             ]
         },
         {
-            "cardName": "Scientists Guild",
-            "cost": {
-            	"ore":2,
-            	"wood":2,
-            	"papyrus":1
+            "cardName":{
+                "en":"Scientists Guild",
+                "fr":"Guilde des Scientifiques"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "ore":2,
+                "wood":2,
+                "papyrus":1
+            },
+            "age":3,
+            "forPlayers":[
+
             ]
         },
         {
-            "cardName": "Magistrates Guild",
-            "cost": {
-            	"wood":3,
-            	"fabriques":1,
-            	"rock":1
+            "cardName":{
+                "en":"Magistrates Guild",
+                "fr":"Guilde des Magistrats"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "wood":3,
+                "fabriques":1,
+                "rock":1
+            },
+            "age":3,
+            "forPlayers":[
+
             ]
         },
         {
-            "cardName": "Builders Guild",
-            "cost": {
-            	"rock":2,
-            	"clay":2,
-            	"glass":1
+            "cardName":{
+                "en":"Builders Guild",
+                "fr":"Guilde des Bâtisseurs"
             },
-            "image": "images/age1-press.png",
-            "age": [
-                3
+            "cost":{
+                "rock":2,
+                "clay":2,
+                "glass":1
+            },
+            "age":3,
+            "forPlayers":[
+
             ]
         }
     ]

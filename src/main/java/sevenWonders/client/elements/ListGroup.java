@@ -17,7 +17,7 @@ public class ListGroup extends Composite {
 	private Label label;
 
 	public ListGroup() {
-		root.getElement().setClassName("list-group");
+		root.getElement().setClassName(IStyleNames.LIST_GROUP);
 		root.addStyleName(IStyleNames.DISPLAY_INLINE_TABLE);
 		initWidget(root);
 	}
@@ -25,14 +25,14 @@ public class ListGroup extends Composite {
 	public ListGroup(String title) {
 		this();
 		label = new Label(title);
-		label.getElement().setClassName("list-group-item");
-		label.getElement().addClassName("list-group-item-success");
+		label.getElement().setClassName(IStyleNames.LIST_GROUP_ITEM);
+		label.getElement().addClassName(IStyleNames.LIST_GROUP_ITEM_SUCCESS);
 		root.add(label);
 
 	}
 
 	public void addElement(Widget item) {
-		item.getElement().addClassName("list-group-item");
+		item.getElement().addClassName(IStyleNames.LIST_GROUP_ITEM);
 		root.add(item);
 		elements.add(item);
 	}

@@ -2,6 +2,9 @@ package sevenWonders.client.elements;
 
 import com.google.gwt.user.client.ui.Composite;
 
+import sevenWonders.client.constants.IAttributeNames;
+import sevenWonders.client.constants.IStyleNames;
+
 public class DropdownElement extends Composite {
 
 	private ElementLitem root;
@@ -11,17 +14,17 @@ public class DropdownElement extends Composite {
 	public DropdownElement(String id, String label) {
 		this.id = id;
 		root = new ElementLitem();
-		root.getElement().setClassName("dropdown");
+		root.getElement().setClassName(IStyleNames.DROPDOWN);
 
 		ElementA a = new ElementA(label);
 		a.getElement().setId(id);
-		a.getElement().setAttribute("data-toggle", "dropdown");
-		a.getElement().setAttribute("role", "button");
-		a.getElement().setAttribute("aria-haspopup", "true");
-		a.getElement().setAttribute("aria-expanded", "false");
+		a.getElement().setAttribute(IAttributeNames.ATT_DATA_TOGGLE, IAttributeNames.VAL_DROPDOWN);
+		a.getElement().setAttribute(IAttributeNames.ATT_ROLE, IAttributeNames.VAL_BUTTON);
+		a.getElement().setAttribute(IAttributeNames.ATT_ARIA_HASPOPUP, IAttributeNames.VAL_TRUE);
+		a.getElement().setAttribute(IAttributeNames.ATT_ARIA_EXPANDED, IAttributeNames.VAL_FALSE);
 
 		ElementSpan span = new ElementSpan();
-		span.getElement().setClassName("caret");
+		span.getElement().setClassName(IStyleNames.CARET);
 		a.add(span);
 		root.add(a);
 
@@ -31,8 +34,8 @@ public class DropdownElement extends Composite {
 	public void addDropdownElement(ElementLitem element) {
 		if (unorderedList == null) {
 			unorderedList = new ElementUl();
-			unorderedList.getElement().setClassName("dropdown-menu");
-			unorderedList.getElement().setAttribute("aria-labelledby", id);
+			unorderedList.getElement().setClassName(IStyleNames.DROPDOWN_MENU);
+			unorderedList.getElement().setAttribute(IAttributeNames.ATT_ARIA_LABELLEDBY, id);
 			root.add(unorderedList);
 		}
 		unorderedList.add(element);

@@ -35,7 +35,7 @@ public interface IEventBus extends EventBus {
 	 * Place events
 	 */
 	@Event(handlers = GamePresenter.class)
-	void goToGamePage();
+	void goToGamePage(int nbPlayers);
 
 	@Event(handlers = RulesPresenter.class)
 	void goToRulesPage(String cardsCategory);

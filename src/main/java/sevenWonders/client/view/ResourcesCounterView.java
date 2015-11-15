@@ -2,15 +2,22 @@ package sevenWonders.client.view;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.Grid;
-import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 
+import sevenWonders.client.constants.IAttributeNames;
+import sevenWonders.client.constants.IStyleNames;
+import sevenWonders.client.constants.Iid;
+import sevenWonders.client.elements.Badge;
+import sevenWonders.client.elements.ElementA;
+import sevenWonders.client.elements.ElementLitem;
+import sevenWonders.client.elements.ElementUl;
 import sevenWonders.client.elements.ModalOpenerButton;
 import sevenWonders.client.elements.ModalPopup;
+import sevenWonders.client.internationalization.ViewConstants;
 import sevenWonders.core.gameElements.Resource;
 
 public class ResourcesCounterView extends Composite {
@@ -19,12 +26,16 @@ public class ResourcesCounterView extends Composite {
 		MAIN_PLAYER, OPPONENT
 	}
 
-	private FlowPanel root;
-	private Grid resourcesToCounts;
+	private ElementUl root;
 	private Map<Resource, Integer> resources = new HashMap<>();
+	private Map<Resource, Label> resourceToLabel = new HashMap<Resource, Label>();
 
+	private static final ViewConstants constants = GWT.create(ViewConstants.class);
+	
 	public ResourcesCounterView(ResourceCounterType type) {
-		root = new FlowPanel();
+		root = new ElementUl();
+		root.setStyleName("nav nav-pills");
+		root.getElement().setAttribute(IAttributeNames.ATT_ROLE, IAttributeNames.VAL_TABLIST);
 
 		if (type == ResourceCounterType.MAIN_PLAYER) {
 			buildPlayerResourceGrid();
@@ -32,49 +43,64 @@ public class ResourcesCounterView extends Composite {
 			buildOpponentResourceGrid();
 		}
 
-		root.add(resourcesToCounts);
-
 		initWidget(root);
 	}
 
 	private void buildPlayerResourceGrid() {
-		resourcesToCounts = new Grid(2, 10);
-		ModalPopup popupLeftPlayer = ModalPopup.openModalPopup("Left Player Board", "ID_MODAL_LEFT",
-				new Label("Board pour le joueur de gauche"));
+		ModalPopup popupLeftPlayer = ModalPopup.openModalPopup(constants.LEFT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalLeft,
+				new Label(constants.LEFT_PLAYER_BOARD()));
 		root.add(popupLeftPlayer);
-		ModalPopup popupRightPlayer = ModalPopup.openModalPopup("Right Player Board", "ID_MODAL_RIGHT",
-				new Label("Board pour le joueur de droite"));
+		ModalPopup popupRightPlayer = ModalPopup.openModalPopup(constants.RIGHT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalRight,
+				new Label(constants.RIGHT_PLAYER_BOARD()));
 		root.add(popupRightPlayer);
 
-		ModalOpenerButton leftPlayerBoardButton = new ModalOpenerButton("", "ID_MODAL_LEFT");
-		leftPlayerBoardButton.setText("Left Player Board");
-		resourcesToCounts.setWidget(0, 0, leftPlayerBoardButton);
+		ModalOpenerButton leftPlayerBoardButton = new ModalOpenerButton("", Iid.ResourcesCounterView_ModalLeft);
+		leftPlayerBoardButton.setText(constants.LEFT_PLAYER_BOARD());
+		
+		ElementLitem leftItem = new ElementLitem(leftPlayerBoardButton);
+		leftItem.setStyleName(IStyleNames.PRESENTATION);
+		
+		root.add(leftItem);
+		
 
-		ModalOpenerButton rightPlayerBoardButton = new ModalOpenerButton("", "ID_MODAL_RIGHT");
-		rightPlayerBoardButton.setText("Right Player Board");
-		resourcesToCounts.setWidget(0, 9, rightPlayerBoardButton);
+		initResources();
+		ModalOpenerButton rightPlayerBoardButton = new ModalOpenerButton("", Iid.ResourcesCounterView_ModalRight);
+		rightPlayerBoardButton.setText(constants.RIGHT_PLAYER_BOARD());
+		
+		ElementLitem rightItem = new ElementLitem(rightPlayerBoardButton);
+		rightItem.setStyleName(IStyleNames.PRESENTATION);
+		
+		root.add(rightItem);
+	}
 
+	private void initResources() {
 		Resource[] values = Resource.values();
-		for (int i = 0; i < values.length; i++) {
-			Resource r = values[i];
-			resourcesToCounts.setWidget(0, i + 1, new Image(r.getImagePath()));
+		for (Resource r : values) {
 			resources.put(r, 0);
-			resourcesToCounts.setWidget(1, i + 1, new Label(String.valueOf(resources.get(r))));
+			ElementLitem li = createResourceCounterFor(r);
+			root.add(li);
 		}
-		resourcesToCounts.getElement().setClassName("table table-bordered");
+	}
+
+	private ElementLitem createResourceCounterFor(Resource r) {
+		Badge label = new Badge(String.valueOf(resources.get(r)));
+		label.addStyleName(r.getResourceStyle());
+		resourceToLabel.put(r, label);
+		ElementA anchor = new ElementA(r.name());
+		anchor.add(label);
+		ElementLitem li = new ElementLitem(anchor);
+		li.setStyleName(IStyleNames.PRESENTATION);
+		return li;
 	}
 
 	private void buildOpponentResourceGrid() {
-		resourcesToCounts = new Grid(2, 8);
-		Resource[] values = Resource.values();
-		for (int i = 0; i < values.length; i++) {
-			Resource r = values[i];
-			resourcesToCounts.setWidget(0, i, new Image(r.getImagePath()));
-			resources.put(r, 0);
-			resourcesToCounts.setWidget(1, i, new Label(String.valueOf(resources.get(r))));
-		}
-		resourcesToCounts.getElement().setClassName("table table-bordered");
-
+		initResources();
 	}
-
+	
+	public void updateView(Map<Resource, Integer> newValues) {
+		for (Entry<Resource, Integer> newResources : newValues.entrySet()) {
+			resources.put(newResources.getKey(), newResources.getValue());
+			resourceToLabel.get(newResources.getKey()).setText(String.valueOf(newResources.getValue()));
+		}
+	}
 }
