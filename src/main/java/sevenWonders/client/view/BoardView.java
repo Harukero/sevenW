@@ -17,8 +17,8 @@ public class BoardView extends Composite {
 
 	private FlowPanel root;
 	private ResourcesCounterView resourcesCounterView;
-	private ListGroup hand;
-	private ListGroup gameZone;
+	private ListGroup<CardPanel> hand;
+	private ListGroup<CardPanel> gameZone;
 	private static final ViewConstants constants = GWT.create(ViewConstants.class);
 
 
@@ -26,8 +26,8 @@ public class BoardView extends Composite {
 		root = new FlowPanel();
 		resourcesCounterView = new ResourcesCounterView(ResourceCounterType.MAIN_PLAYER);
 		root.add(resourcesCounterView);
-		hand = new ListGroup(constants.PLAYERS_HAND());
-		gameZone = new ListGroup(constants.PLAYED_CARDS());
+		hand = new ListGroup<CardPanel>(constants.PLAYERS_HAND());
+		gameZone = new ListGroup<CardPanel>(constants.PLAYED_CARDS());
 		gameZone.addStyleName(IStyleNames.FLOAT_RIGHT);
 		root.add(hand);
 		root.add(gameZone);
@@ -46,11 +46,11 @@ public class BoardView extends Composite {
 		}
 	}
 
-	public ListGroup getHand() {
+	public ListGroup<CardPanel> getHand() {
 		return hand;
 	}
 
-	public ListGroup getGameZone() {
+	public ListGroup<CardPanel> getGameZone() {
 		return gameZone;
 	}
 	

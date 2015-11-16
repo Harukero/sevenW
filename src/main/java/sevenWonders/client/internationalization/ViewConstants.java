@@ -48,4 +48,21 @@ public interface ViewConstants extends Constants {
 	String RIGHT_PLAYER_BOARD();
 	@DefaultStringValue("Close")
 	String CLOSE();
+	
+	@DefaultStringValue("Clay Brick")
+	String resource_clayBrick();
+	@DefaultStringValue("Glass")
+	String resource_glass();
+	@DefaultStringValue("Money")
+	String resource_money();
+	@DefaultStringValue("Ore")
+	String resource_ore();
+	@DefaultStringValue("Papyrus")
+	String resource_papyrus();
+	@DefaultStringValue("Stone")
+	String resource_stone();
+	@DefaultStringValue("Textiles")
+	String resource_textiles();
+	@DefaultStringValue("Wood")
+	String resource_wood();
 }

@@ -19,8 +19,10 @@ public class CardPanel extends Composite {
 	private FlowPanel root;
 	private HandlerRegistration addDomHandler;
 	private FlowPanel resourcesPanel;
+	private Card card;
 
 	public CardPanel(Card card) {
+		this.card = card;
 		root = new FlowPanel();
 		root.add(new Label(card.getName(GameService.INSTANCE.getUiLanguage())));
 		
@@ -45,4 +47,7 @@ public class CardPanel extends Composite {
 		addDomHandler = root.addDomHandler(clickHandler, ClickEvent.getType());
 	}
 
+	public Card getContainedCard() {
+		return card;
+	}
 }

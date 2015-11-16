@@ -10,10 +10,10 @@ import com.google.gwt.user.client.ui.Widget;
 
 import sevenWonders.client.constants.IStyleNames;
 
-public class ListGroup extends Composite {
+public class ListGroup<X extends Widget> extends Composite {
 
 	private FlowPanel root = new FlowPanel();
-	List<Widget> elements = new ArrayList<>();
+	List<X> elements = new ArrayList<>();
 	private Label label;
 
 	public ListGroup() {
@@ -31,13 +31,13 @@ public class ListGroup extends Composite {
 
 	}
 
-	public void addElement(Widget item) {
+	public void addElement(X item) {
 		item.getElement().addClassName(IStyleNames.LIST_GROUP_ITEM);
 		root.add(item);
 		elements.add(item);
 	}
 
-	public void removeElement(Widget item) {
+	public void removeElement(X item) {
 		root.remove(item);
 		elements.remove(item);
 	}
@@ -50,7 +50,7 @@ public class ListGroup extends Composite {
 		}
 	}
 
-	public List<Widget> getElements() {
+	public List<X> getElements() {
 		return elements;
 	}
 }

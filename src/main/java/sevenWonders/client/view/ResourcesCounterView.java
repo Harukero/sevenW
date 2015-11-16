@@ -88,7 +88,7 @@ public class ResourcesCounterView extends Composite {
 		Badge label = new Badge(String.valueOf(resources.get(r)));
 		label.addStyleName(GameElementsToViewUtils.resourceTypeToStyle(r));
 		resourceToLabel.put(r, label);
-		ElementA anchor = new ElementA(r.name());
+		ElementA anchor = new ElementA(GameElementsToViewUtils.resourceI18nName(r));
 		anchor.add(label);
 		ElementLitem li = new ElementLitem(anchor);
 		li.setStyleName(IStyleNames.PRESENTATION);
