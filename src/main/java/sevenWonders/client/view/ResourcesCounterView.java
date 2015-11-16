@@ -18,6 +18,7 @@ import sevenWonders.client.elements.ElementUl;
 import sevenWonders.client.elements.ModalOpenerButton;
 import sevenWonders.client.elements.ModalPopup;
 import sevenWonders.client.internationalization.ViewConstants;
+import sevenWonders.client.utils.GameElementsToViewUtils;
 import sevenWonders.core.gameElements.Resource;
 
 public class ResourcesCounterView extends Composite {
@@ -34,7 +35,8 @@ public class ResourcesCounterView extends Composite {
 	
 	public ResourcesCounterView(ResourceCounterType type) {
 		root = new ElementUl();
-		root.setStyleName("nav nav-pills");
+		root.setStyleName("nav");
+		root.addStyleName("nav-pills");
 		root.getElement().setAttribute(IAttributeNames.ATT_ROLE, IAttributeNames.VAL_TABLIST);
 
 		if (type == ResourceCounterType.MAIN_PLAYER) {
@@ -84,7 +86,7 @@ public class ResourcesCounterView extends Composite {
 
 	private ElementLitem createResourceCounterFor(Resource r) {
 		Badge label = new Badge(String.valueOf(resources.get(r)));
-		label.addStyleName(r.getResourceStyle());
+		label.addStyleName(GameElementsToViewUtils.resourceTypeToStyle(r));
 		resourceToLabel.put(r, label);
 		ElementA anchor = new ElementA(r.name());
 		anchor.add(label);

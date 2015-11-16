@@ -4,21 +4,20 @@ public enum Resource {
 
 	// Brown cards (raw materials) provide one or two of the 
 	// four raw material resources used in the game (wood, ore, clay brick and stone).
-	WOOD(true, "wood"), 
-	ORE(true, "ore"), 
-	CLAY_BRICK(true, "clay"), 
-	STONE(true, "rock"),
+	WOOD(true), 
+	ORE(true), 
+	CLAY_BRICK(true), 
+	STONE(true),
 
 	// Grey cards (manufactured goods) provide one of the 
 	// three manufactured goods used in the game (glass, papyrus and textiles)
-	GLASS(false, "glass"), 
-	PAPYRUS(false, "papyrus"), 
-	TEXTILES(false, "textiles"),
+	GLASS(false), 
+	PAPYRUS(false), 
+	TEXTILES(false),
 	
-	MONEY(false, "money");
+	MONEY(false);
 	
 	private final boolean rawMaterial;
-	private String resourceStyle;
 	
 	public boolean isRawMaterial() {
 		return rawMaterial;
@@ -28,13 +27,8 @@ public enum Resource {
 		return !rawMaterial && this != MONEY;
 	}
 	
-	private Resource(boolean raw, String resourceStyle) {
+	private Resource(boolean raw) {
 		this.rawMaterial = raw;
-		this.resourceStyle = resourceStyle;
-	}
-	
-	public String getResourceStyle() {
-		return resourceStyle;
 	}
 	
 }

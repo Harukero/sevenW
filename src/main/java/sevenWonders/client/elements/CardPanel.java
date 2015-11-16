@@ -10,6 +10,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 
 import sevenWonders.client.services.GameService;
+import sevenWonders.client.utils.GameElementsToViewUtils;
 import sevenWonders.core.gameElements.Card;
 import sevenWonders.core.gameElements.Resource;
 
@@ -26,7 +27,7 @@ public class CardPanel extends Composite {
 		resourcesPanel = new FlowPanel();
 		for (Entry<Resource, Integer> resourceCost : card.getCost().entrySet()) {
 			Badge resourceBadge = new Badge(Integer.toString(resourceCost.getValue()));
-			resourceBadge.addStyleName(resourceCost.getKey().getResourceStyle());
+			resourceBadge.addStyleName(GameElementsToViewUtils.resourceTypeToStyle(resourceCost.getKey()));
 			resourcesPanel.add(resourceBadge);
 			if (resourceCost.getValue() == 0) {
 				resourceBadge.setVisible(false);
