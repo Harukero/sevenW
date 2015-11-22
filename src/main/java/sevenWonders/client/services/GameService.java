@@ -73,7 +73,6 @@ public class GameService {
 					JSONObject cardJson = (JSONObject) cardsListJson.get(position);
 					cardsList.addAll(fromJSON(cardJson, cardsByAgeForNumberOfPlayers, category));
 				}
-				logger.fine("Added " + cardsList.size() + " cards from key " + category);
 				return cardsList;
 			}
 
@@ -89,7 +88,6 @@ public class GameService {
 	}
 
 	public List<Card> getCardsFromAge(Age age) {
-		logger.log(Level.INFO, "trying to getCards of " + age);
 		List<Card> ageCards = new ArrayList<>();
 		for (List<Card> cardList : cards.values()) {
 			for (Card card : cardList) {
@@ -108,8 +106,17 @@ public class GameService {
 				cardsNeeded.addAll(cardsByAgeForNumberOfPlayers.get(possiblePlayers).get(age));
 			}
 		}
+		if (age == Age.THIRD) {
+			cardsNeeded.addAll(getGuildCardsFor(nbPlayer));
+		}
 		shuffleCards(cardsNeeded);
 		return cardsNeeded;
+	}
+
+	private List<Card> getGuildCardsFor(Integer nbPlayer) {
+		List<Card> guildCards = cards.get(IConstants.JSON_CATEGORY_GUILDS);
+		shuffleCards(guildCards);
+		return guildCards.subList(0, nbPlayer+2);
 	}
 
 	private static void swapCards(List<Card> list, int idx1, int idx2) {
@@ -144,6 +151,7 @@ public class GameService {
 		int nbCards = byPlayers.size();
 		for (int i = 0; i < nbCards; i++) {
 			Integer byPlayer = Double.valueOf(byPlayers.get(i).isNumber().doubleValue()).intValue();
+			card = new Card(names, age, cardCost, CardType.fromCategory(category), byPlayer);
 			Map<Age, List<Card>> cardsByAge = cardsByAgeForNumberOfPlayers.get(byPlayer);
 			if (!cardsByAge.containsKey(age)) {
 				cardsByAge.put(age, new ArrayList<Card>());

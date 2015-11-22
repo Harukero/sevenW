@@ -77,3 +77,17 @@ h1 {
 	background-color: #FFCC00;
 	color: black;
 }	
+
+.rotate-vert-right {
+	-webkit-transform: rotate(90deg);
+	-moz-transform:    rotate(90deg);
+	-ms-transform:     rotate(90deg);
+	-o-transform:      rotate(90deg);
+}
+
+.rotate-vert-left {
+	-webkit-transform: rotate(270deg);
+	-moz-transform:    rotate(270deg);
+	-ms-transform:     rotate(270deg);
+	-o-transform:      rotate(270deg);
+}

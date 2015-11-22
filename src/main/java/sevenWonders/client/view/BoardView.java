@@ -1,68 +1,64 @@
 package sevenWonders.client.view;
 
-import java.util.List;
-
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 
-import sevenWonders.client.elements.CardPanel;
-import sevenWonders.client.elements.ListGroup;
-import sevenWonders.client.internationalization.ViewConstants;
+import sevenWonders.client.constants.Iid;
+import sevenWonders.client.controllers.BasicBoardController;
+import sevenWonders.client.elements.ModalOpenerButton;
+import sevenWonders.client.elements.ModalPopup;
 import sevenWonders.client.view.ResourcesCounterView.ResourceCounterType;
-import sevenWonders.core.gameElements.Card;
+import sevenWonders.core.gameElements.Board;
 
-public class BoardView extends Composite {
+public class BoardView extends BasicBoardView {
 
-	private FlowPanel root;
-	private ResourcesCounterView resourcesCounterView;
-	private ListGroup<CardPanel> hand;
-	private ListGroup<CardPanel> gameZone;
-	private static final ViewConstants constants = GWT.create(ViewConstants.class);
-
-	// TODO change view : game zone should be a 6 zone panel
-	// each zone should be a card category
-	
+	private BasicBoardController leftPlayerBoard;
+	private BasicBoardController rightPlayerBoard;
+	private FlowPanel buttonsPanel;
 	public BoardView() {
-		root = new FlowPanel();
-		resourcesCounterView = new ResourcesCounterView(ResourceCounterType.MAIN_PLAYER);
-		root.add(resourcesCounterView);
-		hand = new ListGroup<CardPanel>(constants.PLAYERS_HAND());
-		gameZone = new ListGroup<CardPanel>(constants.PLAYED_CARDS());
-		root.add(hand);
-		root.add(gameZone);
-		initWidget(root);
+		super();
 	}
 
-	public void initHand(List<Card> cards) {
-		hand.clear();
-		for (int i = 0; i < cards.size(); i++) {
-			Card card = cards.get(i);
-			hand.addElement(new CardPanel(card));
-			if (i >= 7) {
-				break;
-			}
-		}
-	}
-
-	public ListGroup<CardPanel> getHand() {
-		return hand;
-	}
-
-	public ListGroup<CardPanel> getGameZone() {
-		return gameZone;
+	@Override
+	protected void initRoot() {
+		buttonsPanel = new FlowPanel();
+		prepareShowLeftPlayersBoardButton();
+		prepareShowRightPlayersBoardButton();
+		root.add(buttonsPanel);
+		super.initRoot();
 	}
 	
-	public ResourcesCounterView getResourcesCounterView() {
-		return resourcesCounterView;
+	@Override
+	protected ResourcesCounterView getAccurateResourceCounter() {
+		return new ResourcesCounterView(ResourceCounterType.MAIN_PLAYER);
+	}
+	
+	private void prepareShowRightPlayersBoardButton() {
+		rightPlayerBoard = new BasicBoardController<BasicBoardView>(new BasicBoardView());
+
+		ModalPopup popupRightPlayer = ModalPopup.createModalPopup(constants.RIGHT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalRight,
+				rightPlayerBoard.getView());
+		root.add(popupRightPlayer);
+		ModalOpenerButton rightPlayerBoardButton = new ModalOpenerButton(constants.RIGHT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalRight);
+
+		buttonsPanel.add(rightPlayerBoardButton);		
 	}
 
-	public void initGameZone(List<Card> playedCards) {
-		gameZone.clear();
-		for (int i = 0; i < playedCards.size(); i++) {
-			Card card = playedCards.get(i);
-			gameZone.addElement(new CardPanel(card));
-		}		
+	private void prepareShowLeftPlayersBoardButton() {
+		leftPlayerBoard = new BasicBoardController<BasicBoardView>(new BasicBoardView());
+		ModalPopup popupLeftPlayer = ModalPopup.createModalPopup(constants.LEFT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalLeft,
+				leftPlayerBoard.getView());
+		root.add(popupLeftPlayer);
+		ModalOpenerButton leftPlayerBoardButton = new ModalOpenerButton(constants.LEFT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalLeft);
+		
+		buttonsPanel.add(leftPlayerBoardButton);
 	}
-
+	
+	public void setLeftPlayerBoard(Board board) {
+		leftPlayerBoard.prepareView(board);
+	}
+	
+	public void setRightPlayerBoard(Board board) {
+		rightPlayerBoard.prepareView(board);
+	}
+	
 }

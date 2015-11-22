@@ -10,15 +10,13 @@ import com.google.gwt.user.client.ui.Label;
 
 import sevenWonders.client.constants.IAttributeNames;
 import sevenWonders.client.constants.IStyleNames;
-import sevenWonders.client.constants.Iid;
 import sevenWonders.client.elements.Badge;
 import sevenWonders.client.elements.ElementA;
 import sevenWonders.client.elements.ElementLitem;
 import sevenWonders.client.elements.ElementUl;
-import sevenWonders.client.elements.ModalOpenerButton;
-import sevenWonders.client.elements.ModalPopup;
 import sevenWonders.client.internationalization.ViewConstants;
 import sevenWonders.client.utils.GameElementsToViewUtils;
+import sevenWonders.core.gameElements.Board;
 import sevenWonders.core.gameElements.Resource;
 
 public class ResourcesCounterView extends Composite {
@@ -30,10 +28,12 @@ public class ResourcesCounterView extends Composite {
 	private ElementUl root;
 	private Map<Resource, Integer> resources = new HashMap<>();
 	private Map<Resource, Label> resourceToLabel = new HashMap<Resource, Label>();
+	private ResourceCounterType type;
 
 	private static final ViewConstants constants = GWT.create(ViewConstants.class);
 	
 	public ResourcesCounterView(ResourceCounterType type) {
+		this.type = type;
 		root = new ElementUl();
 		root.setStyleName(IStyleNames.NAV);
 		root.addStyleName(IStyleNames.NAV_PILLS);
@@ -49,28 +49,7 @@ public class ResourcesCounterView extends Composite {
 	}
 
 	private void buildPlayerResourceGrid() {
-		ModalPopup popupLeftPlayer = ModalPopup.createModalPopup(constants.LEFT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalLeft,
-				new Label(constants.LEFT_PLAYER_BOARD()));
-		root.add(popupLeftPlayer);
-		ModalPopup popupRightPlayer = ModalPopup.createModalPopup(constants.RIGHT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalRight,
-				new Label(constants.RIGHT_PLAYER_BOARD()));
-		root.add(popupRightPlayer);
-
-		ModalOpenerButton leftPlayerBoardButton = new ModalOpenerButton(constants.LEFT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalLeft);
-		
-		ElementLitem leftItem = new ElementLitem(leftPlayerBoardButton);
-		leftItem.setStyleName(IStyleNames.PRESENTATION);
-		
-		root.add(leftItem);
-		
-
 		initResources();
-		ModalOpenerButton rightPlayerBoardButton = new ModalOpenerButton(constants.RIGHT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalRight);
-		
-		ElementLitem rightItem = new ElementLitem(rightPlayerBoardButton);
-		rightItem.setStyleName(IStyleNames.PRESENTATION);
-		
-		root.add(rightItem);
 	}
 
 	private void initResources() {
@@ -103,4 +82,5 @@ public class ResourcesCounterView extends Composite {
 			resourceToLabel.get(newResources.getKey()).setText(String.valueOf(newResources.getValue()));
 		}
 	}
+
 }

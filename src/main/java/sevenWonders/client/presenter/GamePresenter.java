@@ -34,7 +34,8 @@ public class GamePresenter extends LazyPresenter<IGameView, IEventBus> implement
 	@Override
 	public void setController(BoardController controller) {
 		this.controller = controller;
-		this.controller.prepareView(model.getPlayersBoard(1));
+		this.controller.prepareView(model.getPlayerBoard());
 		this.controller.setModel(model);
+		this.controller.setEventBus(getEventBus());
 	}
 }

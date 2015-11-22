@@ -3,7 +3,7 @@ package sevenWonders.core.gameElements;
 import com.google.gwt.user.client.rpc.IsSerializable;
 
 public enum Age implements IsSerializable{
-	FIRST, SECOND, THIRD;
+	FIRST, SECOND, THIRD, END_GAME;
 
 	public static Age getAgeFromNumber(double d) {
 

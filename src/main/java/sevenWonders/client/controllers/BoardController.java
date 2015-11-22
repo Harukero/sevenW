@@ -15,6 +15,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
+import sevenWonders.client.IEventBus;
 import sevenWonders.client.constants.IStyleNames;
 import sevenWonders.client.elements.CardPanel;
 import sevenWonders.client.elements.ModalPopup;
@@ -24,32 +25,32 @@ import sevenWonders.client.rpc.DoAIPlayActionService;
 import sevenWonders.client.rpc.DoAIPlayActionServiceAsync;
 import sevenWonders.client.services.GameService;
 import sevenWonders.client.view.BoardView;
+import sevenWonders.core.gameElements.Age;
 import sevenWonders.core.gameElements.Board;
 import sevenWonders.core.gameElements.Card;
 import sevenWonders.core.gameElements.GameModel;
 import sevenWonders.core.gameElements.Resource;
 import sevenWonders.shared.RulesChecker;
 
-public class BoardController {
+public class BoardController extends BasicBoardController<BoardView> {
 
-	private static final String PLAY_CARD_ID = "choose-action";
-	private final BoardView view;
-	private final Map<Widget, HandlerRegistration> widgetToHandler = new HashMap<>();
-	private Board board;
-	private static final ViewConstants constants = GWT.create(ViewConstants.class);
-	private GameModel model;
-	private final DoAIPlayActionServiceAsync aiActionService = GWT.create(DoAIPlayActionService.class);
-	private static Logger logger = Logger.getLogger(BoardController.class.getName());
+	protected static Logger logger = Logger.getLogger(BoardController.class.getName());
+	protected static final String PLAY_CARD_ID = "choose-action";
+	protected static final ViewConstants constants = GWT.create(ViewConstants.class);
+	
+	protected final DoAIPlayActionServiceAsync aiActionService = GWT.create(DoAIPlayActionService.class);
+	protected IEventBus eventBus;
+	protected int turnNumber = 0;
+	protected final Map<Widget, HandlerRegistration> widgetToHandler = new HashMap<>();
 
 	
 	public BoardController(BoardView view) {
-		this.view = view;
+		super(view);
 	}
-
+	
+	@Override
 	public void prepareView(Board board) {
-		this.board = board;
-		view.initHand(board.getHand());
-		view.initGameZone(board.getPlayedCards());
+		super.prepareView(board);
 		bindView();
 	}
 
@@ -58,7 +59,6 @@ public class BoardController {
 		for (final CardPanel widget : handsCards) {
 			addClickHandlerOnHandsCards(widget);
 		}
-		view.getResourcesCounterView().updateView(board.getResources());
 	}
 
 	private void addClickHandlerOnHandsCards(final CardPanel cardPanel) {
@@ -127,7 +127,7 @@ public class BoardController {
 	 */
 	private void onThrowCard(final CardPanel cardPanel) {
 		removeCardFromHand(cardPanel);
-		board.getHand().remove(cardPanel.getContainedCard());
+		model.getPlayerBoard().getHand().remove(cardPanel.getContainedCard());
 		addResourcesToBoard(Resource.MONEY, 3);
 		ModalPopup.close(PLAY_CARD_ID);
 	}
@@ -155,18 +155,35 @@ public class BoardController {
 		 * End turn : AI plays server-side then users switch hand or get new hand
 		 * depending on age advancement  
 		 */
-		aiActionService.aiTurn(model, new AsyncCallback<Void>() {
+		aiActionService.aiTurn(model, GameService.INSTANCE.getUiLanguage(), ++turnNumber, new AsyncCallback<GameModel>() {
 			@Override
 			public void onFailure(Throwable caught) {
 				logger.severe("Error, please check this:\n"+caught.getMessage());
 			}
 
 			@Override
-			public void onSuccess(Void result) {
-				logger.warning("AI has played !!");				
+			public void onSuccess(GameModel result) {
+				model = result;
+				Age currentAge = model.switchHandsOrAge();
+				if (currentAge == Age.END_GAME) {
+					endGame();
+				} else {
+					updateView(model.getPlayerBoard());
+				}
 			}
 
+
 		});
+	}
+
+	protected void endGame() {
+		eventBus.endGame(model);
+	}
+
+	private void updateView(Board playerBoard) {
+		view.updateHand(playerBoard.getHand());
+		updateAIBoards();
+		bindView();
 	}
 
 	/*
@@ -182,7 +199,7 @@ public class BoardController {
 		board.getPlayedCards().add(cardPanel.getContainedCard());
 		payCard(cardPanel.getContainedCard().getCost());
 		removeCardFromHand(cardPanel);
-		board.getHand().remove(cardPanel.getContainedCard());
+		model.getPlayerBoard().getHand().remove(cardPanel.getContainedCard());
 		ModalPopup.close(PLAY_CARD_ID);
 	}
 
@@ -201,6 +218,16 @@ public class BoardController {
 
 	public void setModel(GameModel model) {
 		this.model = model;
+		updateAIBoards();
+	}
+
+	public void setEventBus(IEventBus eventBus) {
+		this.eventBus = eventBus;
+	}
+	
+	public void updateAIBoards() {
+		view.setLeftPlayerBoard(model.getAIBoards().get(0));
+		view.setRightPlayerBoard(model.getAIBoards().get(1));
 	}
 
 }

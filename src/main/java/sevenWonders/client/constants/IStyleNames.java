@@ -52,4 +52,7 @@ public interface IStyleNames {
 	String BTN_ERROR = "btn-error";
 	String BTN_INFO = "btn-info";
 	String BTN_WARNING = "btn-warning";
+	String ROTATE_VERT_RIGHT = "rotate-vert-right";
+	String ROTATE_VERT_LEFT = "rotate-vert-left";
+	String RIGHT = "right";
 }

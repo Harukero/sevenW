@@ -7,5 +7,5 @@ import sevenWonders.core.gameElements.GameModel;
 
 @RemoteServiceRelativePath("aiTurn")
 public interface DoAIPlayActionService extends RemoteService {
-	void aiTurn(GameModel model);
+	GameModel aiTurn(GameModel model, String uiLanguage, int turnNumber);
 }

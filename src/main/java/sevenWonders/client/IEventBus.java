@@ -6,11 +6,13 @@ import com.mvp4g.client.annotation.Events;
 import com.mvp4g.client.annotation.Start;
 import com.mvp4g.client.event.EventBus;
 
+import sevenWonders.client.presenter.EndGamePresenter;
 import sevenWonders.client.presenter.GamePresenter;
 import sevenWonders.client.presenter.HeaderPresenter;
 import sevenWonders.client.presenter.HomePagePresenter;
 import sevenWonders.client.presenter.RootPresenter;
 import sevenWonders.client.presenter.RulesPresenter;
+import sevenWonders.core.gameElements.GameModel;
 
 @Events(startPresenter = RootPresenter.class)
 public interface IEventBus extends EventBus {
@@ -30,7 +32,7 @@ public interface IEventBus extends EventBus {
 
 	@Event(handlers = RootPresenter.class)
 	void setBody(Widget body);
-
+	
 	/*
 	 * Place events
 	 */
@@ -42,4 +44,7 @@ public interface IEventBus extends EventBus {
 
 	@Event(handlers = HomePagePresenter.class)
 	void goToHomePage();
+
+	@Event(handlers = EndGamePresenter.class)
+	void endGame(GameModel model);
 }
