@@ -48,5 +48,8 @@ public interface IStyleNames {
 	String SHOW = "show";
 	String TAB_CONTENT = "tab-content";
 	String TAB_PANE = "tab-pane";
-
+	String BTN_SUCCESS = "btn-success";
+	String BTN_ERROR = "btn-error";
+	String BTN_INFO = "btn-info";
+	String BTN_WARNING = "btn-warning";
 }

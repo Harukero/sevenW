@@ -1,6 +1,8 @@
 package sevenWonders.core.gameElements;
 
-public enum Resource {
+import com.google.gwt.user.client.rpc.IsSerializable;
+
+public enum Resource implements IsSerializable {
 
 	// Brown cards (raw materials) provide one or two of the 
 	// four raw material resources used in the game (wood, ore, clay brick and stone).
@@ -17,7 +19,7 @@ public enum Resource {
 	
 	MONEY(false);
 	
-	private final boolean rawMaterial;
+	private boolean rawMaterial;
 	
 	public boolean isRawMaterial() {
 		return rawMaterial;

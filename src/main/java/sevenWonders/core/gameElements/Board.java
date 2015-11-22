@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.google.gwt.user.client.rpc.IsSerializable;
+
 /**
  * A {@link Board} is the main part of the game. There is one board per player
  * Each {@link Board} is constituted with : - a {@link Wonder} - played
@@ -13,7 +15,7 @@ import java.util.Map;
  * @author Harukero
  *
  */
-public class Board {
+public class Board implements IsSerializable {
 
 	private static final Map<Resource, Integer> BASE_RESOURCES = new HashMap<>();
 
@@ -27,11 +29,15 @@ public class Board {
 		}
 	}
 
-	private final Wonder wonder;
-	private final List<Card> playedCards;
+	private Wonder wonder;
+	private List<Card> playedCards;
 	private List<Card> hand;
-	private final Map<Resource, Integer> resources;
+	private Map<Resource, Integer> resources;
 
+	@SuppressWarnings("unused")
+	private Board() {
+	}
+	
 	public Board(Wonder wonder) {
 		this.wonder = wonder;
 		this.playedCards = new ArrayList<>();
@@ -57,6 +63,66 @@ public class Board {
 
 	public List<Card> getPlayedCards() {
 		return playedCards;
+	}
+
+	
+	
+	private void setWonder(Wonder wonder) {
+		this.wonder = wonder;
+	}
+
+	private void setPlayedCards(List<Card> playedCards) {
+		this.playedCards = playedCards;
+	}
+
+	private void setResources(Map<Resource, Integer> resources) {
+		this.resources = resources;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((hand == null) ? 0 : hand.hashCode());
+		result = prime * result + ((playedCards == null) ? 0 : playedCards.hashCode());
+		result = prime * result + ((resources == null) ? 0 : resources.hashCode());
+		result = prime * result + ((wonder == null) ? 0 : wonder.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Board other = (Board) obj;
+		if (hand == null) {
+			if (other.hand != null)
+				return false;
+		} else if (!hand.equals(other.hand))
+			return false;
+		if (playedCards == null) {
+			if (other.playedCards != null)
+				return false;
+		} else if (!playedCards.equals(other.playedCards))
+			return false;
+		if (resources == null) {
+			if (other.resources != null)
+				return false;
+		} else if (!resources.equals(other.resources))
+			return false;
+		if (wonder != other.wonder)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Board [wonder=" + wonder + ", playedCards=" + playedCards + ", hand=" + hand + ", resources="
+				+ resources + "]";
 	}
 
 }

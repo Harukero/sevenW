@@ -4,6 +4,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 import sevenWonders.client.constants.IAttributeNames;
@@ -18,6 +19,12 @@ public class ModalPopup extends Composite {
 	private FlowPanel header;
 	private FlowPanel body;
 	private FlowPanel footer;
+	
+	public static interface IDialogCustomizer {
+		void addElementsToFooter(FlowPanel footer);
+		void setBody(FlowPanel body);
+	}
+	
 	
 	private static final ViewConstants constants = GWT.create(ViewConstants.class);
 	
@@ -51,7 +58,7 @@ public class ModalPopup extends Composite {
 		body.add(widget);
 	}
 	
-	public static ModalPopup openModalPopup(String title, String modalId, Widget widget) {
+	public static ModalPopup createModalPopup(String title, String modalId, Widget widget) {
 		ModalPopup popup = new ModalPopup(title, modalId);
 		popup.setBody(widget);
 		return popup;
@@ -99,4 +106,32 @@ public class ModalPopup extends Composite {
 		return root;
 	}
 	
+	 public static void openModalPopup(String title, String modalId, Widget widget) {
+		final ModalPopup popup = createModalPopup(title, modalId, widget);
+		RootPanel.get().add(popup);
+		openModal(modalId);
+	 }
+	 
+	 public static void openModalPopup(String title, String modalId, IDialogCustomizer customizer) {
+		 final ModalPopup popup = new ModalPopup(title, modalId);
+		 customizer.addElementsToFooter(popup.footer);
+		 customizer.setBody(popup.body);
+		 RootPanel.get().add(popup);
+		 openModal(modalId);
+	 }
+	
+	 
+	 
+	 private static native void openModal(String id) /*-{
+		$wnd.$('#'+id).modal();
+		$wnd.$('#'+id).on('hidden.bs.modal', function (e) {
+			$wnd.$('#'+id).remove();
+		});
+	}-*/;
+	 
+	 public static native void close(String id) /*-{
+		$wnd.$('#'+id).modal('hide');
+	}-*/;
+
+
 }

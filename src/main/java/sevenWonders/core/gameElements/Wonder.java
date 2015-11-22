@@ -1,5 +1,7 @@
 package sevenWonders.core.gameElements;
 
+import com.google.gwt.user.client.rpc.IsSerializable;
+
 /**
  * A {@link Wonder} is a part of a {@link Board}. There is only 7 different
  * {@link Wonder}s. Each {@link Wonder} has a Resource, 2 to 4
@@ -8,7 +10,7 @@ package sevenWonders.core.gameElements;
  * @author Harukero
  *
  */
-public enum Wonder {
+public enum Wonder implements IsSerializable {
 
 	ALEXANDRIA("Alexandria", Resource.GLASS), 
 	BABYLON("Babylon", Resource.CLAY_BRICK),
@@ -18,10 +20,14 @@ public enum Wonder {
 	OLIMPIA("Olimpia", Resource.WOOD), 
 	RHODOS("Rhodos", Resource.ORE);
 
-	private final String name;
-	private final Resource resource;
-	private final WonderStage[] wonderStages;
+	private String name;
+	private Resource resource;
+	private WonderStage[] wonderStages;
 
+	private Wonder() {
+		
+	}
+	
 	private Wonder(String name, Resource resource, WonderStage... constructionLevels) {
 		this.name = name;
 		this.resource = resource;

@@ -3,20 +3,26 @@ package sevenWonders.core.gameElements;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.google.gwt.user.client.rpc.IsSerializable;
+
 import sevenWonders.core.gameElements.effects.IsAnEffect;
 
 /**
  * @author Harukero
  *
  */
-public class Card {
+public class Card implements IsSerializable {
 
-	private final Map<Resource, Integer> cost;
-	private final Age age;
-	private final IsAnEffect[] effects;
-	private final CardType type;
-	private final Map<String, String> nameByLanguage;
+	private Map<Resource, Integer> cost;
+	private Age age;
+	private IsAnEffect[] effects;
+	private CardType type;
+	private Map<String, String> nameByLanguage;
 
+	@SuppressWarnings("unused")
+	private Card() {
+	}
+	
 	public Card(Map<String, String> nameByLanguage, 
 			Age age, 
 			Map<Resource, Integer> cost, 
@@ -50,6 +56,32 @@ public class Card {
 
 	public CardType getType() {
 		return type;
+	}
+	
+	
+
+	private Map<String, String> getNameByLanguage() {
+		return nameByLanguage;
+	}
+
+	private void setNameByLanguage(Map<String, String> nameByLanguage) {
+		this.nameByLanguage = nameByLanguage;
+	}
+
+	private void setCost(Map<Resource, Integer> cost) {
+		this.cost = cost;
+	}
+
+	private void setAge(Age age) {
+		this.age = age;
+	}
+
+	private void setEffects(IsAnEffect[] effects) {
+		this.effects = effects;
+	}
+
+	private void setType(CardType type) {
+		this.type = type;
 	}
 
 	@Override

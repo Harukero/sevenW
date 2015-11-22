@@ -28,11 +28,13 @@ public class GamePresenter extends LazyPresenter<IGameView, IEventBus> implement
 	private void prepareModel(int nbPlayer) {
 		logger.info("Starting a game for " + nbPlayer + " players");
 		model = new GameModel(nbPlayer);
+		model.prepareModel();
 	}
 
 	@Override
 	public void setController(BoardController controller) {
 		this.controller = controller;
 		this.controller.prepareView(model.getPlayersBoard(1));
+		this.controller.setModel(model);
 	}
 }

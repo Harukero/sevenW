@@ -35,8 +35,8 @@ public class ResourcesCounterView extends Composite {
 	
 	public ResourcesCounterView(ResourceCounterType type) {
 		root = new ElementUl();
-		root.setStyleName("nav");
-		root.addStyleName("nav-pills");
+		root.setStyleName(IStyleNames.NAV);
+		root.addStyleName(IStyleNames.NAV_PILLS);
 		root.getElement().setAttribute(IAttributeNames.ATT_ROLE, IAttributeNames.VAL_TABLIST);
 
 		if (type == ResourceCounterType.MAIN_PLAYER) {
@@ -49,15 +49,14 @@ public class ResourcesCounterView extends Composite {
 	}
 
 	private void buildPlayerResourceGrid() {
-		ModalPopup popupLeftPlayer = ModalPopup.openModalPopup(constants.LEFT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalLeft,
+		ModalPopup popupLeftPlayer = ModalPopup.createModalPopup(constants.LEFT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalLeft,
 				new Label(constants.LEFT_PLAYER_BOARD()));
 		root.add(popupLeftPlayer);
-		ModalPopup popupRightPlayer = ModalPopup.openModalPopup(constants.RIGHT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalRight,
+		ModalPopup popupRightPlayer = ModalPopup.createModalPopup(constants.RIGHT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalRight,
 				new Label(constants.RIGHT_PLAYER_BOARD()));
 		root.add(popupRightPlayer);
 
-		ModalOpenerButton leftPlayerBoardButton = new ModalOpenerButton("", Iid.ResourcesCounterView_ModalLeft);
-		leftPlayerBoardButton.setText(constants.LEFT_PLAYER_BOARD());
+		ModalOpenerButton leftPlayerBoardButton = new ModalOpenerButton(constants.LEFT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalLeft);
 		
 		ElementLitem leftItem = new ElementLitem(leftPlayerBoardButton);
 		leftItem.setStyleName(IStyleNames.PRESENTATION);
@@ -66,8 +65,7 @@ public class ResourcesCounterView extends Composite {
 		
 
 		initResources();
-		ModalOpenerButton rightPlayerBoardButton = new ModalOpenerButton("", Iid.ResourcesCounterView_ModalRight);
-		rightPlayerBoardButton.setText(constants.RIGHT_PLAYER_BOARD());
+		ModalOpenerButton rightPlayerBoardButton = new ModalOpenerButton(constants.RIGHT_PLAYER_BOARD(), Iid.ResourcesCounterView_ModalRight);
 		
 		ElementLitem rightItem = new ElementLitem(rightPlayerBoardButton);
 		rightItem.setStyleName(IStyleNames.PRESENTATION);

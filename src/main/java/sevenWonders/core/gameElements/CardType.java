@@ -1,8 +1,10 @@
 package sevenWonders.core.gameElements;
 
+import com.google.gwt.user.client.rpc.IsSerializable;
+
 import sevenWonders.client.constants.IConstants;
 
-public enum CardType {
+public enum CardType implements IsSerializable {
 
     /** Red cards contain 'shield' symbols; 
      * these are added together to give a player's military strength, 

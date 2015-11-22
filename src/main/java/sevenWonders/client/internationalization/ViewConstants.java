@@ -1,6 +1,7 @@
 package sevenWonders.client.internationalization;
 
 import com.google.gwt.i18n.client.Constants;
+import com.google.gwt.safehtml.shared.SafeHtml;
 
 public interface ViewConstants extends Constants {
 	
@@ -65,4 +66,13 @@ public interface ViewConstants extends Constants {
 	String resource_textiles();
 	@DefaultStringValue("Wood")
 	String resource_wood();
+	
+	@DefaultStringValue("Choose an action")
+	String chooseAnAction();
+	@DefaultStringValue("Choose an action for the following card:")
+	String chooseAnActionForCard();
+	@DefaultStringValue("Throw card")
+	String throwCard();
+	@DefaultStringValue("Play card")
+	String playCard();
 }
