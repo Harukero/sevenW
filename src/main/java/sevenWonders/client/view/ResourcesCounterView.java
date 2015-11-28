@@ -16,7 +16,6 @@ import sevenWonders.client.elements.ElementLitem;
 import sevenWonders.client.elements.ElementUl;
 import sevenWonders.client.internationalization.ViewConstants;
 import sevenWonders.client.utils.GameElementsToViewUtils;
-import sevenWonders.core.gameElements.Board;
 import sevenWonders.core.gameElements.Resource;
 
 public class ResourcesCounterView extends Composite {
@@ -28,12 +27,10 @@ public class ResourcesCounterView extends Composite {
 	private ElementUl root;
 	private Map<Resource, Integer> resources = new HashMap<>();
 	private Map<Resource, Label> resourceToLabel = new HashMap<Resource, Label>();
-	private ResourceCounterType type;
 
 	private static final ViewConstants constants = GWT.create(ViewConstants.class);
 	
 	public ResourcesCounterView(ResourceCounterType type) {
-		this.type = type;
 		root = new ElementUl();
 		root.setStyleName(IStyleNames.NAV);
 		root.addStyleName(IStyleNames.NAV_PILLS);

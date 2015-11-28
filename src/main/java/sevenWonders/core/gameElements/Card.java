@@ -19,7 +19,6 @@ public class Card implements IsSerializable {
 	private IsAnEffect[] effects;
 	private CardType type;
 	private Map<String, String> nameByLanguage;
-	private Integer byPlayer;
 
 	@SuppressWarnings("unused")
 	private Card() {
@@ -30,21 +29,11 @@ public class Card implements IsSerializable {
 			Map<Resource, Integer> cost, 
 			CardType type, 
 			IsAnEffect... effects) {
-		this(nameByLanguage, age, cost, type, 0, effects);
-	}
-
-	public Card(Map<String, String> nameByLanguage, 
-			Age age, 
-			Map<Resource, Integer> cost, 
-			CardType type, 
-			Integer byPlayer,
-			IsAnEffect... effects) {
 		this.nameByLanguage = nameByLanguage;
 		this.age = age;
 		this.cost = cost;
 		this.effects = effects;
 		this.type = type;
-		this.byPlayer = byPlayer;
 	}
 
 	public String getName(String locale) {
@@ -70,40 +59,10 @@ public class Card implements IsSerializable {
 		return type;
 	}
 	
-	
-
-	private Map<String, String> getNameByLanguage() {
-		return nameByLanguage;
-	}
-
-	private void setNameByLanguage(Map<String, String> nameByLanguage) {
-		this.nameByLanguage = nameByLanguage;
-	}
-
-	private void setCost(Map<Resource, Integer> cost) {
-		this.cost = cost;
-	}
-
-	private void setAge(Age age) {
-		this.age = age;
-	}
-
-	private void setEffects(IsAnEffect[] effects) {
-		this.effects = effects;
-	}
-
-	private void setType(CardType type) {
-		this.type = type;
-	}
-
-	public int getByPlayer() {
-		return byPlayer;
-	}
-
 	@Override
 	public String toString() {
 		return "Card [cost=" + cost + ", age=" + age + ", effects=" + Arrays.toString(effects) + ", type=" + type
-				+ ", nameByLanguage=" + nameByLanguage + ", byPlayer=" + byPlayer + "]";
+				+ ", nameByLanguage=" + nameByLanguage + "]";
 	}
 
 	@Override
@@ -113,7 +72,6 @@ public class Card implements IsSerializable {
 		result = prime * result + ((age == null) ? 0 : age.hashCode());
 		result = prime * result + ((cost == null) ? 0 : cost.hashCode());
 		result = prime * result + Arrays.hashCode(effects);
-		result = prime * result + byPlayer;
 		result = prime * result + ((nameByLanguage == null) ? 0 : nameByLanguage.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
@@ -136,8 +94,6 @@ public class Card implements IsSerializable {
 		} else if (!cost.equals(other.cost))
 			return false;
 		if (!Arrays.equals(effects, other.effects))
-			return false;
-		if (byPlayer != other.byPlayer)
 			return false;
 		if (nameByLanguage == null) {
 			if (other.nameByLanguage != null)

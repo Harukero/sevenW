@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import com.google.gwt.user.client.rpc.IsSerializable;
 
 import sevenWonders.client.services.GameService;
+import sevenWonders.core.utils.GameUtils;
 
 public class GameModel implements IsSerializable {
 
@@ -28,19 +29,12 @@ public class GameModel implements IsSerializable {
 		prepareModel();
 	}
 
-	private Age getCurrentAge() {
-		return currentAge;
-	}
-
-	private void setCurrentAge(Age currentAge) {
-		this.currentAge = currentAge;
-	}
-	
 	public void prepareModel() {
 		List<Card> cardsForSpecificNbOfPlayersAndAge = GameService.INSTANCE
 				.getCardsForSpecificNbOfPlayersAndAge(nbPlayer, currentAge);
+		GameUtils.shuffle(Wonders.wonders);
 		for (int i = 1; i <= nbPlayer; i++) {
-			Board board = new Board(Wonder.GIZAH);
+			Board board = new Board(Wonders.wonders.get(i-1));
 			playersBoards.put(new Integer(i), board);
 			List<Card> hand = new ArrayList<Card>();
 			for (int j = 0; j < 7; j++) {
@@ -152,5 +146,3 @@ public class GameModel implements IsSerializable {
 	}
 
 }
-
-

@@ -65,20 +65,6 @@ public class Board implements IsSerializable {
 		return playedCards;
 	}
 
-	
-	
-	private void setWonder(Wonder wonder) {
-		this.wonder = wonder;
-	}
-
-	private void setPlayedCards(List<Card> playedCards) {
-		this.playedCards = playedCards;
-	}
-
-	private void setResources(Map<Resource, Integer> resources) {
-		this.resources = resources;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

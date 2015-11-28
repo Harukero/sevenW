@@ -10,25 +10,18 @@ import com.google.gwt.user.client.rpc.IsSerializable;
  * @author Harukero
  *
  */
-public enum Wonder implements IsSerializable {
-
-	ALEXANDRIA("Alexandria", Resource.GLASS), 
-	BABYLON("Babylon", Resource.CLAY_BRICK),
-	EPHESOS("Ephesos", Resource.PAPYRUS),
-	GIZAH("Gizah", Resource.STONE), 
-	HALIKARNASSOS("Halikarnassos", Resource.TEXTILES), 
-	OLIMPIA("Olimpia", Resource.WOOD), 
-	RHODOS("Rhodos", Resource.ORE);
+public class Wonder implements IsSerializable {
 
 	private String name;
 	private Resource resource;
 	private WonderStage[] wonderStages;
 
+	@SuppressWarnings("unused")
 	private Wonder() {
 		
 	}
 	
-	private Wonder(String name, Resource resource, WonderStage... constructionLevels) {
+	Wonder(String name, Resource resource, WonderStage... constructionLevels) {
 		this.name = name;
 		this.resource = resource;
 		this.wonderStages = constructionLevels;
@@ -44,6 +37,10 @@ public enum Wonder implements IsSerializable {
 
 	public WonderStage[] getWonderStages() {
 		return wonderStages;
+	}
+
+	public void setWondersStages(WonderStage[] wonderStages) {
+		this.wonderStages = wonderStages;
 	}
 
 }

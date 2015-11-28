@@ -13,7 +13,6 @@ import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONNumber;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
-import com.google.gwt.user.client.Random;
 import com.google.gwt.user.client.Window.Location;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
@@ -25,6 +24,7 @@ import sevenWonders.core.gameElements.Card;
 import sevenWonders.core.gameElements.CardType;
 import sevenWonders.core.gameElements.IGameConstants;
 import sevenWonders.core.gameElements.Resource;
+import sevenWonders.core.utils.GameUtils;
 
 public class GameService {
 
@@ -109,26 +109,14 @@ public class GameService {
 		if (age == Age.THIRD) {
 			cardsNeeded.addAll(getGuildCardsFor(nbPlayer));
 		}
-		shuffleCards(cardsNeeded);
+		GameUtils.shuffle(cardsNeeded);
 		return cardsNeeded;
 	}
 
 	private List<Card> getGuildCardsFor(Integer nbPlayer) {
 		List<Card> guildCards = cards.get(IConstants.JSON_CATEGORY_GUILDS);
-		shuffleCards(guildCards);
+		GameUtils.shuffle(guildCards);
 		return guildCards.subList(0, nbPlayer+2);
-	}
-
-	private static void swapCards(List<Card> list, int idx1, int idx2) {
-		Card o1 = list.get(idx1);
-		list.set(idx1, list.get(idx2));
-		list.set(idx2, o1);
-	}
-
-	private static void shuffleCards(List<Card> ｃaｒｄｓ) {
-		for (int i = ｃaｒｄｓ.size(); i > 1; i--) {
-			swapCards(ｃaｒｄｓ, i - 1, Random.nextInt(i));
-		}
 	}
 
 	public String getUiLanguage() {
@@ -151,7 +139,6 @@ public class GameService {
 		int nbCards = byPlayers.size();
 		for (int i = 0; i < nbCards; i++) {
 			Integer byPlayer = Double.valueOf(byPlayers.get(i).isNumber().doubleValue()).intValue();
-			card = new Card(names, age, cardCost, CardType.fromCategory(category), byPlayer);
 			Map<Age, List<Card>> cardsByAge = cardsByAgeForNumberOfPlayers.get(byPlayer);
 			if (!cardsByAge.containsKey(age)) {
 				cardsByAge.put(age, new ArrayList<Card>());

@@ -11,6 +11,7 @@ public class WonderStage implements IsSerializable {
 	private Map<Resource, Integer> cost;
 	private IsAnEffect[] effects;
 
+	@SuppressWarnings("unused")
 	private WonderStage() {
 	}
 	

@@ -24,7 +24,7 @@ public class NavBar extends Composite {
 	public NavBar(String brand, String id) {
 		nav = new ElementNav();
 		nav.getElement().setClassName(IStyleNames.NAVBAR);
-		nav.getElement().addClassName(IStyleNames.NAVBAR_DEFAULT);
+		nav.getElement().addClassName(IStyleNames.NAVBAR_INVERSE);
 		if (brand != null) {
 			addBrandElement(brand);
 		}

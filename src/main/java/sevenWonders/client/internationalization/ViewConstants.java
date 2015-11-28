@@ -1,7 +1,6 @@
 package sevenWonders.client.internationalization;
 
 import com.google.gwt.i18n.client.Constants;
-import com.google.gwt.safehtml.shared.SafeHtml;
 
 public interface ViewConstants extends Constants {
 	

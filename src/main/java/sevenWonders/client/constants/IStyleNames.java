@@ -34,6 +34,7 @@ public interface IStyleNames {
 	String NAVBAR_BRAND = "navbar-brand";
 	String NAVBAR_COLLAPSE = "navbar-collapse";
 	String NAVBAR_DEFAULT = "navbar-default";
+	String NAVBAR_INVERSE = "navbar-inverse";
 	String NAVBAR_HEADER = "navbar-header";
 	String NAVBAR_NAV = "navbar-nav";
 	String PRESENTATION = "presentation";

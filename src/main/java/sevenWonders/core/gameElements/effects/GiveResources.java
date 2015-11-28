@@ -40,7 +40,6 @@ public enum GiveResources implements IsAnEffect {
 	private GiveResources(boolean all, Resource...resources) {
 		allResourcesAvailable = all;
 		this.resources = resources;
-		
 	}
 	
 	public Resource[] getGivenCoins() {

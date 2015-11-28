@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
@@ -17,6 +18,7 @@ import sevenWonders.client.rpc.CardGetterService;
 @SuppressWarnings("serial")
 public class CardGetterServiceImpl extends RemoteServiceServlet implements CardGetterService {
 
+	@Override
 	public String getCards() throws IllegalArgumentException {
 		URI resource = null;
 		StringBuffer fileBuffer = new StringBuffer();
@@ -26,7 +28,13 @@ public class CardGetterServiceImpl extends RemoteServiceServlet implements CardG
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		try (Stream<String> lines = Files.lines(Paths.get(resource))) {
+		Path path = null;
+		if (resource != null){			path = Paths.get(resource);
+		}
+		if (path == null) {
+			throw new IllegalStateException("Error, the card resource doesn't exist");
+		}
+		try (Stream<String> lines = Files.lines(path)) {
 			lines.forEach(x -> fileBuffer.append(x));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
