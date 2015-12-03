@@ -1,4 +1,4 @@
-# sevenW
+# sevenW https://travis-ci.org/Harukero/sevenW.svg?branch=master
 
 == Main presentation
 This project is a test implementation of the well-known Antoine Bauza's game Seven Wonders.
@@ -7,5 +7,5 @@ If you want to give me some advice, feel free to do so, buttry to NOT be too exp
 
 == Requirements
 To build this project, you will need:
-* maven 3 (I have maven-3.3.9)
-* java 8
+. maven 3 (I have maven-3.3.9)
+. java 8
