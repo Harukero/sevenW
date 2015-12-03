@@ -1,5 +1,5 @@
 classes/
 gwt-unitCache/
 target/
-war/WEB-INF/
+war/WEB-INF/lib
 war/sevenwonders/
