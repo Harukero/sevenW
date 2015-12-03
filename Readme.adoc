@@ -1,0 +1,11 @@
+# sevenW
+
+== Main presentation
+This project is a test implementation of the well-known Antoine Bauza's game Seven Wonders.
+This project purpose is just to improve my understandings of GWT framework, and explore some other web technologies and libraries.
+If you want to give me some advice, feel free to do so, buttry to NOT be too explicit. I want to try to find the answers by myself first.
+
+== Requirements
+To build this project, you will need:
+* maven 3 (I have maven-3.3.9)
+* java 8
