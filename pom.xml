@@ -7,6 +7,7 @@
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
     <testSourceDirectory>src/test/java</testSourceDirectory>
+    <outputDirectory>war/WEB-INF/classes</outputDirectory>
     <resources>
       <resource>
         <directory>resources</directory>
@@ -31,6 +32,26 @@
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
+      <plugin>
+		<groupId>org.lesscss</groupId>
+		  <artifactId>lesscss-maven-plugin</artifactId>
+		  <version>1.7.0.1.1</version>
+		  <configuration>
+		    <sourceDirectory>${project.basedir}/war/less</sourceDirectory>
+		    <outputDirectory>${project.build.directory}/war/css</outputDirectory>
+		    <compress>false</compress>
+		    <includes>
+		      <include>SevenWonders.less</include>
+		    </includes>
+		  </configuration>
+		  <executions>
+		  <execution>
+		  <goals>
+		    <goal>compile</goal>
+		  </goals>
+		  </execution>
+		  </executions>
+		</plugin>
     </plugins>
   </build>
   <dependencies>

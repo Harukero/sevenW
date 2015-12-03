@@ -1,4 +1,4 @@
-package sevenWonders.client.elements;
+package sevenWonders.client.elements.bootstrap;
 
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
@@ -9,8 +9,6 @@ import sevenWonders.client.constants.IAttributeNames;
 import sevenWonders.client.constants.IStyleNames;
 
 public class CollapsePanel extends Composite{
-
-	
 	
 	private FlowPanel root = new FlowPanel();
 	private FlowPanel header;
@@ -18,10 +16,9 @@ public class CollapsePanel extends Composite{
 	
 	public CollapsePanel(String headerLabel, String bodyId) {
 		header = buildHeader(headerLabel, bodyId);
-		body = prepareBody(bodyId);
+		body = createEmptyBody(bodyId);
 		
 		root.add(header);
-
 		root.add(body);
 		
 		initWidget(root);
@@ -32,7 +29,7 @@ public class CollapsePanel extends Composite{
 		this.body.add(body);
 	}
 	
-	private static FlowPanel prepareBody(String bodyId) {
+	private static FlowPanel createEmptyBody(String bodyId) {
 		FlowPanel body = new FlowPanel();
 		body.getElement().setClassName(IStyleNames.COLLAPSE);
 		body.getElement().setId(bodyId);

@@ -1,4 +1,4 @@
-package sevenWonders.client.elements;
+package sevenWonders.client.elements.gameSpecific;
 
 import java.util.Map.Entry;
 
@@ -9,6 +9,8 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 
+import sevenWonders.client.constants.IStyleNames;
+import sevenWonders.client.elements.bootstrap.Badge;
 import sevenWonders.client.services.GameService;
 import sevenWonders.client.utils.GameElementsToViewUtils;
 import sevenWonders.core.gameElements.Card;
@@ -25,7 +27,7 @@ public class CardPanel extends Composite {
 		this.card = card;
 		root = new FlowPanel();
 		root.add(new Label(card.getName(GameService.INSTANCE.getUiLanguage())));
-		root.addStyleName("well");
+		root.addStyleName(IStyleNames.CARD_PANEL);
 		resourcesPanel = new FlowPanel();
 		for (Entry<Resource, Integer> resourceCost : card.getCost().entrySet()) {
 			Badge resourceBadge = new Badge(Integer.toString(resourceCost.getValue()));

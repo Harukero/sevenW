@@ -1,4 +1,4 @@
-package sevenWonders.client.elements;
+package sevenWonders.client.elements.html;
 
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.ComplexPanel;

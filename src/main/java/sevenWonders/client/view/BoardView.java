@@ -5,9 +5,9 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import sevenWonders.client.constants.IAttributeNames;
 import sevenWonders.client.constants.Iid;
 import sevenWonders.client.controllers.BasicBoardController;
-import sevenWonders.client.elements.ElementSpan;
-import sevenWonders.client.elements.ModalOpenerButton;
-import sevenWonders.client.elements.ModalPopup;
+import sevenWonders.client.elements.bootstrap.ModalOpenerButton;
+import sevenWonders.client.elements.bootstrap.ModalPopup;
+import sevenWonders.client.elements.html.ElementSpan;
 import sevenWonders.client.view.ResourcesCounterView.ResourceCounterType;
 import sevenWonders.core.gameElements.Board;
 

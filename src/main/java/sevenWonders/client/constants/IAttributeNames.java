@@ -26,5 +26,8 @@ public interface IAttributeNames {
 	String VAL_TABLIST = "tablist";
 	String VAL_TABPANEL = "tabpanel";
 	String VAL_TRUE = "true";
+	String ATT_ARIA_MULTISELECTABLE = "aria-multiselectable";
+	String ATT_DATA_PARENT = "data-parent";
+	String ATT_HREF = "href";
 
 }

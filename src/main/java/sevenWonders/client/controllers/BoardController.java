@@ -17,9 +17,9 @@ import com.google.gwt.user.client.ui.Widget;
 
 import sevenWonders.client.IEventBus;
 import sevenWonders.client.constants.IStyleNames;
-import sevenWonders.client.elements.CardPanel;
-import sevenWonders.client.elements.ModalPopup;
-import sevenWonders.client.elements.ModalPopup.IDialogCustomizer;
+import sevenWonders.client.elements.bootstrap.ModalPopup;
+import sevenWonders.client.elements.bootstrap.ModalPopup.IDialogCustomizer;
+import sevenWonders.client.elements.gameSpecific.CardPanel;
 import sevenWonders.client.internationalization.ViewConstants;
 import sevenWonders.client.rpc.DoAIPlayActionService;
 import sevenWonders.client.rpc.DoAIPlayActionServiceAsync;

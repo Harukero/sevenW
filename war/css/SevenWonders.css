@@ -1,93 +1,89 @@
 a {
-	cursor: pointer;
-	margin-right: 10px;
+  cursor: pointer;
+  margin-right: 10px;
 }
 div {
-	padding: 5px;	
+  padding: 5px;
 }
-
 img {
-	vertical-align: middle;	
+  vertical-align: middle;
 }
 h1 {
-	font-size: 14px;	
+  font-size: 14px;
 }
-
 .body {
-	padding: 10px 5px;
-	min-height: 100px;	
+  padding: 10px 5px;
+  min-height: 100px;
 }
 .menu {
-	border-top: 1px solid;
-	border-bottom: 1px solid;	
+  border-top: 1px solid;
+  border-bottom: 1px solid;
 }
-
 .root {
-	width: 500px;	
+  width: 500px;
 }
-
 .inline-block {
-	display : inline-block;
+  display: inline-block;
 }
-
 .inline-table {
-	display : inline-table;
+  display: inline-table;
 }
-
 .float-right {
-	float: right;
+  float: right;
 }
-
 .list-group-item.display-inline-block {
-	display: inline-block;
+  display: inline-block;
 }
-
 .badge.wood {
-	background-color: #804000;
-	color: white;
+  background-color: #804000;
+  color: white;
 }
-
 .badge.ore {
-	background-color: #000000;
-	color: white;
-} 
-	
+  background-color: #000000;
+  color: white;
+}
 .badge.clay {
-	background-color: #FF6600;
-} 
-
+  background-color: #ff6600;
+}
 .badge.stone {
-	background-color: gray;
+  background-color: gray;
 }
-
 .badge.glass {
-	background-color: #0066CC;
-} 
-
+  background-color: #0066cc;
+}
 .badge.papyrus {
-	background-color: #FFFF99;
-	color: black;
-}	 
-	
+  background-color: #ffff99;
+  color: black;
+}
 .badge.textiles {
-	background-color: #FF0099;
-}	
-
+  background-color: #ff0099;
+}
 .badge.money {
-	background-color: #FFCC00;
-	color: black;
-}	
-
+  background-color: #ffcc00;
+  color: black;
+}
 .rotate-vert-right {
-	-webkit-transform: rotate(90deg);
-	-moz-transform:    rotate(90deg);
-	-ms-transform:     rotate(90deg);
-	-o-transform:      rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+}
+.rotate-vert-left {
+  transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+}
+.card-panel {
+  border: 1px solid black;
+  display: inline-table;
+  height: 90px;
+  width: 180px;
+}
+.card-panel.list-group-item {
+  border: 1px solid black;
 }
 
-.rotate-vert-left {
-	-webkit-transform: rotate(270deg);
-	-moz-transform:    rotate(270deg);
-	-ms-transform:     rotate(270deg);
-	-o-transform:      rotate(270deg);
-}
+/*# sourceMappingURL=SevenWonders.css.map */

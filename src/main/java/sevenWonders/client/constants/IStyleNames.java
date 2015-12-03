@@ -56,4 +56,12 @@ public interface IStyleNames {
 	String ROTATE_VERT_RIGHT = "rotate-vert-right";
 	String ROTATE_VERT_LEFT = "rotate-vert-left";
 	String RIGHT = "right";
+	String PANEL_GROUP = "panel-group";
+	String PANEL = "panel";
+	String PANEL_DEFAULT = "panel-default";
+	String PANEL_HEADING = "panel-heading";
+	String PANEL_TITLE = "panel-title";
+	String PANEL_COLLAPSE = "panel-collapse";
+	String PANEL_BODY = "panel-body";
+	String CARD_PANEL = "card-panel";
 }

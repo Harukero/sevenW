@@ -1,4 +1,4 @@
-package sevenWonders.client.elements;
+package sevenWonders.client.elements.bootstrap;
 
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
@@ -6,6 +6,8 @@ import com.google.gwt.user.client.ui.FlowPanel;
 
 import sevenWonders.client.constants.IAttributeNames;
 import sevenWonders.client.constants.IStyleNames;
+import sevenWonders.client.elements.html.ElementLitem;
+import sevenWonders.client.elements.html.ElementUl;
 
 public class SelectionPanel extends Composite {
 	

@@ -1,4 +1,4 @@
-package sevenWonders.client.elements;
+package sevenWonders.client.elements.bootstrap;
 
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
@@ -8,6 +8,8 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 import sevenWonders.client.constants.IStyleNames;
+import sevenWonders.client.elements.html.ElementNav;
+import sevenWonders.client.elements.html.ElementUl;
 
 public class NavBar extends Composite {
 

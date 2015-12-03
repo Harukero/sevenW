@@ -1,4 +1,4 @@
-package sevenWonders.client.elements;
+package sevenWonders.client.elements.bootstrap;
 
 import java.util.ArrayList;
 import java.util.List;

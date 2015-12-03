@@ -10,10 +10,10 @@ import com.google.gwt.user.client.ui.Label;
 
 import sevenWonders.client.constants.IAttributeNames;
 import sevenWonders.client.constants.IStyleNames;
-import sevenWonders.client.elements.Badge;
-import sevenWonders.client.elements.ElementA;
-import sevenWonders.client.elements.ElementLitem;
-import sevenWonders.client.elements.ElementUl;
+import sevenWonders.client.elements.bootstrap.Badge;
+import sevenWonders.client.elements.html.ElementA;
+import sevenWonders.client.elements.html.ElementLitem;
+import sevenWonders.client.elements.html.ElementUl;
 import sevenWonders.client.internationalization.ViewConstants;
 import sevenWonders.client.utils.GameElementsToViewUtils;
 import sevenWonders.core.gameElements.Resource;

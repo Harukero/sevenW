@@ -6,8 +6,8 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 
-import sevenWonders.client.elements.CardPanel;
-import sevenWonders.client.elements.ListGroup;
+import sevenWonders.client.elements.bootstrap.ListGroup;
+import sevenWonders.client.elements.gameSpecific.CardPanel;
 import sevenWonders.client.internationalization.ViewConstants;
 import sevenWonders.client.view.ResourcesCounterView.ResourceCounterType;
 import sevenWonders.core.gameElements.Card;

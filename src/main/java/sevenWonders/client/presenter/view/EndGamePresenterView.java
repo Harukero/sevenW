@@ -14,6 +14,7 @@ public class EndGamePresenterView extends ReverseCompositeView<IEndGamePresenter
 	@Override
 	public void createView() {
 		root.add(new Label("End of the game"));
+		
 		initWidget(root);
 	}
 }

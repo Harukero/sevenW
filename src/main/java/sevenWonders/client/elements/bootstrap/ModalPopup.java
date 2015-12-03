@@ -1,4 +1,4 @@
-package sevenWonders.client.elements;
+package sevenWonders.client.elements.bootstrap;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Button;
@@ -9,6 +9,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 import sevenWonders.client.constants.IAttributeNames;
 import sevenWonders.client.constants.IStyleNames;
+import sevenWonders.client.elements.html.ElementH;
 import sevenWonders.client.internationalization.ViewConstants;
 
 public class ModalPopup extends Composite {

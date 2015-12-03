@@ -1,4 +1,4 @@
-package sevenWonders.client.elements;
+package sevenWonders.client.elements.gameSpecific;
 
 import java.util.List;
 

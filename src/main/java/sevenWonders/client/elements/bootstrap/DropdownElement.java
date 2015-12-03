@@ -1,9 +1,13 @@
-package sevenWonders.client.elements;
+package sevenWonders.client.elements.bootstrap;
 
 import com.google.gwt.user.client.ui.Composite;
 
 import sevenWonders.client.constants.IAttributeNames;
 import sevenWonders.client.constants.IStyleNames;
+import sevenWonders.client.elements.html.ElementA;
+import sevenWonders.client.elements.html.ElementLitem;
+import sevenWonders.client.elements.html.ElementSpan;
+import sevenWonders.client.elements.html.ElementUl;
 
 public class DropdownElement extends Composite {
 

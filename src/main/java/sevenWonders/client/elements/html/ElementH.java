@@ -1,4 +1,4 @@
-package sevenWonders.client.elements;
+package sevenWonders.client.elements.html;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
