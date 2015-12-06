@@ -62,6 +62,11 @@ h1 {
 	display: inline-block;
 }
 
+.bordered-mono(@clr, @width:2px) {
+	.bordered(@clr, @clr, @clr, @clr);
+	border-width: @width;
+}
+
 .resource-badge(@bgcolor, @clr:white) {
 	background-color: @bgcolor;
 	color: @clr;
@@ -109,11 +114,11 @@ h1 {
 }
 
 .card-panel {
-	border: 1px solid black;
+
 	display: inline-table;
 	height: 90px;
 	width: 180px;
-	margin: 1px;
+	margin: 0 0 0 10px;
 	font-size: 14px;
 	font-weight: bolder;
 }
@@ -122,43 +127,37 @@ h1 {
 	border: 1px solid black;
 }
 
-.bordered-mono(@clr, @width:2px) {
-	.bordered(@clr, @clr, @clr, @clr);
-	border-width: @width;
-}
-
 .card-shadow(@color) {
 	box-shadow: -5px 0px 10px 0px @color;
 }
 
+.colored-card-panel(@color) {
+	color: @color;
+	.card-shadow(@color);
+	border: 1px solid @color;
+}
+
 .card-panel {
 	&.scientific-structure {
-		color: @science-color;
-		.card-shadow(@science-color);
+		.colored-card-panel(@science-color);
 	}
 	&.raw-material {
-		color: @raw-material-color;
-		.card-shadow(@raw-material-color);
+		.colored-card-panel(@raw-material-color);
 	}
 	&.military-structure {
-		color: @military-color;
-		.card-shadow(@military-color);
+		.colored-card-panel(@military-color);
 	}
 	&.manufactured-good {
-		color: @manufactured-color;
-		.card-shadow(@manufactured-color);
+		.colored-card-panel(@manufactured-color);
 	}
 	&.guild {
-		color: @guild-color;
-		.card-shadow(@guild-color);
+		.colored-card-panel(@guild-color);
 	}
 	&.commercial-structure {
-		color: @commercial-color;
-		.card-shadow(@commercial-color);
+		.colored-card-panel(@commercial-color);
 	}
 	&.civic-structure{
-		color: @civilian-color;
-		.card-shadow(@civilian-color);
+		.colored-card-panel(@civilian-color);
 	}
 }
 

@@ -1,5 +1,7 @@
 package sevenWonders.client.view;
 
+import java.util.List;
+
 import com.google.gwt.user.client.ui.FlowPanel;
 
 import sevenWonders.client.constants.IAttributeNames;
@@ -7,14 +9,18 @@ import sevenWonders.client.constants.Iid;
 import sevenWonders.client.controllers.BasicBoardController;
 import sevenWonders.client.elements.bootstrap.ModalOpenerButton;
 import sevenWonders.client.elements.bootstrap.ModalPopup;
+import sevenWonders.client.elements.gameSpecific.CardPanel;
+import sevenWonders.client.elements.gameSpecific.GameZone;
 import sevenWonders.client.elements.html.ElementSpan;
 import sevenWonders.client.view.ResourcesCounterView.ResourceCounterType;
 import sevenWonders.core.gameElements.Board;
+import sevenWonders.core.gameElements.Card;
 
 public class BoardView extends BasicBoardView {
 
 	private BasicBoardController<BasicBoardView> leftPlayerBoard;
 	private BasicBoardController<BasicBoardView> rightPlayerBoard;
+	protected GameZone<CardPanel> hand;
 	private FlowPanel buttonsPanel;
 	public BoardView() {
 		super();
@@ -26,7 +32,24 @@ public class BoardView extends BasicBoardView {
 		prepareShowLeftPlayersBoardButton();
 		prepareShowRightPlayersBoardButton();
 		root.add(buttonsPanel);
+		hand = new GameZone<CardPanel>(constants.PLAYERS_HAND());
+		root.add(hand);
 		super.initRoot();
+	}
+	
+	public void updateHand(List<Card> cards) {
+		hand.clear();
+		for (int i = 0; i < cards.size(); i++) {
+			Card card = cards.get(i);
+			hand.addElement(new CardPanel(card));
+			if (i >= 7) {
+				throw new IllegalStateException("Error, there should not be more than 7 cards in one player's hand.");
+			}
+		}
+	}
+
+	public GameZone<CardPanel> getHand() {
+		return hand;
 	}
 	
 	@Override

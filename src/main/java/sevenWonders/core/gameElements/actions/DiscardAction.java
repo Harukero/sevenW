@@ -21,15 +21,18 @@ public class DiscardAction implements IsAnAction {
 		this.discardedCard = discardedCard;
 	}
 	
+	@Override
 	public GameActionType getActionType() {
 		return actionType;
 	}
 
+	@Override
 	public Board getPlayer() {
 		return player;
 	}
 
-	public Card getDiscardedCard() {
+	@Override
+	public Card getCard() {
 		return discardedCard;
 	}
 

@@ -49,6 +49,11 @@ public class Board implements IsSerializable {
 		return resources;
 	}
 
+	public void addResource(Resource resource, Integer amount) {
+		Integer currentAmount = getResources().get(resource);
+		getResources().put(resource, currentAmount + amount);
+	}
+	
 	public List<Card> getHand() {
 		return hand;
 	}

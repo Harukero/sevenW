@@ -124,7 +124,7 @@ public class Wonders implements IsSerializable {
 	}
 	
 	// TODO : EFFECTS
-	private static final Wonder OLIMPIA = new Wonder("Olimpia", Resource.WOOD);
+	private static final Wonder OLYMPIA = new Wonder("Olympia", Resource.WOOD);
 	static {
 		Map<Resource, Integer> cost1 = new HashMap<>();
 		cost1.put(Resource.WOOD, 2);
@@ -140,7 +140,7 @@ public class Wonders implements IsSerializable {
 		cost3.put(Resource.TEXTILES, 1);
 		WonderStage stage3 = new WonderStage(cost3);
 		
-		OLIMPIA.setWondersStages(new WonderStage[]{stage1, stage2, stage3});
+		OLYMPIA.setWondersStages(new WonderStage[]{stage1, stage2, stage3});
 	}
 	
 	private static final Wonder RHODOS = new Wonder("Rhodos", Resource.ORE);
@@ -171,7 +171,7 @@ public class Wonders implements IsSerializable {
 		wonders.add(BABYLON);
 		wonders.add(GIZAH);
 		wonders.add(HALIKARNASSOS);
-		wonders.add(OLIMPIA);
+		wonders.add(OLYMPIA);
 		wonders.add(RHODOS);
 	}
 	

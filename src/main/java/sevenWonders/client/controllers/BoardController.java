@@ -53,6 +53,7 @@ public class BoardController extends BasicBoardController<BoardView> {
 	@Override
 	public void prepareView(Board board) {
 		super.prepareView(board);
+		view.updateHand(board.getHand());
 		bindView();
 	}
 

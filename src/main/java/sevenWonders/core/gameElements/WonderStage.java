@@ -18,7 +18,6 @@ public class WonderStage implements IsSerializable {
 	public WonderStage(Map<Resource, Integer> cost, IsAnEffect... effects) {
 		this.cost = cost;
 		this.effects = effects;
-
 	}
 
 	public Map<Resource, Integer> getCost() {

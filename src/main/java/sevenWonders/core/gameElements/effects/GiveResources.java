@@ -42,7 +42,7 @@ public enum GiveResources implements IsAnEffect {
 		this.resources = resources;
 	}
 	
-	public Resource[] getGivenCoins() {
+	public Resource[] getGivenResources() {
 		return resources;
 	}
 	

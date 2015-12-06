@@ -59,6 +59,14 @@ public class Card implements IsSerializable {
 		return type;
 	}
 	
+	public Integer getMoneyCost() {
+		Integer cardMoneyCost = getCost().get(Resource.MONEY);
+		if (cardMoneyCost == null) {
+			cardMoneyCost = 0;
+		}
+		return cardMoneyCost;
+	}
+	
 	@Override
 	public String toString() {
 		return "Card [cost=" + cost + ", age=" + age + ", effects=" + Arrays.toString(effects) + ", type=" + type

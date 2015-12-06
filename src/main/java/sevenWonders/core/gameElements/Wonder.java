@@ -39,7 +39,7 @@ public class Wonder implements IsSerializable {
 		return wonderStages;
 	}
 
-	public void setWondersStages(WonderStage[] wonderStages) {
+	void setWondersStages(WonderStage[] wonderStages) {
 		this.wonderStages = wonderStages;
 	}
 

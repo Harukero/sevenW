@@ -127,11 +127,10 @@ h1 {
   transform: rotate(270deg);
 }
 .card-panel {
-  border: 1px solid black;
   display: inline-table;
   height: 90px;
   width: 180px;
-  margin: 1px;
+  margin: 0 0 0 10px;
   font-size: 14px;
   font-weight: bolder;
 }
@@ -141,30 +140,37 @@ h1 {
 .card-panel.scientific-structure {
   color: #008000;
   box-shadow: -5px 0px 10px 0px #008000;
+  border: 1px solid #008000;
 }
 .card-panel.raw-material {
   color: #cd853f;
   box-shadow: -5px 0px 10px 0px #cd853f;
+  border: 1px solid #cd853f;
 }
 .card-panel.military-structure {
   color: #ff0000;
   box-shadow: -5px 0px 10px 0px #ff0000;
+  border: 1px solid #ff0000;
 }
 .card-panel.manufactured-good {
   color: #b3b3b3;
   box-shadow: -5px 0px 10px 0px #b3b3b3;
+  border: 1px solid #b3b3b3;
 }
 .card-panel.guild {
   color: #7f00ff;
   box-shadow: -5px 0px 10px 0px #7f00ff;
+  border: 1px solid #7f00ff;
 }
 .card-panel.commercial-structure {
   color: #ffcc00;
   box-shadow: -5px 0px 10px 0px #ffcc00;
+  border: 1px solid #ffcc00;
 }
 .card-panel.civic-structure {
   color: #3399ff;
   box-shadow: -5px 0px 10px 0px #3399ff;
+  border: 1px solid #3399ff;
 }
 .card-title {
   text-align: center;

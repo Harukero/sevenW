@@ -11,10 +11,15 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import sevenWonders.client.rpc.DoAIPlayActionService;
 import sevenWonders.core.gameElements.Board;
 import sevenWonders.core.gameElements.Card;
+import sevenWonders.core.gameElements.CardType;
 import sevenWonders.core.gameElements.GameModel;
+import sevenWonders.core.gameElements.Resource;
 import sevenWonders.core.gameElements.actions.DiscardAction;
+import sevenWonders.core.gameElements.actions.GameActionType;
 import sevenWonders.core.gameElements.actions.IsAnAction;
 import sevenWonders.core.gameElements.actions.PlayCardAction;
+import sevenWonders.core.gameElements.effects.GiveResources;
+import sevenWonders.core.gameElements.effects.IsAnEffect;
 import sevenWonders.shared.RulesChecker;
 
 @SuppressWarnings("serial")
@@ -39,6 +44,70 @@ public class DoAIPlayActionServiceImpl extends RemoteServiceServlet implements D
 		for (IsAnAction action : actions) {
 			action.doAction();
 			logger.log(Level.WARNING, action.logAction(uiLanguage));
+		}
+		for (IsAnAction action : actions) {
+			applyEffects(action);
+		}
+	}
+
+
+	private void applyEffects(IsAnAction action) {
+		GameActionType actionType = action.getActionType();
+		switch (actionType) {
+		case PLAY_CARD:
+			playCard(action.getPlayer(), action.getCard());
+			break;
+		case WONDER_LEVEL:
+			// TODO: implements levels effects
+			break;
+		case BUY_RESOURCE:
+			break;
+		case CHOOSE_SCIENCE_SYMBOL:
+			break;
+		case COPY_CARD_EFFECT:
+			break;
+		case DISCARD:
+			// nothing to do
+			break;
+		default:
+			break;
+		}
+	}
+
+
+	private void playCard(Board player, Card card) {
+		CardType cardType = card.getType();
+		switch (cardType) {
+		case CIVIC_STRUCTURE:
+			break;
+		case COMMERCIAL_STRUCTURE:
+			break;
+		case GUILD:
+			break;
+		case RAW_MATERIAL:
+		case MANUFACTURED_GOOD:
+			addResources(player, card);
+			break;
+		case MILITARY_STRUCTURE:
+			break;
+		case SCIENTIFIC_STRUCTURE:
+			break;
+		default:
+			break;
+		}
+	}
+
+
+	private void addResources(Board player, Card card) {
+		for (IsAnEffect effect : card.getEffects()) {
+			if (effect instanceof GiveResources){
+				GiveResources giveResources = (GiveResources) effect;
+				if (giveResources.isAllResourcesAvailable()) {
+					for (Resource resource : giveResources.getGivenResources()) {
+						player.addResource(resource, 1);
+					}
+				}
+			}
 		}
 	}
 

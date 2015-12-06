@@ -18,14 +18,17 @@ public class PlayCardAction implements IsAnAction {
 		this.card = card;
 	}
 	
+	@Override
 	public GameActionType getActionType() {
 		return actionType;
 	}
 
+	@Override
 	public Board getPlayer() {
 		return player;
 	}
 
+	@Override
 	public Card getCard() {
 		return card;
 	}
@@ -33,24 +36,14 @@ public class PlayCardAction implements IsAnAction {
 	@Override
 	public void doAction() {
 		player.getPlayedCards().add(card);
-		Integer cardMoneyCost = card.getCost().get(Resource.MONEY);
-		if (cardMoneyCost == null) {
-			cardMoneyCost = 0;
-		}
-		Integer currentMoney = player.getResources().get(Resource.MONEY);
-		player.getResources().put(Resource.MONEY, currentMoney - cardMoneyCost);
+		player.addResource(Resource.MONEY, -card.getMoneyCost());
 		player.getHand().remove(card);
 	}
 	
 	@Override
 	public void undoAction() {
 		player.getHand().add(card);
-		Integer cardMoneyCost = card.getCost().get(Resource.MONEY);
-		if (cardMoneyCost == null) {
-			cardMoneyCost = 0;
-		}
-		Integer currentMoney = player.getResources().get(Resource.MONEY);
-		player.getResources().put(Resource.MONEY, currentMoney + cardMoneyCost);
+		player.addResource(Resource.MONEY, card.getMoneyCost());
 		player.getPlayedCards().remove(card);
 	}
 	
