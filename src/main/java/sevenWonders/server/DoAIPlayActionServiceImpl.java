@@ -12,7 +12,9 @@ import sevenWonders.client.rpc.DoAIPlayActionService;
 import sevenWonders.core.gameElements.Board;
 import sevenWonders.core.gameElements.Card;
 import sevenWonders.core.gameElements.GameModel;
-import sevenWonders.core.gameElements.Resource;
+import sevenWonders.core.gameElements.actions.DiscardAction;
+import sevenWonders.core.gameElements.actions.IsAnAction;
+import sevenWonders.core.gameElements.actions.PlayCardAction;
 import sevenWonders.shared.RulesChecker;
 
 @SuppressWarnings("serial")
@@ -22,16 +24,26 @@ public class DoAIPlayActionServiceImpl extends RemoteServiceServlet implements D
 	
 	
 	@Override
-	public GameModel aiTurn(GameModel model, String uiLanguage, int turnNumber) {
-		logger.log(Level.FINE, "AI's playing turn "+turnNumber);
+	public GameModel aiTurn(GameModel model, String uiLanguage, IsAnAction playerAction, int turnNumber) {
+		List<IsAnAction> actions = new ArrayList<>();
+		actions.add(playerAction);
 		for (Board board : model.getAIBoards()) {
-			chooseAndPlayCard(board, uiLanguage);
+			actions.add(chooseAndPlayCard(board, uiLanguage));
 		}
+		applyActions(actions, uiLanguage);
 		return model;
 	}
 
 
-	private void chooseAndPlayCard(Board board, String uiLanguage) {
+	private void applyActions(List<IsAnAction> actions, String uiLanguage) {
+		for (IsAnAction action : actions) {
+			action.doAction();
+			logger.log(Level.WARNING, action.logAction(uiLanguage));
+		}
+	}
+
+
+	private IsAnAction chooseAndPlayCard(Board board, String uiLanguage) {
 		List<Card> playableCards = new ArrayList<>();
 		for (Card card : board.getHand()) {
 			if (RulesChecker.isPlayable(card, board, uiLanguage)) {
@@ -40,22 +52,9 @@ public class DoAIPlayActionServiceImpl extends RemoteServiceServlet implements D
 		}
 		Collections.shuffle(playableCards);
 		if (playableCards.isEmpty()) {
-			throwCard(board.getHand().get(0), board);
+			return new DiscardAction(board, board.getHand().get(0));
 		} else {
-			playCard(playableCards.get(0), board);
+			return new PlayCardAction(board, playableCards.get(0));
 		}
-	}
-
-
-	private void playCard(Card card, Board board) {
-		board.getHand().remove(card);
-		board.getPlayedCards().add(card);
-	}
-
-
-	private void throwCard(Card card, Board board) {
-		board.getHand().remove(card);
-		Integer integer = board.getResources().get(Resource.MONEY);
-		board.getResources().put(Resource.MONEY, integer + 3);
 	}
 }

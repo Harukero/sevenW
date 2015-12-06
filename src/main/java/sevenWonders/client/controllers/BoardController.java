@@ -29,7 +29,9 @@ import sevenWonders.core.gameElements.Age;
 import sevenWonders.core.gameElements.Board;
 import sevenWonders.core.gameElements.Card;
 import sevenWonders.core.gameElements.GameModel;
-import sevenWonders.core.gameElements.Resource;
+import sevenWonders.core.gameElements.actions.DiscardAction;
+import sevenWonders.core.gameElements.actions.IsAnAction;
+import sevenWonders.core.gameElements.actions.PlayCardAction;
 import sevenWonders.shared.RulesChecker;
 
 public class BoardController extends BasicBoardController<BoardView> {
@@ -73,14 +75,6 @@ public class BoardController extends BasicBoardController<BoardView> {
 		widgetToHandler.put(cardPanel, domHandler);
 	}
 
-	private void removeCardFromHand(final CardPanel cardPanel) {
-		view.getHand().removeElement(cardPanel);
-		HandlerRegistration handlerRegistration = widgetToHandler.get(cardPanel);
-		handlerRegistration.removeHandler();
-		widgetToHandler.remove(cardPanel);
-	}
-
-	
 	public void showPlayCardPopup(final CardPanel cardPanel) {
 		final Button playCardBtn = createPlayCardButton(cardPanel);
 		final Button throwCard = createThrowCardButton(cardPanel);
@@ -112,8 +106,8 @@ public class BoardController extends BasicBoardController<BoardView> {
 			
 			@Override
 			public void onClick(ClickEvent event) {
-				onThrowCard(cardPanel);
-				endTurn();
+				IsAnAction playerAction = onThrowCard(cardPanel);
+				endTurn(playerAction);
 			}
 
 		});
@@ -125,13 +119,11 @@ public class BoardController extends BasicBoardController<BoardView> {
 	 * remove from the hand view and hand model
 	 * add 3 money
 	 */
-	private void onThrowCard(final CardPanel cardPanel) {
-		removeCardFromHand(cardPanel);
-		model.getPlayerBoard().getHand().remove(cardPanel.getContainedCard());
-		addResourcesToBoard(Resource.MONEY, 3);
+	private IsAnAction onThrowCard(final CardPanel cardPanel) {
 		ModalPopup.close(PLAY_CARD_ID);
+		return new DiscardAction(model.getPlayerBoard(), cardPanel.getContainedCard());
 	}
-
+	
 	private Button createPlayCardButton(final CardPanel cardPanel) {
 		final Button playCardBtn = new Button(constants.playCard());
 		playCardBtn.getElement().setClassName(IStyleNames.BTN);
@@ -140,8 +132,8 @@ public class BoardController extends BasicBoardController<BoardView> {
 			
 			@Override
 			public void onClick(ClickEvent event) {
-				onPlayCard(cardPanel);
-				endTurn();
+				IsAnAction playerAction = onPlayCard(cardPanel);
+				endTurn(playerAction);
 			}
 
 
@@ -149,13 +141,12 @@ public class BoardController extends BasicBoardController<BoardView> {
 		return playCardBtn;
 	}
 
-	private void endTurn() {
-		// TODO end turn
+	private void endTurn(IsAnAction playerAction) {
 		/*
 		 * End turn : AI plays server-side then users switch hand or get new hand
 		 * depending on age advancement  
 		 */
-		aiActionService.aiTurn(model, GameService.INSTANCE.getUiLanguage(), ++turnNumber, new AsyncCallback<GameModel>() {
+		aiActionService.aiTurn(model, GameService.INSTANCE.getUiLanguage(), playerAction, ++turnNumber, new AsyncCallback<GameModel>() {
 			@Override
 			public void onFailure(Throwable caught) {
 				logger.severe("Error, please check this:\n"+caught.getMessage());
@@ -171,8 +162,6 @@ public class BoardController extends BasicBoardController<BoardView> {
 					updateView(model.getPlayerBoard());
 				}
 			}
-
-
 		});
 	}
 
@@ -181,7 +170,7 @@ public class BoardController extends BasicBoardController<BoardView> {
 	}
 
 	private void updateView(Board playerBoard) {
-		view.updateHand(playerBoard.getHand());
+		prepareView(playerBoard);
 		updateAIBoards();
 		bindView();
 	}
@@ -194,26 +183,9 @@ public class BoardController extends BasicBoardController<BoardView> {
 	 * both view and model
 	 * apply card's effect(s)
 	 */
-	private void onPlayCard(final CardPanel cardPanel) {
-		view.getGameZone().addElement(cardPanel);
-		board.getPlayedCards().add(cardPanel.getContainedCard());
-		payCard(cardPanel.getContainedCard().getCost());
-		removeCardFromHand(cardPanel);
-		model.getPlayerBoard().getHand().remove(cardPanel.getContainedCard());
+	private IsAnAction onPlayCard(final CardPanel cardPanel) {
 		ModalPopup.close(PLAY_CARD_ID);
-	}
-
-	private void payCard(Map<Resource, Integer> cost) {
-		if (cost.containsKey(Resource.MONEY)) {
-			addResourcesToBoard(Resource.MONEY, -cost.get(Resource.MONEY));
-		}
-	}
-
-	protected void addResourcesToBoard(Resource money, int i) {
-		Integer integer = board.getResources().get(money);
-		integer = integer + i;
-		board.getResources().put(money, integer);
-		view.getResourcesCounterView().updateView(board.getResources());
+		return new PlayCardAction(model.getPlayerBoard(), cardPanel.getContainedCard());
 	}
 
 	public void setModel(GameModel model) {

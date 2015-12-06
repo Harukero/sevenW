@@ -23,6 +23,5 @@ public class BasicBoardController <X extends BasicBoardView> {
 		view.updateHand(board.getHand());
 		view.initGameZone(board.getPlayedCards());
 		view.getResourcesCounterView().updateView(board.getResources());
-
 	}
 }
