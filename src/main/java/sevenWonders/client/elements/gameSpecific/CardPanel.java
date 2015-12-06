@@ -26,8 +26,11 @@ public class CardPanel extends Composite {
 	public CardPanel(Card card) {
 		this.card = card;
 		root = new FlowPanel();
-		root.add(new Label(card.getName(GameService.INSTANCE.getUiLanguage())));
+		Label cardTitle = new Label(card.getName(GameService.INSTANCE.getUiLanguage()));
+		cardTitle.setStyleName(IStyleNames.CARD_TITLE);
+		root.add(cardTitle);
 		root.addStyleName(IStyleNames.CARD_PANEL);
+		root.addStyleName(GameElementsToViewUtils.cardTypeToStyleName(card.getType()));
 		resourcesPanel = new FlowPanel();
 		for (Entry<Resource, Integer> resourceCost : card.getCost().entrySet()) {
 			Badge resourceBadge = new Badge(Integer.toString(resourceCost.getValue()));

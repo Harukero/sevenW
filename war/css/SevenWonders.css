@@ -1,3 +1,9 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
 a {
   cursor: pointer;
   margin-right: 10px;
@@ -36,54 +42,132 @@ h1 {
 }
 .badge.wood {
   background-color: #804000;
-  color: white;
+  color: #ffffff;
+  border-top: solid 1px #000000;
+  border-left: solid 1px #000000;
+  border-right: solid 1px #000000;
+  border-bottom: solid 1px #000000;
+  border-width: 1px;
 }
 .badge.ore {
   background-color: #000000;
-  color: white;
+  color: #ffffff;
+  border-top: solid 1px #000000;
+  border-left: solid 1px #000000;
+  border-right: solid 1px #000000;
+  border-bottom: solid 1px #000000;
+  border-width: 1px;
 }
 .badge.clay {
   background-color: #ff6600;
+  color: #ffffff;
+  border-top: solid 1px #000000;
+  border-left: solid 1px #000000;
+  border-right: solid 1px #000000;
+  border-bottom: solid 1px #000000;
+  border-width: 1px;
 }
 .badge.stone {
-  background-color: gray;
+  background-color: #808080;
+  color: #ffffff;
+  border-top: solid 1px #000000;
+  border-left: solid 1px #000000;
+  border-right: solid 1px #000000;
+  border-bottom: solid 1px #000000;
+  border-width: 1px;
 }
 .badge.glass {
   background-color: #0066cc;
+  color: #ffffff;
+  border-top: solid 1px #000000;
+  border-left: solid 1px #000000;
+  border-right: solid 1px #000000;
+  border-bottom: solid 1px #000000;
+  border-width: 1px;
 }
 .badge.papyrus {
   background-color: #ffff99;
-  color: black;
+  color: #000000;
+  border-top: solid 1px #000000;
+  border-left: solid 1px #000000;
+  border-right: solid 1px #000000;
+  border-bottom: solid 1px #000000;
+  border-width: 1px;
 }
 .badge.textiles {
   background-color: #ff0099;
+  color: #ffffff;
+  border-top: solid 1px #000000;
+  border-left: solid 1px #000000;
+  border-right: solid 1px #000000;
+  border-bottom: solid 1px #000000;
+  border-width: 1px;
 }
 .badge.money {
   background-color: #ffcc00;
-  color: black;
+  color: #000000;
+  border-top: solid 1px #000000;
+  border-left: solid 1px #000000;
+  border-right: solid 1px #000000;
+  border-bottom: solid 1px #000000;
+  border-width: 1px;
 }
 .rotate-vert-right {
-  transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
   -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 .rotate-vert-left {
-  transform: rotate(270deg);
   -webkit-transform: rotate(270deg);
   -moz-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
   -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 .card-panel {
   border: 1px solid black;
   display: inline-table;
   height: 90px;
   width: 180px;
+  margin: 1px;
+  font-size: 14px;
+  font-weight: bolder;
 }
 .card-panel.list-group-item {
   border: 1px solid black;
 }
+.card-panel.scientific-structure {
+  color: #008000;
+  box-shadow: -5px 0px 10px 0px #008000;
+}
+.card-panel.raw-material {
+  color: #cd853f;
+  box-shadow: -5px 0px 10px 0px #cd853f;
+}
+.card-panel.military-structure {
+  color: #ff0000;
+  box-shadow: -5px 0px 10px 0px #ff0000;
+}
+.card-panel.manufactured-good {
+  color: #b3b3b3;
+  box-shadow: -5px 0px 10px 0px #b3b3b3;
+}
+.card-panel.guild {
+  color: #7f00ff;
+  box-shadow: -5px 0px 10px 0px #7f00ff;
+}
+.card-panel.commercial-structure {
+  color: #ffcc00;
+  box-shadow: -5px 0px 10px 0px #ffcc00;
+}
+.card-panel.civic-structure {
+  color: #3399ff;
+  box-shadow: -5px 0px 10px 0px #3399ff;
+}
+.card-title {
+  text-align: center;
+  text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px -2px 0 #000000, -2px 2px 0 #000000, 2px 1px 0 #000000, 2px -1px 0 #000000, -2px -1px 0 #000000, -2px 1px 0 #000000, 2px 0px 0 #000000, 2px 0px 0 #000000, -2px 0px 0 #000000, -2px 0px 0 #000000, 1px 2px 0 #000000, 1px -2px 0 #000000, -1px -2px 0 #000000, -1px 2px 0 #000000, 1px 1px 0 #000000, 1px -1px 0 #000000, -1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0px 0 #000000, 1px 0px 0 #000000, -1px 0px 0 #000000, -1px 0px 0 #000000, 0px 2px 0 #000000, 0px -2px 0 #000000, 0px -2px 0 #000000, 0px 2px 0 #000000, 0px 1px 0 #000000, 0px -1px 0 #000000, 0px -1px 0 #000000, 0px 1px 0 #000000, 0px 0px 0 #000000, 0px 0px 0 #000000, 0px 0px 0 #000000, 0px 0px 0 #000000, 0 0 0 #000000;
+}
 
-/*# sourceMappingURL=SevenWonders.css.map */

@@ -24,12 +24,12 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/bin/mvp4g-1.4.0.jar"/>
-	<classpathentry kind="lib" path="D:/bin/gin-2.1.2/aopalliance.jar"/>
-	<classpathentry kind="lib" path="D:/bin/gin-2.1.2/gin-2.1.2.jar"/>
-	<classpathentry kind="lib" path="D:/bin/gin-2.1.2/guice-3.0.jar"/>
-	<classpathentry kind="lib" path="D:/bin/gin-2.1.2/guice-assistedinject-3.0.jar"/>
-	<classpathentry kind="lib" path="D:/bin/gin-2.1.2/javax.inject.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/mvp4g-1.4.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/aopalliance.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gin-2.1.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/guice-3.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/guice-assistedinject-3.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/javax.inject.jar"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>

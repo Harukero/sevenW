@@ -64,4 +64,13 @@ public interface IStyleNames {
 	String PANEL_COLLAPSE = "panel-collapse";
 	String PANEL_BODY = "panel-body";
 	String CARD_PANEL = "card-panel";
+	String SCIENTIFIC_STRUCTURE = "scientific-structure";
+	String RAW_MATERIAL = "raw-material";
+	String MILITARY_STRUCTURE = "military-structure";
+	String MANUFACTURED_GOOD = "manufactured-good";
+	String GUILD = "guild";
+	String COMMERCIAL_STRUCTURE = "commercial-structure";
+	String CIVIC_STRUCTURE = "civic-structure";
+	String CARD_TITLE = "card-title";
+	
 }

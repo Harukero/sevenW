@@ -3,6 +3,7 @@ package sevenWonders.server;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
@@ -18,12 +19,11 @@ import sevenWonders.shared.RulesChecker;
 public class DoAIPlayActionServiceImpl extends RemoteServiceServlet implements DoAIPlayActionService {
 
 	private static final Logger logger = Logger.getLogger(DoAIPlayActionServiceImpl.class.getName());
-	private String uiLanguage;
 	
 	
 	@Override
 	public GameModel aiTurn(GameModel model, String uiLanguage, int turnNumber) {
-		this.uiLanguage = uiLanguage;
+		logger.log(Level.FINE, "AI's playing turn "+turnNumber);
 		for (Board board : model.getAIBoards()) {
 			chooseAndPlayCard(board, uiLanguage);
 		}

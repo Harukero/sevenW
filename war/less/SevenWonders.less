@@ -1,3 +1,6 @@
+@import "elements.less";
+@import "stroke.less";
+
 @wood:  #804000;
 @ore: #000000;
 @clay: #FF6600;
@@ -7,10 +10,10 @@
 @textiles: #FF0099;
 @money: #FFCC00;
 
-@raw-material-color: #663300;
+@raw-material-color: peru;
 @manufactured-color: #b3b3b3;
 @commercial-color: #ffcc00;
-@military-color: #ff1a1a;
+@military-color: red;
 @science-color: #008000;
 @guild-color: #7f00ff;
 @civilian-color: #3399ff;
@@ -59,56 +62,50 @@ h1 {
 	display: inline-block;
 }
 
+.resource-badge(@bgcolor, @clr:white) {
+	background-color: @bgcolor;
+	color: @clr;
+	.bordered-mono(black, 1px);
+}
+
 .badge.wood {
-	background-color: @wood;
-	color: white;
+	.resource-badge(@wood);
 }
 
 .badge.ore {
-	background-color: @ore;
-	color: white;
+	.resource-badge(@ore);
 } 
 	
 .badge.clay {
-	background-color: @clay;
+	.resource-badge(@clay);
 } 
 
 .badge.stone {
-	background-color: @stone;
+	.resource-badge(@stone);
 }
 
 .badge.glass {
-	background-color: @glass;
+	.resource-badge(@glass);
 } 
 
 .badge.papyrus {
-	background-color: @papyrus;
-	color: black;
+	.resource-badge(@papyrus, black);
 }	 
 	
 .badge.textiles {
-	background-color: @textiles;
+	.resource-badge(@textiles);
 }	
 
 .badge.money {
-	background-color: @money;
-	color: black;
+	.resource-badge(@money, black);
 }	
 
 .rotate-vert-right {
-	transform: rotate(90deg);
-	-webkit-transform: rotate(90deg);
-	-moz-transform:    rotate(90deg);
-	-ms-transform:     rotate(90deg);
-	-o-transform:      rotate(90deg);
+	.rotation(90deg);
 }
 
 .rotate-vert-left {
-	transform: rotate(270deg);
-	-webkit-transform: rotate(270deg);
-	-moz-transform:    rotate(270deg);
-	-ms-transform:     rotate(270deg);
-	-o-transform:      rotate(270deg);
+	.rotation(270deg);
 }
 
 .card-panel {
@@ -116,8 +113,56 @@ h1 {
 	display: inline-table;
 	height: 90px;
 	width: 180px;
+	margin: 1px;
+	font-size: 14px;
+	font-weight: bolder;
 }
 
 .card-panel.list-group-item {
-		border: 1px solid black;
+	border: 1px solid black;
+}
+
+.bordered-mono(@clr, @width:2px) {
+	.bordered(@clr, @clr, @clr, @clr);
+	border-width: @width;
+}
+
+.card-shadow(@color) {
+	box-shadow: -5px 0px 10px 0px @color;
+}
+
+.card-panel {
+	&.scientific-structure {
+		color: @science-color;
+		.card-shadow(@science-color);
+	}
+	&.raw-material {
+		color: @raw-material-color;
+		.card-shadow(@raw-material-color);
+	}
+	&.military-structure {
+		color: @military-color;
+		.card-shadow(@military-color);
+	}
+	&.manufactured-good {
+		color: @manufactured-color;
+		.card-shadow(@manufactured-color);
+	}
+	&.guild {
+		color: @guild-color;
+		.card-shadow(@guild-color);
+	}
+	&.commercial-structure {
+		color: @commercial-color;
+		.card-shadow(@commercial-color);
+	}
+	&.civic-structure{
+		color: @civilian-color;
+		.card-shadow(@civilian-color);
+	}
+}
+
+.card-title {
+	text-align: center;
+	.stroke(2, black);
 }

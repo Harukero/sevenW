@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
 
@@ -14,7 +13,6 @@ import sevenWonders.client.elements.bootstrap.Badge;
 import sevenWonders.client.elements.html.ElementA;
 import sevenWonders.client.elements.html.ElementLitem;
 import sevenWonders.client.elements.html.ElementUl;
-import sevenWonders.client.internationalization.ViewConstants;
 import sevenWonders.client.utils.GameElementsToViewUtils;
 import sevenWonders.core.gameElements.Resource;
 
@@ -28,8 +26,6 @@ public class ResourcesCounterView extends Composite {
 	private Map<Resource, Integer> resources = new HashMap<>();
 	private Map<Resource, Label> resourceToLabel = new HashMap<Resource, Label>();
 
-	private static final ViewConstants constants = GWT.create(ViewConstants.class);
-	
 	public ResourcesCounterView(ResourceCounterType type) {
 		root = new ElementUl();
 		root.setStyleName(IStyleNames.NAV);

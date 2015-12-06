@@ -1,0 +1,23 @@
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {List}            - text-shadow list
+.stroke(@stroke, @color) {
+  @maxi: @stroke + 1;
+  .i-loop (@i) when (@i > 0) {
+    @maxj: @stroke + 1;
+    .j-loop (@j) when (@j > 0) {
+      text-shadow+: (@i - 1)*(1px)  (@j - 1)*(1px) 0 @color;
+      text-shadow+: (@i - 1)*(1px)  (@j - 1)*(-1px) 0 @color;
+      text-shadow+: (@i - 1)*(-1px)  (@j - 1)*(-1px) 0 @color;
+      text-shadow+: (@i - 1)*(-1px)  (@j - 1)*(1px) 0 @color;
+      .j-loop(@j - 1);
+    }
+    .j-loop (0) {}
+    .j-loop(@maxj);
+    .i-loop(@i - 1);
+  }
+  .i-loop (0) {}
+  .i-loop(@maxi);
+  text-shadow+: 0 0 0 @color;
+}

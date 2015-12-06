@@ -38,7 +38,7 @@
 		  <version>1.7.0.1.1</version>
 		  <configuration>
 		    <sourceDirectory>${project.basedir}/war/less</sourceDirectory>
-		    <outputDirectory>${project.build.directory}/war/css</outputDirectory>
+		    <outputDirectory>${project.basedir}/war/css</outputDirectory>
 		    <compress>false</compress>
 		    <includes>
 		      <include>SevenWonders.less</include>

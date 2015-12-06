@@ -4,6 +4,7 @@ import com.google.gwt.core.client.GWT;
 
 import sevenWonders.client.constants.IStyleNames;
 import sevenWonders.client.internationalization.ViewConstants;
+import sevenWonders.core.gameElements.CardType;
 import sevenWonders.core.gameElements.Resource;
 
 public class GameElementsToViewUtils {
@@ -57,4 +58,26 @@ public class GameElementsToViewUtils {
 		throw new IllegalStateException("Error, unexpected use of resource '"+resource+"'");
 	}
 	
+	
+	public static String cardTypeToStyleName(CardType type) {
+		switch (type) {
+		case  CIVIC_STRUCTURE:
+			return IStyleNames.CIVIC_STRUCTURE;
+		case COMMERCIAL_STRUCTURE:
+			return IStyleNames.COMMERCIAL_STRUCTURE;
+		case GUILD:
+			return IStyleNames.GUILD;
+		case MANUFACTURED_GOOD:
+			return IStyleNames.MANUFACTURED_GOOD;
+		case MILITARY_STRUCTURE:
+			return IStyleNames.MILITARY_STRUCTURE;
+		case RAW_MATERIAL:
+			return IStyleNames.RAW_MATERIAL;
+		case SCIENTIFIC_STRUCTURE:
+			return IStyleNames.SCIENTIFIC_STRUCTURE;
+		default:
+			break;
+		}
+		return "";
+	}
 }

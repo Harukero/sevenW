@@ -12,6 +12,7 @@ public class GameUtils {
     	arr[j] = tmp;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void shuffle(List<?> list) {
 	    int size = list.size();
          Object arr[] = list.toArray();
