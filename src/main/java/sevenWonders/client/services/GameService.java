@@ -13,6 +13,7 @@ import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONNumber;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
+import com.google.gwt.json.client.JSONValue;
 import com.google.gwt.user.client.Window.Location;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
@@ -24,6 +25,8 @@ import sevenWonders.core.gameElements.Card;
 import sevenWonders.core.gameElements.CardType;
 import sevenWonders.core.gameElements.IGameConstants;
 import sevenWonders.core.gameElements.Resource;
+import sevenWonders.core.gameElements.effects.EffectsUtils;
+import sevenWonders.core.gameElements.effects.IsAnEffect;
 import sevenWonders.core.utils.GameUtils;
 
 public class GameService {
@@ -133,7 +136,10 @@ public class GameService {
 		Age age = Age.getAgeFromNumber(ageJson.doubleValue());
 		JSONObject resourcesObject = cardJson.get(IConstants.JSON_ENTRY_COST).isObject();
 		Map<Resource, Integer> cardCost = getCost(resourcesObject);
-		Card card = new Card(names, age, cardCost, CardType.fromCategory(category));
+		
+		IsAnEffect[] effects = getEffects(cardJson);
+		
+		Card card = new Card(names, age, cardCost, CardType.fromCategory(category), effects);
 		cards.add(card);
 		JSONArray byPlayers = cardJson.get(IConstants.JSON_ENTRY_FOR_PLAYERS).isArray();
 		int nbCards = byPlayers.size();
@@ -147,6 +153,21 @@ public class GameService {
 		}
 
 		return cards;
+	}
+
+	private static IsAnEffect[] getEffects(JSONObject cardJson) {
+		JSONValue jsonValue = cardJson.get(IConstants.JSON_ENTRY_EFFECTS);
+		List<IsAnEffect> effects = new ArrayList<>();
+		if (jsonValue != null) {
+			JSONArray effectsAsJson = jsonValue.isArray();
+			for (int i = 0; i < effectsAsJson.size(); i++) {
+				String effect = effectsAsJson.get(i).isString().stringValue();
+				if (!effect.isEmpty()) {
+					effects.add(EffectsUtils.entryToEffect.get(effect));
+				}
+			}
+		}
+		return effects.toArray(new IsAnEffect[effects.size()]);
 	}
 
 	private static Map<String, String> getCardNames(JSONObject cardJson) {

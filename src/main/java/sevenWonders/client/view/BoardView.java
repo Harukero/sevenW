@@ -5,6 +5,7 @@ import java.util.List;
 import com.google.gwt.user.client.ui.FlowPanel;
 
 import sevenWonders.client.constants.IAttributeNames;
+import sevenWonders.client.constants.IStyleNames;
 import sevenWonders.client.constants.Iid;
 import sevenWonders.client.controllers.BasicBoardController;
 import sevenWonders.client.elements.bootstrap.ModalOpenerButton;
@@ -29,6 +30,7 @@ public class BoardView extends BasicBoardView {
 	@Override
 	protected void initRoot() {
 		buttonsPanel = new FlowPanel();
+		buttonsPanel.addStyleName(IStyleNames.FLEX_CONTAINER_SPACE_BETWEEN);
 		prepareShowLeftPlayersBoardButton();
 		prepareShowRightPlayersBoardButton();
 		root.add(buttonsPanel);

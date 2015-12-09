@@ -16,6 +16,7 @@ public interface IConstants {
 	String JSON_ENTRY_AGE = "age";
 	String JSON_ENTRY_CARD_NAME = "cardName";
 	String JSON_ENTRY_COST = "cost";
+	String JSON_ENTRY_EFFECTS = "effects";	
 	String JSON_ENTRY_FOR_PLAYERS = "forPlayers";
 	
 	String JSON_RESOURCE_CLAY_BRICK = "clay";
@@ -25,6 +26,6 @@ public interface IConstants {
 	String JSON_RESOURCE_PAPYRUS = "papyrus";
 	String JSON_RESOURCE_STONE = "stone";
 	String JSON_RESOURCE_TEXTILES = "fabriques";
-	String JSON_RESOURCE_WOOD = "wood";	
+	String JSON_RESOURCE_WOOD = "wood";
 	
 }

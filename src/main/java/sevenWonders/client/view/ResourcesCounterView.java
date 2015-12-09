@@ -31,6 +31,7 @@ public class ResourcesCounterView extends Composite {
 		root.setStyleName(IStyleNames.NAV);
 		root.addStyleName(IStyleNames.NAV_PILLS);
 		root.getElement().setAttribute(IAttributeNames.ATT_ROLE, IAttributeNames.VAL_TABLIST);
+		root.addStyleName(IStyleNames.FLEX_CONTAINER_CENTER);
 
 		if (type == ResourceCounterType.MAIN_PLAYER) {
 			buildPlayerResourceGrid();

@@ -8,6 +8,9 @@
             "cost":{
 
             },
+            "effects": [
+                "ONE_WOOD"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -22,6 +25,9 @@
             "cost":{
 
             },
+            "effects": [
+                "ONE_STONE"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -36,6 +42,9 @@
             "cost":{
 
             },
+            "effects": [
+                "ONE_CLAY_BRICK"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -50,6 +59,9 @@
             "cost":{
 
             },
+            "effects": [
+                "ONE_ORE"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -64,6 +76,9 @@
             "cost":{
                 "coin":1
             },
+            "effects": [
+                "WOOD_OR_CLAY_BRICK"
+            ],
             "age":1,
             "forPlayers":[
                 6
@@ -77,6 +92,9 @@
             "cost":{
                 "coin":1
             },
+            "effects": [
+                "STONE_OR_CLAY_BRICK"
+            ],
             "age":1,
             "forPlayers":[
                 4
@@ -90,6 +108,9 @@
             "cost":{
                 "coin":1
             },
+            "effects": [
+                "CLAY_BRICK_OR_ORE"
+            ],
             "age":1,
             "forPlayers":[
                 3
@@ -103,6 +124,9 @@
             "cost":{
                 "coin":1
             },
+            "effects": [
+                "STONE_OR_WOOD"
+            ],
             "age":1,
             "forPlayers":[
                 3
@@ -116,6 +140,9 @@
             "cost":{
                 "coin":1
             },
+            "effects": [
+                "WOOD_OR_ORE"
+            ],
             "age":1,
             "forPlayers":[
                 5
@@ -129,6 +156,9 @@
             "cost":{
                 "coin":1
             },
+            "effects": [
+                "ORE_OR_STONE"
+            ],
             "age":1,
             "forPlayers":[
                 6
@@ -142,6 +172,9 @@
             "cost":{
                 "coin":1
             },
+            "effects": [
+                "TWO_WOOD"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -156,6 +189,9 @@
             "cost":{
                 "coin":1
             },
+            "effects": [
+                "TWO_STONE"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -170,6 +206,9 @@
             "cost":{
                 "coin":1
             },
+            "effects": [
+                "TWO_CLAY_BRICK"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -184,6 +223,9 @@
             "cost":{
                 "coin":1
             },
+            "effects": [
+                "TWO_ORE"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -200,6 +242,9 @@
             "cost":{
 
             },
+            "effects": [
+                "ONE_TEXTILE"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -214,6 +259,9 @@
             "cost":{
 
             },
+            "effects": [
+                "ONE_GLASS"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -228,6 +276,9 @@
             "cost":{
 
             },
+            "effects": [
+                "ONE_PAPYRUS"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -242,6 +293,9 @@
             "cost":{
 
             },
+            "effects": [
+                "ONE_TEXTILE"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -256,6 +310,9 @@
             "cost":{
 
             },
+            "effects": [
+                "ONE_GLASS"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -270,6 +327,9 @@
             "cost":{
 
             },
+            "effects": [
+                "ONE_PAPYRUS"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -286,6 +346,9 @@
             "cost":{
 
             },
+            "effects": [
+                "THREE_POINTS"
+            ],
             "age":1,
             "forPlayers":[
                 4,
@@ -298,8 +361,11 @@
                 "fr":"Bains"
             },
             "cost":{
-                "rock":1
+                "stone":1
             },
+            "effects": [
+                "THREE_POINTS"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -314,6 +380,9 @@
             "cost":{
 
             },
+            "effects": [
+                "TWO_POINTS"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -328,6 +397,9 @@
             "cost":{
 
             },
+            "effects": [
+                "TWO_POINTS"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -340,8 +412,11 @@
                 "fr":"Aqueduc"
             },
             "cost":{
-                "rock":3
+                "stone":3
             },
+            "effects": [
+                "FIVE_POINTS"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -358,6 +433,9 @@
                 "clay":1,
                 "glass":1
             },
+            "effects": [
+                "THREE_POINTS"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -373,6 +451,9 @@
                 "wood":1,
                 "ore":2
             },
+            "effects": [
+                "FOUR_POINTS"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -388,6 +469,9 @@
                 "clay":2,
                 "fabriques":1
             },
+            "effects": [
+                "FOUR_POINTS"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -406,6 +490,9 @@
                 "fabriques":1,
                 "glass":1
             },
+            "effects": [
+                "SEVEN_POINTS"
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -421,6 +508,9 @@
                 "clay":2,
                 "wood":1
             },
+            "effects": [
+                "FIVE_POINTS"
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -433,10 +523,13 @@
                 "fr":"Hôtel de Ville"
             },
             "cost":{
-                "rock":2,
+                "stone":2,
                 "ore":1,
                 "glass":1
             },
+            "effects": [
+                "SIX_POINTS"
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -453,11 +546,14 @@
                 "clay":1,
                 "wood":1,
                 "ore":1,
-                "rock":1,
+                "stone":1,
                 "glass":1,
                 "papyrus":1,
                 "fabriques":1
             },
+            "effects": [
+                "EIGHT_POINTS"
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -472,8 +568,11 @@
             "cost":{
                 "wood":2,
                 "ore":1,
-                "rock":1
+                "stone":1
             },
+            "effects": [
+                "SIX_POINTS"
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -490,6 +589,9 @@
             "cost":{
 
             },
+            "effects": [
+                "FIVE_COINS"
+            ],
             "age":1,
             "forPlayers":[
                 4,
@@ -505,6 +607,9 @@
             "cost":{
 
             },
+            "effects": [
+                ""
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -519,6 +624,9 @@
             "cost":{
 
             },
+            "effects": [
+                ""
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -533,6 +641,9 @@
             "cost":{
 
             },
+            "effects": [
+                ""
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -547,6 +658,9 @@
             "cost":{
                 "clay":2
             },
+            "effects": [
+                "ANY_MANUFACTURES"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -562,6 +676,9 @@
             "cost":{
                 "wood":2
             },
+            "effects": [
+                "ANY_RAW"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -577,6 +694,9 @@
             "cost":{
 
             },
+            "effects": [
+                ""
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -591,6 +711,9 @@
             "cost":{
 
             },
+            "effects": [
+                ""
+            ],
             "age":2,
             "forPlayers":[
                 4,
@@ -607,6 +730,9 @@
                 "ore":1,
                 "fabriques":1
             },
+            "effects": [
+                ""
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -620,8 +746,11 @@
             },
             "cost":{
                 "glass":1,
-                "rock":1
+                "stone":1
             },
+            "effects": [
+                ""
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -637,6 +766,9 @@
                 "papyrus":1,
                 "clay":2
             },
+            "effects": [
+                ""
+            ],
             "age":3,
             "forPlayers":[
                 4,
@@ -650,8 +782,11 @@
             },
             "cost":{
                 "ore":1,
-                "rock":2
+                "stone":2
             },
+            "effects": [
+                ""
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -669,7 +804,9 @@
             "cost":{
                 "fabriques":1
             },
-            "image":"images/age1-press.png",
+            "effects": [
+                "COMPAS"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -684,7 +821,9 @@
             "cost":{
                 "glass":1
             },
-            "image":"images/age1-press.png",
+            "effects": [
+                "COG"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -699,7 +838,9 @@
             "cost":{
                 "papyrus":1
             },
-            "image":"images/age1-press.png",
+            "effects": [
+                "TABLET"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -715,6 +856,9 @@
                 "ore":2,
                 "glass":1
             },
+            "effects": [
+                "COMPAS"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -730,6 +874,9 @@
                 "clay":2,
                 "papyrus":1
             },
+            "effects": [
+                "COG"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -742,9 +889,12 @@
                 "fr":"Bibliothèque"
             },
             "cost":{
-                "rock":2,
+                "stone":2,
                 "fabriques":1
             },
+            "effects": [
+                "TABLET"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -760,6 +910,9 @@
                 "wood":1,
                 "papyrus":1
             },
+            "effects": [
+                "TABLET"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -776,6 +929,9 @@
                 "fabriques":1,
                 "papyrus":1
             },
+            "effects": [
+                "COMPAS"
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -792,6 +948,9 @@
                 "fabriques":1,
                 "glass":1
             },
+            "effects": [
+                "COG"
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -808,6 +967,9 @@
                 "glass":1,
                 "papyrus":1
             },
+            "effects": [
+                "TABLET"
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -820,9 +982,12 @@
                 "fr":"Academie"
             },
             "cost":{
-                "rock":3,
+                "stone":3,
                 "glass":1
             },
+            "effects": [
+                "COMPAS"
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -839,6 +1004,9 @@
                 "fabriques":1,
                 "papyrus":1
             },
+            "effects": [
+                "COG"
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -855,6 +1023,9 @@
             "cost":{
                 "wood":1
             },
+            "effects": [
+                "PLUS_ONE_MILITARY_POWER"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -869,6 +1040,9 @@
             "cost":{
                 "ore":1
             },
+            "effects": [
+                "PLUS_ONE_MILITARY_POWER"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -883,6 +1057,9 @@
             "cost":{
                 "clay":1
             },
+            "effects": [
+                "PLUS_ONE_MILITARY_POWER"
+            ],
             "age":1,
             "forPlayers":[
                 3,
@@ -895,8 +1072,11 @@
                 "fr":"Muraille"
             },
             "cost":{
-                "rock":3
+                "stone":3
             },
+            "effects": [
+                "PLUS_TWO_MILITARY_POWER"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -912,6 +1092,9 @@
                 "ore":2,
                 "wood":1
             },
+            "effects": [
+                "PLUS_TWO_MILITARY_POWER"
+            ],
             "age":2,
             "forPlayers":[
                 4,
@@ -929,6 +1112,9 @@
                 "ore":1,
                 "wood":1
             },
+            "effects": [
+                "PLUS_TWO_MILITARY_POWER"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -944,6 +1130,9 @@
                 "wood":2,
                 "ore":1
             },
+            "effects": [
+                "PLUS_TWO_MILITARY_POWER"
+            ],
             "age":2,
             "forPlayers":[
                 3,
@@ -957,8 +1146,11 @@
             },
             "cost":{
                 "ore":3,
-                "rock":1
+                "stone":1
             },
+            "effects": [
+                "PLUS_THREE_MILITARY_POWER"
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -971,9 +1163,12 @@
                 "fr":"Cirque"
             },
             "cost":{
-                "rock":3,
+                "stone":3,
                 "ore":1
             },
+            "effects": [
+                "PLUS_THREE_MILITARY_POWER"
+            ],
             "age":3,
             "forPlayers":[
                 4,
@@ -991,6 +1186,9 @@
                 "wood":2,
                 "fabriques":1
             },
+            "effects": [
+                "PLUS_THREE_MILITARY_POWER"
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -1007,6 +1205,9 @@
                 "wood":1,
                 "clay":3
             },
+            "effects": [
+                "PLUS_THREE_MILITARY_POWER"
+            ],
             "age":3,
             "forPlayers":[
                 3,
@@ -1023,9 +1224,12 @@
             "cost":{
                 "clay":1,
                 "ore":2,
-                "rock":1,
+                "stone":1,
                 "wood":1
             },
+            "effects": [
+                "ONE_FOR_RAW"
+            ],
             "age":3,
             "forPlayers":[
 
@@ -1037,9 +1241,12 @@
                 "fr":"Guilds des Artisants"
             },
             "cost":{
-                "rock":2,
+                "stone":2,
                 "ore":2
             },
+            "effects": [
+                "TWO_FOR_MANUFACTURED"
+            ],
             "age":3,
             "forPlayers":[
 
@@ -1055,6 +1262,9 @@
                 "fabriques":1,
                 "papyrus":1
             },
+            "effects": [
+                "ONE_FOR_COMMERCIAL"
+            ],
             "age":3,
             "forPlayers":[
 
@@ -1070,6 +1280,9 @@
                 "fabriques":1,
                 "papyrus":1
             },
+            "effects": [
+                "ONE_FOR_SCIENCE"
+            ],
             "age":3,
             "forPlayers":[
 
@@ -1084,6 +1297,9 @@
                 "clay":3,
                 "glass":1
             },
+            "effects": [
+                "ONE_FOR_MILITARY"
+            ],
             "age":3,
             "forPlayers":[
 
@@ -1097,8 +1313,11 @@
             "cost":{
                 "ore":2,
                 "fabriques":1,
-                "rock":1
+                "stone":1
             },
+            "effects": [
+                "ONE_PER_NEIGHBOR_DEFEAT"
+            ],
             "age":3,
             "forPlayers":[
 
@@ -1114,6 +1333,9 @@
                 "glass":1,
                 "papyrus":1
             },
+            "effects": [
+                "ONE_FOR_RAW_MANUFACTURED_AND_GUILD"
+            ],
             "age":3,
             "forPlayers":[
 
@@ -1129,6 +1351,9 @@
                 "wood":2,
                 "papyrus":1
             },
+            "effects": [
+                "ONE_FOR_SCIENCE"
+            ],
             "age":3,
             "forPlayers":[
 
@@ -1142,8 +1367,11 @@
             "cost":{
                 "wood":3,
                 "fabriques":1,
-                "rock":1
+                "stone":1
             },
+            "effects": [
+                "ONE_FOR_CIVIC"
+            ],
             "age":3,
             "forPlayers":[
 
@@ -1155,10 +1383,13 @@
                 "fr":"Guilde des Bâtisseurs"
             },
             "cost":{
-                "rock":2,
+                "stone":2,
                 "clay":2,
                 "glass":1
             },
+            "effects": [
+                "ONE_PER_WONDERS_LEVEL_FROM_CURRENT_PLAYER_AND_NEIGHBOR"
+            ],
             "age":3,
             "forPlayers":[
 
