@@ -39,14 +39,12 @@ public class DiscardAction implements IsAnAction {
 	@Override
 	public void doAction() {
 		player.getHand().remove(discardedCard);
-		Integer money = player.getResources().get(Resource.MONEY);
-		player.getResources().put(Resource.MONEY, money + 3);
+		player.increaseResource(Resource.MONEY, 3);
 	}
 
 	@Override
 	public void undoAction() {
-		Integer money = player.getResources().get(Resource.MONEY);
-		player.getResources().put(Resource.MONEY, money - 3);
+		player.decreaseResource(Resource.MONEY, 3);
 		player.getHand().add(discardedCard);
 	}
 	

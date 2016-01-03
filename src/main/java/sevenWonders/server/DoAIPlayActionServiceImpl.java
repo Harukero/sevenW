@@ -80,10 +80,9 @@ public class DoAIPlayActionServiceImpl extends RemoteServiceServlet implements D
 		switch (cardType) {
 		case CIVIC_STRUCTURE:
 			break;
-		case COMMERCIAL_STRUCTURE:
-			break;
 		case GUILD:
 			break;
+		case COMMERCIAL_STRUCTURE:
 		case RAW_MATERIAL:
 		case MANUFACTURED_GOOD:
 			addResources(player, card);
@@ -104,8 +103,10 @@ public class DoAIPlayActionServiceImpl extends RemoteServiceServlet implements D
 				GiveResources giveResources = (GiveResources) effect;
 				if (giveResources.isAllResourcesAvailable()) {
 					for (Resource resource : giveResources.getGivenResources()) {
-						player.addResource(resource, 1);
+						player.increaseResource(resource, 1);
 					}
+				} else {
+					player.addResourceChoice(giveResources.getGivenResources());
 				}
 			}
 		}

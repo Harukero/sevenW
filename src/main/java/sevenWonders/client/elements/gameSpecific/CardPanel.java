@@ -15,12 +15,14 @@ import sevenWonders.client.services.GameService;
 import sevenWonders.client.utils.GameElementsToViewUtils;
 import sevenWonders.core.gameElements.Card;
 import sevenWonders.core.gameElements.Resource;
+import sevenWonders.core.gameElements.effects.IsAnEffect;
 
 public class CardPanel extends Composite {
 
 	private FlowPanel root;
 	private HandlerRegistration addDomHandler;
 	private FlowPanel resourcesPanel;
+	private FlowPanel capacitiesPanel;
 	private Card card;
 
 	public CardPanel(Card card) {
@@ -42,6 +44,13 @@ public class CardPanel extends Composite {
 		}
 		
 		root.add(resourcesPanel);
+		
+		capacitiesPanel = new FlowPanel();
+		for (IsAnEffect effect : card.getEffects()) {
+			capacitiesPanel.add(new Label(effect.asString()));
+		}
+		
+		root.add(capacitiesPanel);
 		initWidget(root);
 	}
 

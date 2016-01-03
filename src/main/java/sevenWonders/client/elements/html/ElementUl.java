@@ -20,6 +20,7 @@ public class ElementUl extends ComplexPanel {
 		((UListElement) getElement().cast()).setDir(dir);
 	}
 
+	@Override
 	@SuppressWarnings("deprecation")
 	public void add(Widget w) {
 		// ComplexPanel requires the two-arg add() method

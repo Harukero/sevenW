@@ -36,14 +36,14 @@ public class PlayCardAction implements IsAnAction {
 	@Override
 	public void doAction() {
 		player.getPlayedCards().add(card);
-		player.addResource(Resource.MONEY, -card.getMoneyCost());
+		player.increaseResource(Resource.MONEY, -card.getMoneyCost());
 		player.getHand().remove(card);
 	}
 	
 	@Override
 	public void undoAction() {
 		player.getHand().add(card);
-		player.addResource(Resource.MONEY, card.getMoneyCost());
+		player.increaseResource(Resource.MONEY, card.getMoneyCost());
 		player.getPlayedCards().remove(card);
 	}
 	

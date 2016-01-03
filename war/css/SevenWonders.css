@@ -130,12 +130,15 @@ h1 {
   display: inline-table;
   height: 90px;
   width: 180px;
-  margin: 0 0 0 10px;
+  margin: 0 0 5px 10px;
   font-size: 14px;
   font-weight: bolder;
 }
 .card-panel.list-group-item {
   border: 1px solid black;
+}
+.modal.seven-wonders > .modal-dialog {
+  width: 1000px;
 }
 .card-panel.scientific-structure {
   color: #008000;

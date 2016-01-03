@@ -102,6 +102,7 @@ public class ModalPopup extends Composite {
 		FlowPanel root = new FlowPanel();
 		root.getElement().setClassName(IStyleNames.MODAL);
 		root.getElement().addClassName(IStyleNames.FADE);
+		root.addStyleName(IStyleNames.SEVEN_WONDERS);
 		root.getElement().setAttribute(IAttributeNames.ATT_ROLE, IAttributeNames.VAL_DIALOG);
 		root.getElement().setId(modalId);
 		return root;

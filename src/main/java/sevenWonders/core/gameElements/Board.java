@@ -32,7 +32,7 @@ public class Board implements IsSerializable {
 	private Wonder wonder;
 	private List<Card> playedCards;
 	private List<Card> hand;
-	private Map<Resource, Integer> resources;
+	private List<Map<Resource, Integer>> resources;
 
 	@SuppressWarnings("unused")
 	private Board() {
@@ -41,17 +41,41 @@ public class Board implements IsSerializable {
 	public Board(Wonder wonder) {
 		this.wonder = wonder;
 		this.playedCards = new ArrayList<>();
-		resources = new HashMap<>(BASE_RESOURCES);
-		resources.put(wonder.getResource(), 1);
+		resources = new ArrayList<>();
+		resources.add(new HashMap<>(BASE_RESOURCES));
+		increaseResource(wonder.getResource(), 1);
 	}
 
-	public Map<Resource, Integer> getResources() {
+	public List<Map<Resource, Integer>> getResources() {
 		return resources;
 	}
 
-	public void addResource(Resource resource, Integer amount) {
-		Integer currentAmount = getResources().get(resource);
-		getResources().put(resource, currentAmount + amount);
+	public void increaseResource(Resource resource, Integer amount) {
+		for (Map<Resource, Integer> possibleResourcesPath : resources) {
+			Integer currentAmount = possibleResourcesPath.get(resource);
+			possibleResourcesPath.put(resource, currentAmount + amount);
+		}
+	}
+	
+	public void decreaseResource(Resource resource, Integer amount) {
+		for (Map<Resource, Integer> possibleResourcesPath : resources) {
+			Integer currentAmount = possibleResourcesPath.get(resource);
+			possibleResourcesPath.put(resource, currentAmount - amount);
+		}
+	}
+	
+
+	public void addResourceChoice(Resource[] givenResources) {
+		List<Map<Resource, Integer>> futureResourcesChoices = new ArrayList<>();
+		for (Resource resource : givenResources) {
+			for (Map<Resource,Integer> map : resources) {
+				Map<Resource, Integer> currentChoice = new HashMap<>(map);
+				Integer currentAmount = currentChoice.get(resource);
+				currentChoice.put(resource, currentAmount + 1);
+				futureResourcesChoices.add(currentChoice);
+			}
+		}
+		resources = futureResourcesChoices;
 	}
 	
 	public List<Card> getHand() {
@@ -70,6 +94,10 @@ public class Board implements IsSerializable {
 		return playedCards;
 	}
 
+	public Integer getMoneyAmount() {
+		return resources.get(0).get(Resource.MONEY);
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

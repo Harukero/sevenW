@@ -1,7 +1,5 @@
 package sevenWonders.client.presenter;
 
-import java.util.logging.Logger;
-
 import com.mvp4g.client.annotation.Presenter;
 import com.mvp4g.client.presenter.LazyPresenter;
 
@@ -14,7 +12,6 @@ import sevenWonders.core.gameElements.GameModel;
 
 @Presenter(view = GamePresenterView.class)
 public class GamePresenter extends LazyPresenter<IGameView, IEventBus> implements IGamePresenter {
-	private static Logger logger = Logger.getLogger(GamePresenter.class.getName());
 
 	private BoardController controller;
 	GameModel model;
@@ -26,7 +23,6 @@ public class GamePresenter extends LazyPresenter<IGameView, IEventBus> implement
 	}
 
 	private void prepareModel(int nbPlayer) {
-		logger.info("Starting a game for " + nbPlayer + " players");
 		model = new GameModel(nbPlayer);
 		model.prepareModel();
 	}

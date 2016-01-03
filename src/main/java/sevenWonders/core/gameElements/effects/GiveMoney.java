@@ -14,4 +14,9 @@ public enum GiveMoney implements IsAnEffect {
 	public int getGivenCoins() {
 		return givenCoins;
 	}
+	
+	@Override
+	public String asString() {
+		return "+" + givenCoins + " coins";
+	}
 }

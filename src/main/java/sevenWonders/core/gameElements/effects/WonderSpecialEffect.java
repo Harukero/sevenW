@@ -6,4 +6,8 @@ public enum WonderSpecialEffect implements IsAnEffect {
 	COPY_GUILD,
 	CHOOSE_SCIENTIFIC_SYMBOL;
 	
+	@Override
+	public String asString() {
+		return name();
+	}
 }

@@ -15,8 +15,29 @@ public enum GivePointsPerCardType implements IsAnEffect {
 			CardType.MANUFACTURED_GOOD,
 			CardType.GUILD);
 	
+	private int nbPoints;
+	private PlayersInvolved involves;
+	private CardType[] types;
+
 	private GivePointsPerCardType(int nbPoints, PlayersInvolved involves, CardType... types) {
-		
+		this.nbPoints = nbPoints;
+		this.involves = involves;
+		this.types = types;
 	}
 	
+	@Override
+	public String asString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("give ").append(nbPoints).append(" for each card of type ");
+		for (int i = 0; i < types.length; i++) {
+			if (i > 0) {
+				builder.append(", ");
+			}
+			CardType cardType = types[i];
+			builder.append(cardType.name());
+		}
+		builder.append(" possessed by ");
+		builder.append(involves.name());
+		return builder.toString();
+	}
 }

@@ -74,6 +74,7 @@ public interface IStyleNames {
 	String CARD_TITLE = "card-title";
 	String FLEX_CONTAINER_CENTER = "flex-container-center";
 	String FLEX_CONTAINER_SPACE_BETWEEN = "flex-container-space-between";
+	String SEVEN_WONDERS = "seven-wonders";
 	
 	
 }
