@@ -5,9 +5,5 @@ public enum WonderSpecialEffect implements IsAnEffect {
 	CAN_PLAY_AGE_LAST_CARD,
 	COPY_GUILD,
 	CHOOSE_SCIENTIFIC_SYMBOL;
-	
-	@Override
-	public String asString() {
-		return name();
-	}
+
 }

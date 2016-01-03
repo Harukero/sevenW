@@ -25,19 +25,15 @@ public enum GivePointsPerCardType implements IsAnEffect {
 		this.types = types;
 	}
 	
-	@Override
-	public String asString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("give ").append(nbPoints).append(" for each card of type ");
-		for (int i = 0; i < types.length; i++) {
-			if (i > 0) {
-				builder.append(", ");
-			}
-			CardType cardType = types[i];
-			builder.append(cardType.name());
-		}
-		builder.append(" possessed by ");
-		builder.append(involves.name());
-		return builder.toString();
+	public int getNbPoints() {
+		return nbPoints;
+	}
+
+	public PlayersInvolved getInvolves() {
+		return involves;
+	}
+
+	public CardType[] getTypes() {
+		return types;
 	}
 }

@@ -50,17 +50,4 @@ public enum GiveResources implements IsAnEffect {
 		return allResourcesAvailable;
 	}
 	
-	@Override
-	public String asString() {
-		String symbol = allResourcesAvailable ? " and " : " or ";
-		StringBuilder builder = new StringBuilder();
-		for (int i = 0; i < resources.length; i++) {
-			if (i > 0) {
-				builder.append(symbol);
-			}
-			builder.append(resources[i].getName());
-		}
-		return builder.toString();
-	}
-	
 }

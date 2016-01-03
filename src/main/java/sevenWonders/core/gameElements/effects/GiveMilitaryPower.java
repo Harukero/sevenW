@@ -14,9 +14,5 @@ public enum GiveMilitaryPower implements IsAnEffect {
 	public int getMilitaryPowerGiven() {
 		return militaryPowerGiven;
 	}
-	
-	@Override
-	public String asString() {
-		return "+"+militaryPowerGiven + " military points";
-	}
+
 }

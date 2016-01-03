@@ -19,9 +19,5 @@ public enum GivePoints implements IsAnEffect {
 	public int getGivenPoints() {
 		return givenPoints;
 	}
-	
-	@Override
-	public String asString() {
-		return "+" + givenPoints + " points";
-	}
+
 }

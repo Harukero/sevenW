@@ -47,7 +47,7 @@ public class CardPanel extends Composite {
 		
 		capacitiesPanel = new FlowPanel();
 		for (IsAnEffect effect : card.getEffects()) {
-			capacitiesPanel.add(new Label(effect.asString()));
+			capacitiesPanel.add(new Label(GameElementsToViewUtils.effectToString(effect)));
 		}
 		
 		root.add(capacitiesPanel);

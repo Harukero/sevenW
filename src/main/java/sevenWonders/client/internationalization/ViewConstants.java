@@ -74,4 +74,50 @@ public interface ViewConstants extends Constants {
 	String throwCard();
 	@DefaultStringValue("Play card")
 	String playCard();
+	
+	@DefaultStringValue(" and ")
+	String keyword_and();
+	@DefaultStringValue(" or ")
+	String keyword_or();
+	
+	@DefaultStringValue("Cog")
+	String element_cog();
+	@DefaultStringValue("Compas")
+	String element_compas();
+	@DefaultStringValue("Tablet")
+	String element_tablet();
+	@DefaultStringValue("+1 point per neighbor defeat point")
+	String effect_onePerNeighborDefeatPoint();
+	@DefaultStringValue("+1 point per wonder level finished (all)")
+	String effect_onePerWonderLevel();
+	@DefaultStringValue("Can play each age last card")
+	String effect_canPlayAgeLastCard();
+	@DefaultStringValue("Choose a scientific symbol")
+	String effect_chooseScientificSymbol();
+	@DefaultStringValue("Copy one neighbor's guild")
+	String effect_copyGuild();
+	@DefaultStringValue("Can play card from graveyard")
+	String effect_playCardFromGraveyard();
+	
+	@DefaultStringValue("Civic Structure")
+	String cardType_civicStructure();
+	@DefaultStringValue("Commercial Structure")
+	String cardType_commercialStructure();
+	@DefaultStringValue("Guild Structure")
+	String cardType_guild();
+	@DefaultStringValue("Manufactured Good")
+	String cardType_manufacturedGood();
+	@DefaultStringValue("Military Structure")
+	String cardType_militaryStructure();
+	@DefaultStringValue("Raw Material")
+	String cardType_rawMaterial();
+	@DefaultStringValue("Scientific Structure")
+	String cardType_scientificStructure();
+	
+	@DefaultStringValue("you and your neighbors")
+	String effect_involveCurrentAndNeighbors();
+	@DefaultStringValue("only you")
+	String effect_involveCurrentPlayer();
+	@DefaultStringValue("your neighbors only")
+	String effect_involveNeighbors();
 }
