@@ -1,6 +1,8 @@
 package sevenWonders.core.gameElements;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +30,14 @@ public class Board implements IsSerializable {
 			}
 		}
 	}
+	private static final Comparator<Card> cardCategoryComparator = new Comparator<Card>() {
 
+		@Override
+		public int compare(Card o1, Card o2) {
+			return o1.getType().getRank() - o2.getType().getRank();
+		}
+	};
+	
 	private Wonder wonder;
 	private List<Card> playedCards;
 	private List<Card> hand;
@@ -79,6 +88,7 @@ public class Board implements IsSerializable {
 	}
 	
 	public List<Card> getHand() {
+		Collections.sort(hand, cardCategoryComparator);
 		return hand;
 	}
 
@@ -91,6 +101,7 @@ public class Board implements IsSerializable {
 	}
 
 	public List<Card> getPlayedCards() {
+		Collections.sort(playedCards, cardCategoryComparator);
 		return playedCards;
 	}
 
