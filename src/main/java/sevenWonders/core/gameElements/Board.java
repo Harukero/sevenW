@@ -9,6 +9,10 @@ import java.util.Map;
 
 import com.google.gwt.user.client.rpc.IsSerializable;
 
+import sevenWonders.core.gameElements.effects.GivePoints;
+import sevenWonders.core.gameElements.effects.GiveScientificElement;
+import sevenWonders.core.gameElements.effects.IsAnEffect;
+
 /**
  * A {@link Board} is the main part of the game. There is one board per player
  * Each {@link Board} is constituted with : - a {@link Wonder} - played
@@ -107,6 +111,45 @@ public class Board implements IsSerializable {
 
 	public Integer getMoneyAmount() {
 		return resources.get(0).get(Resource.MONEY);
+	}
+	
+	public int computeScore() {
+		int score = resources.get(0).get(Resource.MONEY) / 3;
+		int cogNumber = 0;
+		int tabletNumber = 0;
+		int compasNumber = 0;
+		for (Card card : playedCards) {
+			for (IsAnEffect effect : card.getEffects()) {
+				if (effect instanceof GivePoints) {
+					GivePoints givePoints = (GivePoints) effect;
+					score += givePoints.getGivenPoints();
+				} else if (effect instanceof GiveScientificElement) {
+					GiveScientificElement scientificElement = (GiveScientificElement) effect;
+					switch (scientificElement) {
+					case COG:
+						cogNumber ++;
+						break;
+					case COMPAS:
+						compasNumber++;
+						break;
+					case TABLET:
+						tabletNumber ++;
+						break;
+					}
+					
+				}
+			}
+		}
+		score += cogNumber * cogNumber;
+		score += tabletNumber * tabletNumber;
+		score += compasNumber * compasNumber;
+		while (cogNumber > 0 && tabletNumber > 0 && compasNumber > 0) {
+			score += 7;
+			cogNumber--;
+			tabletNumber--;
+			compasNumber--;
+		}
+		return score;
 	}
 	
 	@Override
