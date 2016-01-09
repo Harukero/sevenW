@@ -1,6 +1,7 @@
 package sevenWonders.core.gameElements;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import com.google.gwt.user.client.rpc.IsSerializable;
@@ -19,19 +20,26 @@ public class Card implements IsSerializable {
 	private IsAnEffect[] effects;
 	private CardType type;
 	private Map<String, String> nameByLanguage;
+	private List<String> chainableCardsIds;
+	private String cardId;
 
 	@SuppressWarnings("unused")
 	private Card() {
 	}
 	
-	public Card(Map<String, String> nameByLanguage, 
+	public Card(
+			String cardId,
+			Map<String, String> nameByLanguage, 
 			Age age, 
 			Map<Resource, Integer> cost, 
-			CardType type, 
+			CardType type,
+			List<String> chainableCardsIds,
 			IsAnEffect... effects) {
+		this.cardId = cardId;
 		this.nameByLanguage = nameByLanguage;
 		this.age = age;
 		this.cost = cost;
+		this.chainableCardsIds = chainableCardsIds;
 		this.effects = effects;
 		this.type = type;
 	}
@@ -59,6 +67,14 @@ public class Card implements IsSerializable {
 		return type;
 	}
 	
+	public List<String> getChainableCardsIds() {
+		return chainableCardsIds;
+	}
+	
+	public String getCardId() {
+		return cardId;
+	}
+	
 	public Integer getMoneyCost() {
 		Integer cardMoneyCost = getCost().get(Resource.MONEY);
 		if (cardMoneyCost == null) {
@@ -66,18 +82,14 @@ public class Card implements IsSerializable {
 		}
 		return cardMoneyCost;
 	}
-	
-	@Override
-	public String toString() {
-		return "Card [cost=" + cost + ", age=" + age + ", effects=" + Arrays.toString(effects) + ", type=" + type
-				+ ", nameByLanguage=" + nameByLanguage + "]";
-	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((age == null) ? 0 : age.hashCode());
+		result = prime * result + ((cardId == null) ? 0 : cardId.hashCode());
+		result = prime * result + ((chainableCardsIds == null) ? 0 : chainableCardsIds.hashCode());
 		result = prime * result + ((cost == null) ? 0 : cost.hashCode());
 		result = prime * result + Arrays.hashCode(effects);
 		result = prime * result + ((nameByLanguage == null) ? 0 : nameByLanguage.hashCode());
@@ -96,6 +108,16 @@ public class Card implements IsSerializable {
 		Card other = (Card) obj;
 		if (age != other.age)
 			return false;
+		if (cardId == null) {
+			if (other.cardId != null)
+				return false;
+		} else if (!cardId.equals(other.cardId))
+			return false;
+		if (chainableCardsIds == null) {
+			if (other.chainableCardsIds != null)
+				return false;
+		} else if (!chainableCardsIds.equals(other.chainableCardsIds))
+			return false;
 		if (cost == null) {
 			if (other.cost != null)
 				return false;
@@ -112,5 +134,12 @@ public class Card implements IsSerializable {
 			return false;
 		return true;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Card [cost=" + cost + ", age=" + age + ", effects=" + Arrays.toString(effects) + ", type=" + type
+				+ ", nameByLanguage=" + nameByLanguage + ", chainableCardsIds=" + chainableCardsIds + ", cardId="
+				+ cardId + "]";
+	}
+
 }

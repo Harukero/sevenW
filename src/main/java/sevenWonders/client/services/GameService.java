@@ -13,6 +13,7 @@ import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONNumber;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
+import com.google.gwt.json.client.JSONString;
 import com.google.gwt.json.client.JSONValue;
 import com.google.gwt.user.client.Window.Location;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -139,7 +140,15 @@ public class GameService {
 		
 		IsAnEffect[] effects = getEffects(cardJson);
 		
-		Card card = new Card(names, age, cardCost, CardType.fromCategory(category), effects);
+		JSONArray array = cardJson.get(IConstants.JSON_ENTRY_CHAIN_WITH).isArray();
+		List<String> chainedCardsIds = new ArrayList<>();
+		for (int i = 0; i < array.size(); i++) {
+			chainedCardsIds.add(array.get(i).isString().stringValue());
+		}
+		
+		JSONString cardId = cardJson.get(IConstants.JSON_ENTRY_CARD_ID).isString();
+		
+		Card card = new Card(cardId.stringValue(), names, age, cardCost, CardType.fromCategory(category), chainedCardsIds, effects);
 		cards.add(card);
 		JSONArray byPlayers = cardJson.get(IConstants.JSON_ENTRY_FOR_PLAYERS).isArray();
 		int nbCards = byPlayers.size();

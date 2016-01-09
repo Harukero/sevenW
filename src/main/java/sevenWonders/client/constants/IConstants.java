@@ -14,7 +14,9 @@ public interface IConstants {
 	String JSON_CATEGORY_SCIENCE = "ScientificStructures";
 	
 	String JSON_ENTRY_AGE = "age";
+	String JSON_ENTRY_CARD_ID = "cardId";
 	String JSON_ENTRY_CARD_NAME = "cardName";
+	String JSON_ENTRY_CHAIN_WITH = "chainWith";
 	String JSON_ENTRY_COST = "cost";
 	String JSON_ENTRY_EFFECTS = "effects";	
 	String JSON_ENTRY_FOR_PLAYERS = "forPlayers";

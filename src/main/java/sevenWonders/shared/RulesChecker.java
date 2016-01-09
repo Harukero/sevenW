@@ -10,7 +10,18 @@ import sevenWonders.core.gameElements.Resource;
 public class RulesChecker {
 	
 	public static boolean isPlayable(Card playerCard, Board board, String language) {
-		return checkName(playerCard, board, language) && checkCost(playerCard, board);
+		return checkName(playerCard, board, language) && (checkChaining(playerCard, board) || checkCost(playerCard, board));
+	}
+
+	private static boolean checkChaining(Card playerCard, Board board) {
+		for (Card card : board.getPlayedCards()) {
+			for (String chainedCardId : playerCard.getChainableCardsIds()) {
+				if (chainedCardId.equals(card.getCardId())) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	private static boolean checkName(Card playerCard, Board board, String language) {
