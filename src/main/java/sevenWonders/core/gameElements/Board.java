@@ -56,7 +56,7 @@ public class Board implements IsSerializable {
 		this.playedCards = new ArrayList<>();
 		resources = new ArrayList<>();
 		resources.add(new HashMap<>(BASE_RESOURCES));
-		increaseResource(wonder.getResource(), 1);
+		increaseResource(wonder.getStartResource(), 1);
 	}
 
 	public List<Map<Resource, Integer>> getResources() {

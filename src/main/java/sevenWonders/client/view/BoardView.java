@@ -13,7 +13,6 @@ import sevenWonders.client.elements.bootstrap.ModalPopup;
 import sevenWonders.client.elements.gameSpecific.CardPanel;
 import sevenWonders.client.elements.gameSpecific.GameZone;
 import sevenWonders.client.elements.html.ElementSpan;
-import sevenWonders.client.view.ResourcesCounterView.ResourceCounterType;
 import sevenWonders.core.gameElements.Board;
 import sevenWonders.core.gameElements.Card;
 
@@ -52,11 +51,6 @@ public class BoardView extends BasicBoardView {
 
 	public GameZone<CardPanel> getHand() {
 		return hand;
-	}
-	
-	@Override
-	protected ResourcesCounterView getAccurateResourceCounter() {
-		return new ResourcesCounterView(ResourceCounterType.MAIN_PLAYER);
 	}
 	
 	private void prepareShowRightPlayersBoardButton() {

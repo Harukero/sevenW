@@ -55,7 +55,7 @@ public class DoAIPlayActionServiceImpl extends RemoteServiceServlet implements D
 		GameActionType actionType = action.getActionType();
 		switch (actionType) {
 		case PLAY_CARD:
-			playCard(action.getPlayer(), action.getCard());
+			playCard(action.getPlayerBoard(), action.getCard());
 			break;
 		case WONDER_LEVEL:
 			// TODO: implements levels effects

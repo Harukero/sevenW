@@ -9,7 +9,6 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import sevenWonders.client.elements.gameSpecific.CardPanel;
 import sevenWonders.client.elements.gameSpecific.GameZone;
 import sevenWonders.client.internationalization.ViewConstants;
-import sevenWonders.client.view.ResourcesCounterView.ResourceCounterType;
 import sevenWonders.core.gameElements.Card;
 
 public class BasicBoardView extends Composite {
@@ -22,7 +21,7 @@ public class BasicBoardView extends Composite {
 	
 	public BasicBoardView() {
 		root = new FlowPanel();
-		resourcesCounterView = getAccurateResourceCounter();
+		resourcesCounterView = new ResourcesCounterView();
 		root.add(resourcesCounterView);
 		initRoot();
 		initWidget(root);	
@@ -33,10 +32,6 @@ public class BasicBoardView extends Composite {
 		root.add(gameZone);		
 	}
 
-	protected ResourcesCounterView getAccurateResourceCounter() {
-		return new ResourcesCounterView(ResourceCounterType.OPPONENT);
-	}
-	
 	public ResourcesCounterView getResourcesCounterView() {
 		return resourcesCounterView;
 	}

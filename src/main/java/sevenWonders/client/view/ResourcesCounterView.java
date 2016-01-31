@@ -18,10 +18,6 @@ import sevenWonders.core.gameElements.Resource;
 
 public class ResourcesCounterView extends Composite {
 
-	public enum ResourceCounterType {
-		MAIN_PLAYER, OPPONENT
-	}
-
 	private ElementUl root;
 	private Map<Resource, Integer> resources = new HashMap<>();
 	private Map<Resource, Label> resourceToLabel = new HashMap<Resource, Label>();
@@ -29,7 +25,7 @@ public class ResourcesCounterView extends Composite {
 
 	private ElementA wonderName;
 
-	public ResourcesCounterView(ResourceCounterType type) {
+	public ResourcesCounterView() {
 		root = new ElementUl();
 		root.setStyleName(IStyleNames.NAV);
 		root.addStyleName(IStyleNames.NAV_PILLS);
@@ -80,7 +76,7 @@ public class ResourcesCounterView extends Composite {
 	public void updateView(Board board) {
 		wonderName.getElement().setInnerText(board.getWonder().getName());
 		Map<Resource, Integer> firstResourceMap = board.getResources().get(0);
-		Resource wonderResource = board.getWonder().getResource();
+		Resource wonderResource = board.getWonder().getStartResource();
 		Resource[] values = Resource.values();
 		for (Resource r : values) {
 			if (r != Resource.MONEY && r != wonderResource) {

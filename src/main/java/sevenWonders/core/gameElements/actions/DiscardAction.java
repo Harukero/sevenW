@@ -27,7 +27,7 @@ public class DiscardAction implements IsAnAction {
 	}
 
 	@Override
-	public Board getPlayer() {
+	public Board getPlayerBoard() {
 		return player;
 	}
 

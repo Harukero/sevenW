@@ -14,7 +14,7 @@ public interface IsAnAction extends IsSerializable{
 
 	GameActionType getActionType();
 	
-	Board getPlayer();
+	Board getPlayerBoard();
 
 	Card getCard();
 }

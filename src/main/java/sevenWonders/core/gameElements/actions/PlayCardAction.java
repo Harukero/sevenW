@@ -6,15 +6,15 @@ import sevenWonders.core.gameElements.Resource;
 
 public class PlayCardAction implements IsAnAction {
 	private GameActionType actionType = GameActionType.PLAY_CARD;
-	private Board player;
+	private Board playerBoard;
 	private Card card;
 	
 	
 	@SuppressWarnings("unused")
 	private PlayCardAction() {}
 	
-	public PlayCardAction(Board player, Card card) {
-		this.player = player;
+	public PlayCardAction(Board playerBoard, Card card) {
+		this.playerBoard = playerBoard;
 		this.card = card;
 	}
 	
@@ -24,8 +24,8 @@ public class PlayCardAction implements IsAnAction {
 	}
 
 	@Override
-	public Board getPlayer() {
-		return player;
+	public Board getPlayerBoard() {
+		return playerBoard;
 	}
 
 	@Override
@@ -35,26 +35,26 @@ public class PlayCardAction implements IsAnAction {
 
 	@Override
 	public void doAction() {
-		player.getPlayedCards().add(card);
-		player.increaseResource(Resource.MONEY, -card.getMoneyCost());
-		player.getHand().remove(card);
+		playerBoard.getPlayedCards().add(card);
+		playerBoard.increaseResource(Resource.MONEY, -card.getMoneyCost());
+		playerBoard.getHand().remove(card);
 	}
 	
 	@Override
 	public void undoAction() {
-		player.getHand().add(card);
-		player.increaseResource(Resource.MONEY, card.getMoneyCost());
-		player.getPlayedCards().remove(card);
+		playerBoard.getHand().add(card);
+		playerBoard.increaseResource(Resource.MONEY, card.getMoneyCost());
+		playerBoard.getPlayedCards().remove(card);
 	}
 	
 	@Override
 	public String logAction(String language) {
-		return player.getWonder().getName() + " played Card:"+card.getName(language);
+		return playerBoard.getWonder().getName() + " played Card:"+card.getName(language);
 	}
 
 	@Override
 	public String toString() {
-		return "PlayCardAction [actionType=" + actionType + ", player=" + player + ", card=" + card + "]";
+		return "PlayCardAction [actionType=" + actionType + ", player=" + playerBoard + ", card=" + card + "]";
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class PlayCardAction implements IsAnAction {
 		int result = 1;
 		result = prime * result + ((actionType == null) ? 0 : actionType.hashCode());
 		result = prime * result + ((card == null) ? 0 : card.hashCode());
-		result = prime * result + ((player == null) ? 0 : player.hashCode());
+		result = prime * result + ((playerBoard == null) ? 0 : playerBoard.hashCode());
 		return result;
 	}
 
@@ -83,10 +83,10 @@ public class PlayCardAction implements IsAnAction {
 				return false;
 		} else if (!card.equals(other.card))
 			return false;
-		if (player == null) {
-			if (other.player != null)
+		if (playerBoard == null) {
+			if (other.playerBoard != null)
 				return false;
-		} else if (!player.equals(other.player))
+		} else if (!playerBoard.equals(other.playerBoard))
 			return false;
 		return true;
 	}

@@ -13,7 +13,7 @@ import com.google.gwt.user.client.rpc.IsSerializable;
 public class Wonder implements IsSerializable {
 
 	private String name;
-	private Resource resource;
+	private Resource startResource;
 	private WonderStage[] wonderStages;
 
 	@SuppressWarnings("unused")
@@ -21,9 +21,9 @@ public class Wonder implements IsSerializable {
 		
 	}
 	
-	Wonder(String name, Resource resource, WonderStage... constructionLevels) {
+	Wonder(String name, Resource startResource, WonderStage... constructionLevels) {
 		this.name = name;
-		this.resource = resource;
+		this.startResource = startResource;
 		this.wonderStages = constructionLevels;
 	}
 
@@ -31,8 +31,8 @@ public class Wonder implements IsSerializable {
 		return name;
 	}
 
-	public Resource getResource() {
-		return resource;
+	public Resource getStartResource() {
+		return startResource;
 	}
 
 	public WonderStage[] getWonderStages() {

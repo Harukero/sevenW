@@ -14,7 +14,7 @@ import sevenWonders.core.gameElements.GameModel;
 public class GamePresenter extends LazyPresenter<IGameView, IEventBus> implements IGamePresenter {
 
 	private BoardController controller;
-	GameModel model;
+	private GameModel model;
 
 	public void onGoToGamePage(int nbPlayers) {
 		prepareModel(Math.min(Math.max(3, nbPlayers), 7));
